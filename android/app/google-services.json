@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "679637050237",
+    "project_id": "simple-login-instagram-ui",
+    "storage_bucket": "simple-login-instagram-ui.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:679637050237:android:5dcc461f427d613a226214",
+        "android_client_info": {
+          "package_name": "com.example.login_logout_simple_ui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "679637050237-lmkhrr1va79tu15ht4appg4faoqogull.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZxFdlzWmU7AhGCnULr5pF7L68r_fw29c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "679637050237-lmkhrr1va79tu15ht4appg4faoqogull.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
