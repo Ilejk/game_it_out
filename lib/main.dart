@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'sign_in_page.dart';
+import 'package:login_logout_simple_ui/auth_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: SignInPage(),
+      home: AuthPage(),
     );
   }
 }

@@ -3,25 +3,21 @@ import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/widgets/my_button.dart';
 import 'package:login_logout_simple_ui/widgets/my_textfield_widget.dart';
 
-class SignInPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   final Function()? onTap;
 
-  const SignInPage({super.key, required this.onTap});
+  const RegisterPage({super.key, required this.onTap});
 
   @override
-  State<SignInPage> createState() => _SignInPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _SignInPageState extends State<SignInPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final emailTextController = TextEditingController();
-
   final passwordTextController = TextEditingController();
+  final confirmPasswordTextController = TextEditingController();
 
-  void signUserUp() {
-    // sign user up
-  }
-
-  void signUerIn() async {
+  void signUerUp() async {
     // show circle
 
     showDialog(
@@ -33,11 +29,26 @@ class _SignInPageState extends State<SignInPage> {
             ),
           );
         });
-    // try sign in user
+    // try sign up user
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
+      // check if password and confirmed password is the same
+      if (passwordTextController.text == confirmPasswordTextController.text) {
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: emailTextController.text,
-          password: passwordTextController.text);
+          password: passwordTextController.text,
+        );
+      }
+      else {
+        // show error message, password don't match
+        showDialog(
+            context: context,
+            builder: (context) {
+              return const AlertDialog(
+                title: Text('PASSWORDS DON\'T MATCH!'),
+              );
+            });
+
+      }
       Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
@@ -80,14 +91,14 @@ class _SignInPageState extends State<SignInPage> {
                   height: 20,
                 ),
                 const Text(
-                  'Hello Again!',
+                  'Welcome!',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
                 ),
                 const SizedBox(
                   height: 15,
                 ),
                 Text(
-                  'Welcome back to Instagram!',
+                  'Let\'s create an account for you!',
                   style: TextStyle(
                       fontSize: 13,
                       letterSpacing: 1,
@@ -105,15 +116,19 @@ class _SignInPageState extends State<SignInPage> {
                     controller: passwordTextController,
                     hintText: 'Password',
                     obscureText: true),
+                MyTextFieldWidget(
+                    controller: confirmPasswordTextController,
+                    hintText: 'Confirm Password',
+                    obscureText: true),
                 const SizedBox(
                   height: 20,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 25, right: 25),
                   child: GestureDetector(
-                    onTap: signUerIn,
+                    onTap: signUerUp,
                     child: const MyButton(
-                      title: 'Sign In!',
+                      title: 'Sign Up!',
                     ),
                   ),
                 ),
@@ -134,7 +149,7 @@ class _SignInPageState extends State<SignInPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      // add an option to log in using ur google acc
+                      // add an option to sign up  using ur google acc
                       child: Container(
                         height: 70,
                         width: 70,
@@ -153,7 +168,7 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        // add an option to log in using ur apple id
+                        // add an option to sign up  using ur apple id
                       },
                       child: Container(
                         height: 70,
@@ -177,7 +192,7 @@ class _SignInPageState extends State<SignInPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
-                      'Not a member?',
+                      'Already have an account?',
                       style: TextStyle(
                         fontSize: 13,
                         color: Colors.black,
@@ -191,7 +206,7 @@ class _SignInPageState extends State<SignInPage> {
                     GestureDetector(
                       onTap: widget.onTap,
                       child: const Text(
-                        'Register now!',
+                        'Sign In now',
                         style: TextStyle(
                           fontSize: 13,
                           color: Colors.purpleAccent,
