@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:login_logout_simple_ui/services/auth_service.dart';
 import 'package:login_logout_simple_ui/widgets/my_button.dart';
 import 'package:login_logout_simple_ui/widgets/my_textfield_widget.dart';
+import 'package:login_logout_simple_ui/widgets/square_title_button.dart';
 
 class RegisterPage extends StatefulWidget {
   final Function()? onTap;
@@ -148,41 +150,16 @@ class _RegisterPageState extends State<RegisterPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    GestureDetector(
-                      // add an option to sign up  using ur google acc
-                      child: Container(
-                        height: 70,
-                        width: 70,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Image.asset('images/GOOG.png'),
-                        ),
-                      ),
-                    ),
+                    SquareTileButton(onTap: (){
+                      // sign up with google
+                      AuthService().signInWithGoogle();
+                    }, imageId: 'images/GOOG.png'),
                     const SizedBox(
                       width: 20,
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        // add an option to sign up  using ur apple id
-                      },
-                      child: Container(
-                        height: 70,
-                        width: 70,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Image.asset('images/apple.png'),
-                        ),
-                      ),
-                    ),
+                    SquareTileButton(onTap: () {
+                      // add sign up with apple
+                    }, imageId: 'images/apple.png'),
                   ],
                 ),
                 const SizedBox(
