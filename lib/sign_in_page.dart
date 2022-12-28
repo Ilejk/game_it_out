@@ -126,7 +126,7 @@ class _SignInPageState extends State<SignInPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   GestureDetector(
-                    // add an option to log in using ur google acc
+                    // add an option to log in using ur google account
                     child: Container(
                       height: 70,
                       width: 70,
