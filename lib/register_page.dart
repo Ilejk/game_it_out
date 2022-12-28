@@ -39,7 +39,7 @@ class _RegisterPageState extends State<RegisterPage> {
         );
       }
       else {
-        // show error message, password don't match
+        // show error message, password don't match..
         showDialog(
             context: context,
             builder: (context) {
