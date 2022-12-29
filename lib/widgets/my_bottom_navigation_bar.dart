@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:login_logout_simple_ui/pages/my_profile_page.dart';
+import 'package:login_logout_simple_ui/widgets/bottom_navigation_bar_button.dart';
 
 class MyBottomNavigationBar extends StatelessWidget {
-  const MyBottomNavigationBar({Key? key}) : super(key: key);
+  const MyBottomNavigationBar({
+    Key? key,
+    required PageController pageController,
+  })  : _pageController = pageController,
+        super(key: key);
+
+  final PageController _pageController;
 
   @override
   Widget build(BuildContext context) {
@@ -11,69 +17,30 @@ class MyBottomNavigationBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          // home icon button
-          IconButton(
-            onPressed: () {
-              // go to home feed page
-            },
-            icon: const Icon(
-              Icons.home,
-              size: 30,
-              color: Colors.white,
-            ),
+          BottomNavigationBarButton(
+            pageController: _pageController,
+            pageIndex: 0,
+            avatar: 'images/home1.jpg',
           ),
-          // explore icon button
-          IconButton(
-            onPressed: () {
-              // go to explore page
-            },
-            icon: const Icon(
-              Icons.search_rounded,
-              size: 30,
-              color: Colors.white,
-            ),
+          BottomNavigationBarButton(
+            pageController: _pageController,
+            pageIndex: 1,
+            avatar: 'images/explore.jpg',
           ),
-          // reels icon button
-          IconButton(
-            onPressed: () {
-              // go to reels page
-            },
-            icon: const Icon(
-              Icons.slow_motion_video_sharp,
-              size: 30,
-              color: Colors.white,
-            ),
+          BottomNavigationBarButton(
+            pageController: _pageController,
+            pageIndex: 2,
+            avatar: 'images/reels.jpg',
           ),
-          // shop icon button
-          IconButton(
-            onPressed: () {
-              // go to shop page
-            },
-            icon: const Icon(
-              Icons.shopping_bag_outlined,
-              size: 30,
-              color: Colors.white,
-            ),
+          BottomNavigationBarButton(
+            pageController: _pageController,
+            pageIndex: 3,
+            avatar: 'images/shop.jpg',
           ),
-          // my profile button with profile picture circular
-          GestureDetector(
-            onTap: () {
-              // go to my profile page
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(
-                  builder: (context) => MyProfilePage(),
-                ),
-              );
-            },
-            child: Container(
-              height: 40,
-              width: 40,
-              decoration: BoxDecoration(
-                color: Colors.black,
-                borderRadius: BorderRadius.circular(50),
-              ),
-              child: Image.asset('images/gg.png'),
-            ),
+          BottomNavigationBarButton(
+            pageController: _pageController,
+            pageIndex: 4,
+            avatar: 'images/profilepic.jpg',
           ),
         ],
       ),

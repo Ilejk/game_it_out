@@ -7,16 +7,14 @@ class IgFakeRoll extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Container(
-        height: 70,
-        width: 70,
-        decoration: BoxDecoration(
-          color: Colors.black,
-          borderRadius: BorderRadius.circular(12),
+    return const Padding(
+      padding: EdgeInsets.all(10.0),
+      child: SizedBox(
+        height: 65,
+        width: 65,
+        child: CircleAvatar(
+          backgroundImage: AssetImage('images/gg.png'),
         ),
-        child: Image.asset('images/gg.png'),
       ),
     );
   }
