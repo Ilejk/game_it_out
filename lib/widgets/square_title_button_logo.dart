@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/constants/color_constants.dart';
 
-class SquareTileButton extends StatelessWidget {
+class SquareTileButtonLogo extends StatelessWidget {
   final String imageId;
   final Function()? onTap;
 
-  const SquareTileButton(
+  const SquareTileButtonLogo(
       {super.key, required this.onTap, required this.imageId});
 
   @override

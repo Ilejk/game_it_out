@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/constants/color_constants.dart';
-import 'package:login_logout_simple_ui/pages/feed_page.dart';
-import 'package:login_logout_simple_ui/pages/my_profile_page.dart';
-import 'package:login_logout_simple_ui/widgets/my_bottom_navigation_bar.dart';
+import 'package:login_logout_simple_ui/pages/main_home_game_page.dart';
+import 'package:login_logout_simple_ui/pages/profile_page.dart';
+import 'package:login_logout_simple_ui/pages/settings_page.dart';
+import 'package:login_logout_simple_ui/pages/task_page.dart';
+import '../widgets/bottom_navigation_bar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -24,7 +26,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: MyBottomNavigationBar(
+      bottomNavigationBar: AppBottomNavigationBar(
         pageController: _pageController,
       ),
       backgroundColor: ColorConstatns.kBlackColorText,
@@ -38,7 +40,9 @@ class _HomePageState extends State<HomePage> {
                 pageSnapping: true,
                 scrollDirection: Axis.horizontal,
                 children: [
-                  FeedPage(),
+                  const MainHomeGamePage(),
+                  const TaskPage(),
+                  const SettingsPage(),
                   MyProfilePage(),
                 ],
               ),

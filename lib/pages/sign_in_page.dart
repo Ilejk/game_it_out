@@ -4,9 +4,9 @@ import 'package:login_logout_simple_ui/constants/color_constants.dart';
 import 'package:login_logout_simple_ui/constants/images_constants.dart';
 import 'package:login_logout_simple_ui/constants/string_constants.dart';
 import 'package:login_logout_simple_ui/services/auth_service.dart';
-import 'package:login_logout_simple_ui/widgets/my_button.dart';
-import 'package:login_logout_simple_ui/widgets/my_textfield_widget.dart';
-import 'package:login_logout_simple_ui/widgets/square_title_button.dart';
+import 'package:login_logout_simple_ui/widgets/sign_in_button.dart';
+import 'package:login_logout_simple_ui/widgets/input_textfield.dart';
+import 'package:login_logout_simple_ui/widgets/square_title_button_logo.dart';
 
 class SignInPage extends StatefulWidget {
   final Function()? onTap;
@@ -21,10 +21,6 @@ class _SignInPageState extends State<SignInPage> {
   final emailTextController = TextEditingController();
 
   final passwordTextController = TextEditingController();
-
-  void signUserUp() {
-    // sign user up
-  }
 
   void signUerIn() async {
     showDialog(
@@ -41,6 +37,7 @@ class _SignInPageState extends State<SignInPage> {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: emailTextController.text,
           password: passwordTextController.text);
+      // ignore: use_build_context_synchronously
       Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
@@ -107,12 +104,12 @@ class _SignInPageState extends State<SignInPage> {
                 const SizedBox(
                   height: 20,
                 ),
-                MyTextFieldWidget(
+                InputTextFieldWidget(
                   controller: emailTextController,
                   hintText: StringConstants.kEmail,
                   obscureText: false,
                 ),
-                MyTextFieldWidget(
+                InputTextFieldWidget(
                   controller: passwordTextController,
                   hintText: StringConstants.kPassword,
                   obscureText: true,
@@ -127,7 +124,7 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                   child: GestureDetector(
                     onTap: signUerIn,
-                    child: const MyButton(
+                    child: const SignInButton(
                       title: StringConstants.kSignIn,
                     ),
                   ),
@@ -149,7 +146,7 @@ class _SignInPageState extends State<SignInPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SquareTileButton(
+                    SquareTileButtonLogo(
                       onTap: () {
                         AuthService().signInWithGoogle();
                       },
@@ -158,7 +155,7 @@ class _SignInPageState extends State<SignInPage> {
                     const SizedBox(
                       width: 20,
                     ),
-                    SquareTileButton(
+                    SquareTileButtonLogo(
                       onTap: () {},
                       imageId: ImagesConstants.kAppleLogo,
                     ),

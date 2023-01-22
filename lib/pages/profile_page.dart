@@ -1,20 +1,21 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:login_logout_simple_ui/constants/color_constants.dart';
+import 'package:login_logout_simple_ui/constants/string_constants.dart';
 
 class MyProfilePage extends StatelessWidget {
   final user = FirebaseAuth.instance.currentUser!;
 
-// sign user out method
+  MyProfilePage({super.key});
+
   void signUserOut() {
-
-      FirebaseAuth.instance.signOut();
-
+    FirebaseAuth.instance.signOut();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: ColorConstatns.kBlackColorText,
       body: SafeArea(
         child: Column(
           children: [
@@ -24,30 +25,21 @@ class MyProfilePage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    user.email.toString(),
+                    StringConstants.kSignedInAS + user.email.toString(),
                     style: const TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold,
+                      color: ColorConstatns.kWhite,
+                    ),
                   ),
                 ),
                 const Expanded(child: SizedBox()),
                 IconButton(
-                  onPressed: () {
-                    // add new post
-                  },
+                  onPressed: signUserOut,
                   icon: const Icon(
-                    Icons.add,
+                    Icons.exit_to_app,
                     size: 27,
-                    color: Colors.white,
-                  ),
-                ),
-                IconButton(
-                  onPressed:signUserOut,
-                  icon: const Icon(
-                    Icons.menu,
-                    size: 27,
-                    color: Colors.white,
+                    color: ColorConstatns.kWhite,
                   ),
                 ),
               ],

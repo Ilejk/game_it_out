@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/constants/color_constants.dart';
 
 class BottomNavigationBarButton extends StatelessWidget {
-  final String avatar;
+  final IconData icon;
   final int pageIndex;
   final PageController pageController;
 
@@ -10,7 +10,7 @@ class BottomNavigationBarButton extends StatelessWidget {
     super.key,
     required this.pageController,
     required this.pageIndex,
-    required this.avatar,
+    required this.icon,
   });
 
   @override
@@ -26,9 +26,17 @@ class BottomNavigationBarButton extends StatelessWidget {
           height: 60,
           width: 60,
           color: ColorConstatns.kBlackColorText,
-          child: CircleAvatar(
-            backgroundImage: AssetImage(avatar),
-            backgroundColor: ColorConstatns.kBlackColorText,
+          child: IconButton(
+            color: ColorConstatns.kWhite,
+            iconSize: 30,
+            icon: Icon(icon),
+            onPressed: () {
+              pageController.animateToPage(
+                pageIndex,
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeIn,
+              );
+            },
           ),
         ),
       ),

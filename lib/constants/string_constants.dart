@@ -14,4 +14,8 @@ class StringConstants {
   static const kAlreadyHaveAnAccount = 'Already have an account?';
   static const kLetsCreateAnAccountForYou = 'Let\'s create an account for you!';
   static const kPasswordsDontMatch = 'PASSWORDS DON\'T MATCH!';
+  static const kSignedInAS = 'Logged in as: ';
+  static const kSignUp = 'Sign Up!';
+  static const kTaskPageTitle = 'Tasks';
+  static const kSettingPageTitle = 'Settings';
 }

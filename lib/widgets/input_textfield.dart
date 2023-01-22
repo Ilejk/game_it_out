@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/constants/color_constants.dart';
 
-class MyTextFieldWidget extends StatelessWidget {
+class InputTextFieldWidget extends StatelessWidget {
   final controller;
   final String hintText;
   final bool obscureText;
 
-  const MyTextFieldWidget(
+  const InputTextFieldWidget(
       {super.key,
       required this.controller,
       required this.hintText,

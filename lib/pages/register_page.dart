@@ -4,9 +4,9 @@ import 'package:login_logout_simple_ui/constants/color_constants.dart';
 import 'package:login_logout_simple_ui/constants/images_constants.dart';
 import 'package:login_logout_simple_ui/constants/string_constants.dart';
 import 'package:login_logout_simple_ui/services/auth_service.dart';
-import 'package:login_logout_simple_ui/widgets/my_button.dart';
-import 'package:login_logout_simple_ui/widgets/my_textfield_widget.dart';
-import 'package:login_logout_simple_ui/widgets/square_title_button.dart';
+import 'package:login_logout_simple_ui/widgets/sign_in_button.dart';
+import 'package:login_logout_simple_ui/widgets/input_textfield.dart';
+import 'package:login_logout_simple_ui/widgets/square_title_button_logo.dart';
 
 class RegisterPage extends StatefulWidget {
   final Function()? onTap;
@@ -109,17 +109,17 @@ class _RegisterPageState extends State<RegisterPage> {
                 const SizedBox(
                   height: 20,
                 ),
-                MyTextFieldWidget(
+                InputTextFieldWidget(
                   controller: emailTextController,
                   hintText: StringConstants.kEmail,
                   obscureText: false,
                 ),
-                MyTextFieldWidget(
+                InputTextFieldWidget(
                   controller: passwordTextController,
                   hintText: StringConstants.kPassword,
                   obscureText: true,
                 ),
-                MyTextFieldWidget(
+                InputTextFieldWidget(
                   controller: confirmPasswordTextController,
                   hintText: StringConstants.kConfirmPassword,
                   obscureText: true,
@@ -134,8 +134,8 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   child: GestureDetector(
                     onTap: signUerUp,
-                    child: const MyButton(
-                      title: StringConstants.kSignIn,
+                    child: const SignInButton(
+                      title: StringConstants.kSignUp,
                     ),
                   ),
                 ),
@@ -156,7 +156,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SquareTileButton(
+                    SquareTileButtonLogo(
                         onTap: () {
                           AuthService().signInWithGoogle();
                         },
@@ -164,7 +164,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     const SizedBox(
                       width: 20,
                     ),
-                    SquareTileButton(
+                    SquareTileButtonLogo(
                         onTap: () {}, imageId: ImagesConstants.kAppleLogo),
                   ],
                 ),

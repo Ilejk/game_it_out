@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/widgets/bottom_navigation_bar_button.dart';
 
-class MyBottomNavigationBar extends StatelessWidget {
-  const MyBottomNavigationBar({
+class AppBottomNavigationBar extends StatelessWidget {
+  const AppBottomNavigationBar({
     Key? key,
     required PageController pageController,
   })  : _pageController = pageController,
@@ -20,27 +20,22 @@ class MyBottomNavigationBar extends StatelessWidget {
           BottomNavigationBarButton(
             pageController: _pageController,
             pageIndex: 0,
-            avatar: 'images/home1.jpg',
+            icon: Icons.home,
           ),
           BottomNavigationBarButton(
             pageController: _pageController,
             pageIndex: 1,
-            avatar: 'images/explore.jpg',
+            icon: Icons.menu_book,
           ),
           BottomNavigationBarButton(
             pageController: _pageController,
             pageIndex: 2,
-            avatar: 'images/reels.jpg',
+            icon: Icons.settings,
           ),
           BottomNavigationBarButton(
             pageController: _pageController,
             pageIndex: 3,
-            avatar: 'images/shop.jpg',
-          ),
-          BottomNavigationBarButton(
-            pageController: _pageController,
-            pageIndex: 4,
-            avatar: 'images/profilepic.jpg',
+            icon: Icons.person,
           ),
         ],
       ),

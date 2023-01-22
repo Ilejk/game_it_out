@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../constants/color_constants.dart';
 
-class MyButton extends StatelessWidget {
+class SignInButton extends StatelessWidget {
   final String title;
 
-  const MyButton({super.key, required this.title});
+  const SignInButton({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class MyButton extends StatelessWidget {
       width: double.infinity,
       height: 50,
       decoration: BoxDecoration(
-        color: ColorConstatns.kLightPurpleText,
+        color: ColorConstatns.kPurpleProgressIndicator,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Center(
