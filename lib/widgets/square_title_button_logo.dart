@@ -18,11 +18,24 @@ class SquareTileButtonLogo extends StatelessWidget {
         height: SizesConstants.kSquareTileButtonHeight,
         width: SizesConstants.kSquareTileButtonWidth,
         decoration: BoxDecoration(
-          color: ColorConstatns.kWhite,
+          boxShadow: [
+            BoxShadow(
+              color: ColorConstatns.kShadownGrey500,
+              blurRadius: 12,
+              offset: const Offset(5, 5),
+            ),
+            const BoxShadow(
+              color: ColorConstatns.kWhite,
+              blurRadius: 12,
+              offset: Offset(-5, -5),
+            ),
+          ],
+          color: ColorConstatns.kBackGroundGrey,
           borderRadius: SizesConstants.kBorderRadius12,
+          border: Border.all(color: ColorConstatns.kWhite),
         ),
         child: Padding(
-          padding: PaddingConstants.kBasePadding8,
+          padding: PaddingConstants.kBasePadding10,
           child: Image.asset(imageId),
         ),
       ),

@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: AppBottomNavigationBar(
         pageController: _pageController,
       ),
-      backgroundColor: ColorConstatns.kBlackColorText,
+      backgroundColor: ColorConstatns.kBackGroundGrey,
       body: SafeArea(
         child: Column(
           children: [

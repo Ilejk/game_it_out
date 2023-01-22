@@ -21,7 +21,19 @@ class InputTextFieldWidget extends StatelessWidget {
       padding: PaddingConstants.kLeftRightTopBottomPadding5h25w,
       child: Container(
         decoration: BoxDecoration(
-          color: ColorConstatns.kWhite,
+          boxShadow: [
+            BoxShadow(
+              color: ColorConstatns.kShadownGrey500,
+              blurRadius: 12,
+              offset: const Offset(5, 5),
+            ),
+            const BoxShadow(
+              color: ColorConstatns.kWhite,
+              blurRadius: 12,
+              offset: Offset(-5, -5),
+            ),
+          ],
+          color: ColorConstatns.kBackGroundGrey,
           border: Border.all(color: ColorConstatns.kWhite),
           borderRadius: SizesConstants.kBorderRadius12,
         ),

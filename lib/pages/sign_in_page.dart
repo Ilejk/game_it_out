@@ -6,6 +6,7 @@ import 'package:login_logout_simple_ui/constants/padding_constants.dart';
 import 'package:login_logout_simple_ui/constants/sizes_constants.dart';
 import 'package:login_logout_simple_ui/constants/string_constants.dart';
 import 'package:login_logout_simple_ui/services/auth_service.dart';
+import 'package:login_logout_simple_ui/widgets/shadow_box_container.dart';
 import 'package:login_logout_simple_ui/widgets/sign_in_button.dart';
 import 'package:login_logout_simple_ui/widgets/input_textfield.dart';
 import 'package:login_logout_simple_ui/widgets/square_title_button_logo.dart';
@@ -66,19 +67,18 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:
-          ColorConstatns.kLogInOrRegisterBackgroundColorLightGrey300,
+      backgroundColor: ColorConstatns.kBackGroundGrey,
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                SizedBox(
+                ShadowBoxContainer(
                   height: SizesConstants.kMainLogoHeight,
                   width: SizesConstants.kMainLogoWidth,
                   child: Image.asset(
-                    ImagesConstants.kMainLogo,
+                    ImagesConstants.kGameItOutLogo,
                   ),
                 ),
                 SizesConstants.kSizedBox20height,
@@ -156,7 +156,7 @@ class _SignInPageState extends State<SignInPage> {
                       StringConstants.kNotAMember,
                       style: TextStyle(
                         fontSize: SizesConstants.kSubTextFontSize,
-                        color: ColorConstatns.kBlackColorText,
+                        color: ColorConstatns.kBlack,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 1,
                       ),

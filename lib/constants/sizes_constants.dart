@@ -15,13 +15,15 @@ class SizesConstants {
   static const kSubTextFontSize = 13.0;
   static const kTitleTextFontSize = 40.0;
   static const kMainLogoHeight = 175.0;
-  static const kMainLogoWidth = 175.0;
-  static const kBottomNavigatiorHeight = 60.0;
-  static const kBottomNavigatiorWidth = 60.0;
+  static const kMainLogoWidth = 255.0;
+  static const kBottomNavigatiorHeight = 70.0;
+  static const kBottomNavigatiorWidth = 70.0;
   static const kSignInButtonHeight = 50.0;
   static const kSquareTileButtonHeight = 70.0;
   static const kSquareTileButtonWidth = 70.0;
   static const kSignInButtonWidth = double.infinity;
   static final kBorderRadius12 = BorderRadius.circular(12);
   static const kSignInButtonFontSize = 17.0;
+  static const kTopBarTitleWidth = 300.0;
+  static const kTopBarTitleHeight = 70.0;
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/constants/color_constants.dart';
 import 'package:login_logout_simple_ui/constants/padding_constants.dart';
 import 'package:login_logout_simple_ui/constants/sizes_constants.dart';
+import 'package:login_logout_simple_ui/widgets/shadow_box_container.dart';
 
 class BottomNavigationBarButton extends StatelessWidget {
   final IconData icon;
@@ -23,13 +24,12 @@ class BottomNavigationBarButton extends StatelessWidget {
             duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
       },
       child: Padding(
-        padding: PaddingConstants.kBasePadding8,
-        child: Container(
+        padding: PaddingConstants.kBottomNavigationBarPadding,
+        child: ShadowBoxContainer(
           height: SizesConstants.kBottomNavigatiorHeight,
           width: SizesConstants.kBottomNavigatiorWidth,
-          color: ColorConstatns.kBlackColorText,
           child: IconButton(
-            color: ColorConstatns.kWhite,
+            color: ColorConstatns.kDarkGreyIcon,
             iconSize: SizesConstants.kBottomNavigatiorBarIconSize,
             icon: Icon(icon),
             onPressed: () {

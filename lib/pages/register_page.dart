@@ -10,6 +10,8 @@ import 'package:login_logout_simple_ui/widgets/sign_in_button.dart';
 import 'package:login_logout_simple_ui/widgets/input_textfield.dart';
 import 'package:login_logout_simple_ui/widgets/square_title_button_logo.dart';
 
+import '../widgets/shadow_box_container.dart';
+
 class RegisterPage extends StatefulWidget {
   final Function()? onTap;
 
@@ -85,10 +87,12 @@ class _RegisterPageState extends State<RegisterPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                SizedBox(
+                ShadowBoxContainer(
                   height: SizesConstants.kMainLogoHeight,
                   width: SizesConstants.kMainLogoWidth,
-                  child: Image.asset(ImagesConstants.kMainLogo),
+                  child: Image.asset(
+                    ImagesConstants.kGameItOutLogo,
+                  ),
                 ),
                 SizesConstants.kSizedBox20height,
                 const Text(
@@ -170,7 +174,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       StringConstants.kAlreadyHaveAnAccount,
                       style: TextStyle(
                         fontSize: SizesConstants.kSubTextFontSize,
-                        color: ColorConstatns.kBlackColorText,
+                        color: ColorConstatns.kBlack,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 1,
                       ),

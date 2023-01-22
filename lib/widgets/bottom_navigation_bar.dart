@@ -15,7 +15,7 @@ class AppBottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: PaddingConstants.kBasePadding8,
+      padding: PaddingConstants.kBasePadding10,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [

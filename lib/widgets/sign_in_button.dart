@@ -14,8 +14,21 @@ class SignInButton extends StatelessWidget {
       width: SizesConstants.kSignInButtonWidth,
       height: SizesConstants.kSignInButtonHeight,
       decoration: BoxDecoration(
-        color: ColorConstatns.kPurple,
+        boxShadow: [
+          BoxShadow(
+            color: ColorConstatns.kShadownGrey500,
+            blurRadius: 12,
+            offset: const Offset(5, 5),
+          ),
+          const BoxShadow(
+            color: ColorConstatns.kWhite,
+            blurRadius: 12,
+            offset: Offset(-5, -5),
+          ),
+        ],
+        color: ColorConstatns.kDarkGreyIcon,
         borderRadius: SizesConstants.kBorderRadius12,
+        border: Border.all(color: ColorConstatns.kWhite),
       ),
       child: Center(
         child: Text(
