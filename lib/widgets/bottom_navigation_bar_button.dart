@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/constants/color_constants.dart';
+import 'package:login_logout_simple_ui/constants/padding_constants.dart';
+import 'package:login_logout_simple_ui/constants/sizes_constants.dart';
 
 class BottomNavigationBarButton extends StatelessWidget {
   final IconData icon;
@@ -21,14 +23,14 @@ class BottomNavigationBarButton extends StatelessWidget {
             duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
       },
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: PaddingConstants.kBasePadding8,
         child: Container(
-          height: 60,
-          width: 60,
+          height: SizesConstants.kBottomNavigatiorHeight,
+          width: SizesConstants.kBottomNavigatiorWidth,
           color: ColorConstatns.kBlackColorText,
           child: IconButton(
             color: ColorConstatns.kWhite,
-            iconSize: 30,
+            iconSize: SizesConstants.kBottomNavigatiorBarIconSize,
             icon: Icon(icon),
             onPressed: () {
               pageController.animateToPage(

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/constants/color_constants.dart';
+import 'package:login_logout_simple_ui/constants/padding_constants.dart';
+import 'package:login_logout_simple_ui/constants/sizes_constants.dart';
 
 class InputTextFieldWidget extends StatelessWidget {
+  // ignore: prefer_typing_uninitialized_variables
   final controller;
   final String hintText;
   final bool obscureText;
@@ -15,20 +18,15 @@ class InputTextFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
-        top: 5,
-        bottom: 5,
-        right: 25,
-        left: 25,
-      ),
+      padding: PaddingConstants.kLeftRightTopBottomPadding5h25w,
       child: Container(
         decoration: BoxDecoration(
           color: ColorConstatns.kWhite,
           border: Border.all(color: ColorConstatns.kWhite),
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: SizesConstants.kBorderRadius12,
         ),
         child: Padding(
-          padding: const EdgeInsets.only(left: 20),
+          padding: PaddingConstants.kLeftPadding25,
           child: TextField(
             controller: controller,
             obscureText: obscureText,

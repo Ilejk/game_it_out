@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/constants/color_constants.dart';
+import 'package:login_logout_simple_ui/constants/padding_constants.dart';
+import 'package:login_logout_simple_ui/constants/sizes_constants.dart';
 
 class SquareTileButtonLogo extends StatelessWidget {
   final String imageId;
@@ -13,14 +15,14 @@ class SquareTileButtonLogo extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 70,
-        width: 70,
+        height: SizesConstants.kSquareTileButtonHeight,
+        width: SizesConstants.kSquareTileButtonWidth,
         decoration: BoxDecoration(
           color: ColorConstatns.kWhite,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: SizesConstants.kBorderRadius12,
         ),
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: PaddingConstants.kBasePadding8,
           child: Image.asset(imageId),
         ),
       ),

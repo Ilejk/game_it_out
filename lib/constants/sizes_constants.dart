@@ -1,0 +1,27 @@
+import 'package:flutter/material.dart';
+
+class SizesConstants {
+  static const kBottomNavigatiorBarIconSize = 30.0;
+  static const kTopNavigationBarIconSize = 26.0;
+  static const kTopNavigationBarFontSize = 26.0;
+  static const kSizedBox20height = SizedBox(height: 20);
+  static const kSizedBox35height = SizedBox(height: 35);
+  static const kSizedBox45height = SizedBox(height: 45);
+  static const kSizedBox15height = SizedBox(height: 15);
+  static const kSizedBox20width = SizedBox(width: 20);
+  static const kSizedBox35width = SizedBox(width: 35);
+  static const kSizedBox45width = SizedBox(width: 45);
+  static const kSizedBox15width = SizedBox(width: 15);
+  static const kSubTextFontSize = 13.0;
+  static const kTitleTextFontSize = 40.0;
+  static const kMainLogoHeight = 175.0;
+  static const kMainLogoWidth = 175.0;
+  static const kBottomNavigatiorHeight = 60.0;
+  static const kBottomNavigatiorWidth = 60.0;
+  static const kSignInButtonHeight = 50.0;
+  static const kSquareTileButtonHeight = 70.0;
+  static const kSquareTileButtonWidth = 70.0;
+  static const kSignInButtonWidth = double.infinity;
+  static final kBorderRadius12 = BorderRadius.circular(12);
+  static const kSignInButtonFontSize = 17.0;
+}

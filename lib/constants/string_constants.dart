@@ -18,4 +18,5 @@ class StringConstants {
   static const kSignUp = 'Sign Up!';
   static const kTaskPageTitle = 'Tasks';
   static const kSettingPageTitle = 'Settings';
+  static const kWelcomeTitle = 'Welcome';
 }
