@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_logout_simple_ui/constants/sizes_constants.dart';
 
 import '../constants/color_constants.dart';
 
@@ -10,11 +11,11 @@ class SignInButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
-      height: 50,
+      width: SizesConstants.kSignInButtonWidth,
+      height: SizesConstants.kSignInButtonHeight,
       decoration: BoxDecoration(
-        color: ColorConstatns.kPurpleProgressIndicator,
-        borderRadius: BorderRadius.circular(12),
+        color: ColorConstatns.kPurple,
+        borderRadius: SizesConstants.kBorderRadius12,
       ),
       child: Center(
         child: Text(
@@ -22,7 +23,7 @@ class SignInButton extends StatelessWidget {
           style: const TextStyle(
             color: ColorConstatns.kWhite,
             fontWeight: FontWeight.bold,
-            fontSize: 17,
+            fontSize: SizesConstants.kSignInButtonFontSize,
             letterSpacing: 1.5,
           ),
         ),

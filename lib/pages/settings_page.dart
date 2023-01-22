@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_logout_simple_ui/constants/sizes_constants.dart';
 
 import '../constants/color_constants.dart';
 import '../constants/icons_constants.dart';
@@ -17,7 +18,7 @@ class SettingsPage extends StatelessWidget {
               StringConstants.kSettingPageTitle,
               style: TextStyle(
                 color: ColorConstatns.kWhite,
-                fontSize: 26,
+                fontSize: SizesConstants.kTopNavigationBarFontSize,
                 fontWeight: FontWeight.bold,
                 letterSpacing: 2,
               ),

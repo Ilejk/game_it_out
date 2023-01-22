@@ -1,7 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/constants/color_constants.dart';
+import 'package:login_logout_simple_ui/constants/icons_constants.dart';
+import 'package:login_logout_simple_ui/constants/padding_constants.dart';
 import 'package:login_logout_simple_ui/constants/string_constants.dart';
+import '../constants/sizes_constants.dart';
 
 class MyProfilePage extends StatelessWidget {
   final user = FirebaseAuth.instance.currentUser!;
@@ -19,30 +22,33 @@ class MyProfilePage extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    StringConstants.kSignedInAS + user.email.toString(),
-                    style: const TextStyle(
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
+            Padding(
+              padding: PaddingConstants.kBasePadding8,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Padding(
+                    padding: PaddingConstants.kBasePadding8,
+                    child: Text(
+                      StringConstants.kSignedInAS + user.email.toString(),
+                      style: const TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold,
+                        color: ColorConstatns.kWhite,
+                      ),
+                    ),
+                  ),
+                  const Expanded(child: SizedBox()),
+                  IconButton(
+                    onPressed: signUserOut,
+                    icon: const Icon(
+                      IconsConstants.kProfileLogOutIcon,
+                      size: SizesConstants.kTopNavigationBarIconSize,
                       color: ColorConstatns.kWhite,
                     ),
                   ),
-                ),
-                const Expanded(child: SizedBox()),
-                IconButton(
-                  onPressed: signUserOut,
-                  icon: const Icon(
-                    Icons.exit_to_app,
-                    size: 27,
-                    color: ColorConstatns.kWhite,
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
             SingleChildScrollView(
               child: Column(),

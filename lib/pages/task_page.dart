@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/constants/color_constants.dart';
 import 'package:login_logout_simple_ui/constants/icons_constants.dart';
+import 'package:login_logout_simple_ui/constants/sizes_constants.dart';
 import 'package:login_logout_simple_ui/constants/string_constants.dart';
 
 class TaskPage extends StatelessWidget {
@@ -10,7 +11,6 @@ class TaskPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        //TODO: TOP BAR SAYING TASKS
         Row(
           children: [
             const Expanded(
@@ -19,7 +19,7 @@ class TaskPage extends StatelessWidget {
                   StringConstants.kTaskPageTitle,
                   style: TextStyle(
                     color: ColorConstatns.kWhite,
-                    fontSize: 26,
+                    fontSize: SizesConstants.kTopNavigationBarFontSize,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 2,
                   ),

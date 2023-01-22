@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:login_logout_simple_ui/constants/icons_constants.dart';
+import 'package:login_logout_simple_ui/constants/padding_constants.dart';
 import 'package:login_logout_simple_ui/widgets/bottom_navigation_bar_button.dart';
 
 class AppBottomNavigationBar extends StatelessWidget {
@@ -13,29 +15,29 @@ class AppBottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: PaddingConstants.kBasePadding8,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           BottomNavigationBarButton(
             pageController: _pageController,
             pageIndex: 0,
-            icon: Icons.home,
+            icon: IconsConstants.kMainHomeGamePageIcon,
           ),
           BottomNavigationBarButton(
             pageController: _pageController,
             pageIndex: 1,
-            icon: Icons.menu_book,
+            icon: IconsConstants.kTaskMenuIcon,
           ),
           BottomNavigationBarButton(
             pageController: _pageController,
             pageIndex: 2,
-            icon: Icons.settings,
+            icon: IconsConstants.kSettingsIcon,
           ),
           BottomNavigationBarButton(
             pageController: _pageController,
             pageIndex: 3,
-            icon: Icons.person,
+            icon: IconsConstants.kProfileIcon,
           ),
         ],
       ),

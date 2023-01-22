@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/constants/color_constants.dart';
 import 'package:login_logout_simple_ui/constants/images_constants.dart';
+import 'package:login_logout_simple_ui/constants/padding_constants.dart';
+import 'package:login_logout_simple_ui/constants/sizes_constants.dart';
 import 'package:login_logout_simple_ui/constants/string_constants.dart';
 import 'package:login_logout_simple_ui/services/auth_service.dart';
 import 'package:login_logout_simple_ui/widgets/sign_in_button.dart';
@@ -28,7 +30,7 @@ class _RegisterPageState extends State<RegisterPage> {
         builder: (context) {
           return const Center(
             child: CircularProgressIndicator(
-              color: ColorConstatns.kPurpleProgressIndicator,
+              color: ColorConstatns.kPurple,
             ),
           );
         });
@@ -48,6 +50,7 @@ class _RegisterPageState extends State<RegisterPage> {
               );
             });
       }
+      // ignore: use_build_context_synchronously
       Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
@@ -83,32 +86,29 @@ class _RegisterPageState extends State<RegisterPage> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 SizedBox(
-                  height: 175,
-                  width: 175,
+                  height: SizesConstants.kMainLogoHeight,
+                  width: SizesConstants.kMainLogoWidth,
                   child: Image.asset(ImagesConstants.kMainLogo),
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                SizesConstants.kSizedBox20height,
                 const Text(
-                  'Welcome!',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
+                  StringConstants.kWelcomeTitle,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: SizesConstants.kTitleTextFontSize,
+                  ),
                 ),
-                const SizedBox(
-                  height: 15,
-                ),
+                SizesConstants.kSizedBox15height,
                 Text(
                   StringConstants.kLetsCreateAnAccountForYou,
                   style: TextStyle(
-                    fontSize: 13,
+                    fontSize: SizesConstants.kSubTextFontSize,
                     letterSpacing: 1,
                     color: ColorConstatns.kSubTextLightGrey500,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                SizesConstants.kSizedBox20height,
                 InputTextFieldWidget(
                   controller: emailTextController,
                   hintText: StringConstants.kEmail,
@@ -124,14 +124,9 @@ class _RegisterPageState extends State<RegisterPage> {
                   hintText: StringConstants.kConfirmPassword,
                   obscureText: true,
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                SizesConstants.kSizedBox20height,
                 Padding(
-                  padding: const EdgeInsets.only(
-                    left: 25,
-                    right: 25,
-                  ),
+                  padding: PaddingConstants.kLeftRightPadding25,
                   child: GestureDetector(
                     onTap: signUerUp,
                     child: const SignInButton(
@@ -139,59 +134,54 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 45,
-                ),
+                SizesConstants.kSizedBox45height,
                 Text(
                   StringConstants.kOrContinueWith,
                   style: TextStyle(
                     color: ColorConstatns.kSubTextLightGrey500,
                     fontWeight: FontWeight.bold,
-                    fontSize: 13,
+                    fontSize: SizesConstants.kSubTextFontSize,
                   ),
                 ),
-                const SizedBox(
-                  height: 45,
-                ),
+                SizesConstants.kSizedBox45height,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SquareTileButtonLogo(
-                        onTap: () {
-                          AuthService().signInWithGoogle();
-                        },
-                        imageId: ImagesConstants.kGoogleLogo),
-                    const SizedBox(
-                      width: 20,
+                      onTap: () {
+                        AuthService().signInWithGoogle();
+                      },
+                      imageId: ImagesConstants.kGoogleLogo,
                     ),
+                    SizesConstants.kSizedBox20width,
                     SquareTileButtonLogo(
-                        onTap: () {}, imageId: ImagesConstants.kAppleLogo),
+                      onTap: () {
+                        //TODO: add register in with apple
+                      },
+                      imageId: ImagesConstants.kAppleLogo,
+                    ),
                   ],
                 ),
-                const SizedBox(
-                  height: 35,
-                ),
+                SizesConstants.kSizedBox35height,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
                       StringConstants.kAlreadyHaveAnAccount,
                       style: TextStyle(
-                        fontSize: 13,
+                        fontSize: SizesConstants.kSubTextFontSize,
                         color: ColorConstatns.kBlackColorText,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 1,
                       ),
                     ),
-                    const SizedBox(
-                      width: 15,
-                    ),
+                    SizesConstants.kSizedBox15width,
                     GestureDetector(
                       onTap: widget.onTap,
                       child: const Text(
                         StringConstants.kSignInNow,
                         style: TextStyle(
-                          fontSize: 13,
+                          fontSize: SizesConstants.kSubTextFontSize,
                           color: ColorConstatns.kLightPurpleText,
                           fontWeight: FontWeight.bold,
                           letterSpacing: 1,

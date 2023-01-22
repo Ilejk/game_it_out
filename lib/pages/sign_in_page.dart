@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/constants/color_constants.dart';
 import 'package:login_logout_simple_ui/constants/images_constants.dart';
+import 'package:login_logout_simple_ui/constants/padding_constants.dart';
+import 'package:login_logout_simple_ui/constants/sizes_constants.dart';
 import 'package:login_logout_simple_ui/constants/string_constants.dart';
 import 'package:login_logout_simple_ui/services/auth_service.dart';
 import 'package:login_logout_simple_ui/widgets/sign_in_button.dart';
@@ -28,7 +30,7 @@ class _SignInPageState extends State<SignInPage> {
         builder: (context) {
           return const Center(
             child: CircularProgressIndicator(
-              color: ColorConstatns.kPurpleProgressIndicator,
+              color: ColorConstatns.kPurple,
             ),
           );
         });
@@ -73,37 +75,31 @@ class _SignInPageState extends State<SignInPage> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 SizedBox(
-                  height: 175,
-                  width: 175,
+                  height: SizesConstants.kMainLogoHeight,
+                  width: SizesConstants.kMainLogoWidth,
                   child: Image.asset(
                     ImagesConstants.kMainLogo,
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                SizesConstants.kSizedBox20height,
                 const Text(
                   StringConstants.kHelloAgain,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 40,
+                    fontSize: SizesConstants.kTitleTextFontSize,
                   ),
                 ),
-                const SizedBox(
-                  height: 15,
-                ),
+                SizesConstants.kSizedBox15height,
                 Text(
                   StringConstants.kWelcomeBack,
                   style: TextStyle(
-                    fontSize: 13,
+                    fontSize: SizesConstants.kSubTextFontSize,
                     letterSpacing: 1,
                     color: ColorConstatns.kSubTextLightGrey500,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                SizesConstants.kSizedBox20height,
                 InputTextFieldWidget(
                   controller: emailTextController,
                   hintText: StringConstants.kEmail,
@@ -114,14 +110,9 @@ class _SignInPageState extends State<SignInPage> {
                   hintText: StringConstants.kPassword,
                   obscureText: true,
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                SizesConstants.kSizedBox20height,
                 Padding(
-                  padding: const EdgeInsets.only(
-                    left: 25,
-                    right: 25,
-                  ),
+                  padding: PaddingConstants.kLeftRightPadding25,
                   child: GestureDetector(
                     onTap: signUerIn,
                     child: const SignInButton(
@@ -129,20 +120,16 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 45,
-                ),
+                SizesConstants.kSizedBox45height,
                 Text(
                   StringConstants.kOrContinueWith,
                   style: TextStyle(
                     color: ColorConstatns.kSubTextLightGrey500,
                     fontWeight: FontWeight.bold,
-                    fontSize: 13,
+                    fontSize: SizesConstants.kSubTextFontSize,
                   ),
                 ),
-                const SizedBox(
-                  height: 45,
-                ),
+                SizesConstants.kSizedBox45height,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -152,39 +139,35 @@ class _SignInPageState extends State<SignInPage> {
                       },
                       imageId: ImagesConstants.kGoogleLogo,
                     ),
-                    const SizedBox(
-                      width: 20,
-                    ),
+                    SizesConstants.kSizedBox20width,
                     SquareTileButtonLogo(
-                      onTap: () {},
+                      onTap: () {
+                        //TODO: add log in with apple
+                      },
                       imageId: ImagesConstants.kAppleLogo,
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 35,
-                ),
+                SizesConstants.kSizedBox35height,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
                       StringConstants.kNotAMember,
                       style: TextStyle(
-                        fontSize: 13,
+                        fontSize: SizesConstants.kSubTextFontSize,
                         color: ColorConstatns.kBlackColorText,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 1,
                       ),
                     ),
-                    const SizedBox(
-                      width: 15,
-                    ),
+                    SizesConstants.kSizedBox15width,
                     GestureDetector(
                       onTap: widget.onTap,
                       child: const Text(
                         StringConstants.kRegisterNow,
                         style: TextStyle(
-                          fontSize: 13,
+                          fontSize: SizesConstants.kSubTextFontSize,
                           color: ColorConstatns.kLightPurpleText,
                           fontWeight: FontWeight.bold,
                           letterSpacing: 1,
