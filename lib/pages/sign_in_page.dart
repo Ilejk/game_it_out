@@ -49,7 +49,7 @@ class _SignInPageState extends State<SignInPage> {
             context: context,
             builder: (context) {
               return const AlertDialog(
-                title: Text(StringConstants.kUserNotFount),
+                title: Text(StringConstants.kUserNotFound),
               );
             });
       } else if (e.code == 'wrong-password') {
@@ -108,18 +108,23 @@ class _SignInPageState extends State<SignInPage> {
                   height: 20,
                 ),
                 MyTextFieldWidget(
-                    controller: emailTextController,
-                    hintText: StringConstants.kEmail,
-                    obscureText: false),
+                  controller: emailTextController,
+                  hintText: StringConstants.kEmail,
+                  obscureText: false,
+                ),
                 MyTextFieldWidget(
-                    controller: passwordTextController,
-                    hintText: StringConstants.kPassword,
-                    obscureText: true),
+                  controller: passwordTextController,
+                  hintText: StringConstants.kPassword,
+                  obscureText: true,
+                ),
                 const SizedBox(
                   height: 20,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 25, right: 25),
+                  padding: const EdgeInsets.only(
+                    left: 25,
+                    right: 25,
+                  ),
                   child: GestureDetector(
                     onTap: signUerIn,
                     child: const MyButton(
@@ -133,9 +138,10 @@ class _SignInPageState extends State<SignInPage> {
                 Text(
                   StringConstants.kOrContinueWith,
                   style: TextStyle(
-                      color: ColorConstatns.kSubTextLightGrey500,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 13),
+                    color: ColorConstatns.kSubTextLightGrey500,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 13,
+                  ),
                 ),
                 const SizedBox(
                   height: 45,
@@ -168,7 +174,7 @@ class _SignInPageState extends State<SignInPage> {
                       StringConstants.kNotAMember,
                       style: TextStyle(
                         fontSize: 13,
-                        color: Colors.black,
+                        color: ColorConstatns.kBlackColorText,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 1,
                       ),
@@ -182,7 +188,7 @@ class _SignInPageState extends State<SignInPage> {
                         StringConstants.kRegisterNow,
                         style: TextStyle(
                           fontSize: 13,
-                          color: ColorConstatns.kLightPurple,
+                          color: ColorConstatns.kLightPurpleText,
                           fontWeight: FontWeight.bold,
                           letterSpacing: 1,
                         ),

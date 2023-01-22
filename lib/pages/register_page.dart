@@ -1,5 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:login_logout_simple_ui/constants/color_constants.dart';
+import 'package:login_logout_simple_ui/constants/images_constants.dart';
+import 'package:login_logout_simple_ui/constants/string_constants.dart';
 import 'package:login_logout_simple_ui/services/auth_service.dart';
 import 'package:login_logout_simple_ui/widgets/my_button.dart';
 import 'package:login_logout_simple_ui/widgets/my_textfield_widget.dart';
@@ -20,36 +23,30 @@ class _RegisterPageState extends State<RegisterPage> {
   final confirmPasswordTextController = TextEditingController();
 
   void signUerUp() async {
-    // show circle
-
     showDialog(
         context: context,
         builder: (context) {
           return const Center(
             child: CircularProgressIndicator(
-              color: Colors.purple,
+              color: ColorConstatns.kPurpleProgressIndicator,
             ),
           );
         });
-    // try sign up user
+
     try {
-      // check if password and confirmed password is the same
       if (passwordTextController.text == confirmPasswordTextController.text) {
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: emailTextController.text,
           password: passwordTextController.text,
         );
-      }
-      else {
-        // show error message, password don't match...
+      } else {
         showDialog(
             context: context,
             builder: (context) {
               return const AlertDialog(
-                title: Text('PASSWORDS DON\'T MATCH!'),
+                title: Text(StringConstants.kPasswordsDontMatch),
               );
             });
-
       }
       Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
@@ -59,7 +56,7 @@ class _RegisterPageState extends State<RegisterPage> {
             context: context,
             builder: (context) {
               return const AlertDialog(
-                title: Text('USER NOT FOUND!'),
+                title: Text(StringConstants.kUserNotFound),
               );
             });
       } else if (e.code == 'wrong-password') {
@@ -67,7 +64,7 @@ class _RegisterPageState extends State<RegisterPage> {
             context: context,
             builder: (context) {
               return const AlertDialog(
-                title: Text('WRONG PASSWORD!'),
+                title: Text(StringConstants.kWrongPassword),
               );
             });
       }
@@ -77,7 +74,8 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor:
+          ColorConstatns.kLogInOrRegisterBackgroundColorLightGrey300,
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -87,7 +85,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 SizedBox(
                   height: 175,
                   width: 175,
-                  child: Image.asset('images/pngwing.com.png'),
+                  child: Image.asset(ImagesConstants.kMainLogo),
                 ),
                 const SizedBox(
                   height: 20,
@@ -100,37 +98,44 @@ class _RegisterPageState extends State<RegisterPage> {
                   height: 15,
                 ),
                 Text(
-                  'Let\'s create an account for you!',
+                  StringConstants.kLetsCreateAnAccountForYou,
                   style: TextStyle(
-                      fontSize: 13,
-                      letterSpacing: 1,
-                      color: Colors.grey[500],
-                      fontWeight: FontWeight.bold),
+                    fontSize: 13,
+                    letterSpacing: 1,
+                    color: ColorConstatns.kSubTextLightGrey500,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
                 MyTextFieldWidget(
-                    controller: emailTextController,
-                    hintText: 'Email',
-                    obscureText: false),
+                  controller: emailTextController,
+                  hintText: StringConstants.kEmail,
+                  obscureText: false,
+                ),
                 MyTextFieldWidget(
-                    controller: passwordTextController,
-                    hintText: 'Password',
-                    obscureText: true),
+                  controller: passwordTextController,
+                  hintText: StringConstants.kPassword,
+                  obscureText: true,
+                ),
                 MyTextFieldWidget(
-                    controller: confirmPasswordTextController,
-                    hintText: 'Confirm Password',
-                    obscureText: true),
+                  controller: confirmPasswordTextController,
+                  hintText: StringConstants.kConfirmPassword,
+                  obscureText: true,
+                ),
                 const SizedBox(
                   height: 20,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 25, right: 25),
+                  padding: const EdgeInsets.only(
+                    left: 25,
+                    right: 25,
+                  ),
                   child: GestureDetector(
                     onTap: signUerUp,
                     child: const MyButton(
-                      title: 'Sign Up!',
+                      title: StringConstants.kSignIn,
                     ),
                   ),
                 ),
@@ -138,11 +143,12 @@ class _RegisterPageState extends State<RegisterPage> {
                   height: 45,
                 ),
                 Text(
-                  'Or continue with',
+                  StringConstants.kOrContinueWith,
                   style: TextStyle(
-                      color: Colors.grey[500],
-                      fontWeight: FontWeight.bold,
-                      fontSize: 13),
+                    color: ColorConstatns.kSubTextLightGrey500,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 13,
+                  ),
                 ),
                 const SizedBox(
                   height: 45,
@@ -150,16 +156,16 @@ class _RegisterPageState extends State<RegisterPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SquareTileButton(onTap: (){
-                      // sign up with google
-                      AuthService().signInWithGoogle();
-                    }, imageId: 'images/GOOG.png'),
+                    SquareTileButton(
+                        onTap: () {
+                          AuthService().signInWithGoogle();
+                        },
+                        imageId: ImagesConstants.kGoogleLogo),
                     const SizedBox(
                       width: 20,
                     ),
-                    SquareTileButton(onTap: () {
-                      // add sign up with apple
-                    }, imageId: 'images/apple.png'),
+                    SquareTileButton(
+                        onTap: () {}, imageId: ImagesConstants.kAppleLogo),
                   ],
                 ),
                 const SizedBox(
@@ -169,10 +175,10 @@ class _RegisterPageState extends State<RegisterPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
-                      'Already have an account?',
+                      StringConstants.kAlreadyHaveAnAccount,
                       style: TextStyle(
                         fontSize: 13,
-                        color: Colors.black,
+                        color: ColorConstatns.kBlackColorText,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 1,
                       ),
@@ -183,10 +189,10 @@ class _RegisterPageState extends State<RegisterPage> {
                     GestureDetector(
                       onTap: widget.onTap,
                       child: const Text(
-                        'Sign In now',
+                        StringConstants.kSignInNow,
                         style: TextStyle(
                           fontSize: 13,
-                          color: Colors.purpleAccent,
+                          color: ColorConstatns.kLightPurpleText,
                           fontWeight: FontWeight.bold,
                           letterSpacing: 1,
                         ),

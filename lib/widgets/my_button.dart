@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constants/color_constants.dart';
+
 class MyButton extends StatelessWidget {
   final String title;
 
@@ -11,17 +13,18 @@ class MyButton extends StatelessWidget {
       width: double.infinity,
       height: 50,
       decoration: BoxDecoration(
-        color: Colors.purple,
+        color: ColorConstatns.kLightPurpleText,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Center(
         child: Text(
           title,
           style: const TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 17,
-              letterSpacing: 1.5),
+            color: ColorConstatns.kWhite,
+            fontWeight: FontWeight.bold,
+            fontSize: 17,
+            letterSpacing: 1.5,
+          ),
         ),
       ),
     );

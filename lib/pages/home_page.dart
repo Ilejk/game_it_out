@@ -1,11 +1,12 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:login_logout_simple_ui/constants/color_constants.dart';
 import 'package:login_logout_simple_ui/pages/feed_page.dart';
 import 'package:login_logout_simple_ui/pages/my_profile_page.dart';
-import 'package:login_logout_simple_ui/widgets/ig_fake_roll.dart';
 import 'package:login_logout_simple_ui/widgets/my_bottom_navigation_bar.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -26,7 +27,7 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: MyBottomNavigationBar(
         pageController: _pageController,
       ),
-      backgroundColor: Colors.black,
+      backgroundColor: ColorConstatns.kBlackColorText,
       body: SafeArea(
         child: Column(
           children: [

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_logout_simple_ui/constants/color_constants.dart';
 
 class SquareTileButton extends StatelessWidget {
   final String imageId;
@@ -15,7 +16,7 @@ class SquareTileButton extends StatelessWidget {
         height: 70,
         width: 70,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: ColorConstatns.kWhite,
           borderRadius: BorderRadius.circular(12),
         ),
         child: Padding(

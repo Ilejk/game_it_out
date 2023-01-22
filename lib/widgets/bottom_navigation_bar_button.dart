@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_logout_simple_ui/constants/color_constants.dart';
 
 class BottomNavigationBarButton extends StatelessWidget {
   final String avatar;
@@ -24,10 +25,10 @@ class BottomNavigationBarButton extends StatelessWidget {
         child: Container(
           height: 60,
           width: 60,
-          color: Colors.black,
+          color: ColorConstatns.kBlackColorText,
           child: CircleAvatar(
             backgroundImage: AssetImage(avatar),
-            backgroundColor: Colors.black,
+            backgroundColor: ColorConstatns.kBlackColorText,
           ),
         ),
       ),
