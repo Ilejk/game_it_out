@@ -1,5 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:login_logout_simple_ui/constants/color_constants.dart';
+import 'package:login_logout_simple_ui/constants/images_constants.dart';
+import 'package:login_logout_simple_ui/constants/string_constants.dart';
 import 'package:login_logout_simple_ui/services/auth_service.dart';
 import 'package:login_logout_simple_ui/widgets/my_button.dart';
 import 'package:login_logout_simple_ui/widgets/my_textfield_widget.dart';
@@ -24,18 +27,16 @@ class _SignInPageState extends State<SignInPage> {
   }
 
   void signUerIn() async {
-    // show circle
-
     showDialog(
         context: context,
         builder: (context) {
           return const Center(
             child: CircularProgressIndicator(
-              color: Colors.purple,
+              color: ColorConstatns.kPurpleProgressIndicator,
             ),
           );
         });
-    // try sign in user
+
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: emailTextController.text,
@@ -48,7 +49,7 @@ class _SignInPageState extends State<SignInPage> {
             context: context,
             builder: (context) {
               return const AlertDialog(
-                title: Text('USER NOT FOUND!'),
+                title: Text(StringConstants.kUserNotFount),
               );
             });
       } else if (e.code == 'wrong-password') {
@@ -56,7 +57,7 @@ class _SignInPageState extends State<SignInPage> {
             context: context,
             builder: (context) {
               return const AlertDialog(
-                title: Text('WRONG PASSWORD!'),
+                title: Text(StringConstants.kWrongPassword),
               );
             });
       }
@@ -66,7 +67,8 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor:
+          ColorConstatns.kLogInOrRegisterBackgroundColorLightGrey300,
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -76,36 +78,42 @@ class _SignInPageState extends State<SignInPage> {
                 SizedBox(
                   height: 175,
                   width: 175,
-                  child: Image.asset('images/pngwing.com.png'),
+                  child: Image.asset(
+                    ImagesConstants.kMainLogo,
+                  ),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
                 const Text(
-                  'Hello Again!',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
+                  StringConstants.kHelloAgain,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 40,
+                  ),
                 ),
                 const SizedBox(
                   height: 15,
                 ),
                 Text(
-                  'Welcome back to Instagram!',
+                  StringConstants.kWelcomeBack,
                   style: TextStyle(
-                      fontSize: 13,
-                      letterSpacing: 1,
-                      color: Colors.grey[500],
-                      fontWeight: FontWeight.bold),
+                    fontSize: 13,
+                    letterSpacing: 1,
+                    color: ColorConstatns.kSubTextLightGrey500,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
                 MyTextFieldWidget(
                     controller: emailTextController,
-                    hintText: 'Email',
+                    hintText: StringConstants.kEmail,
                     obscureText: false),
                 MyTextFieldWidget(
                     controller: passwordTextController,
-                    hintText: 'Password',
+                    hintText: StringConstants.kPassword,
                     obscureText: true),
                 const SizedBox(
                   height: 20,
@@ -115,7 +123,7 @@ class _SignInPageState extends State<SignInPage> {
                   child: GestureDetector(
                     onTap: signUerIn,
                     child: const MyButton(
-                      title: 'Sign In!',
+                      title: StringConstants.kSignIn,
                     ),
                   ),
                 ),
@@ -123,9 +131,9 @@ class _SignInPageState extends State<SignInPage> {
                   height: 45,
                 ),
                 Text(
-                  'Or continue with',
+                  StringConstants.kOrContinueWith,
                   style: TextStyle(
-                      color: Colors.grey[500],
+                      color: ColorConstatns.kSubTextLightGrey500,
                       fontWeight: FontWeight.bold,
                       fontSize: 13),
                 ),
@@ -135,17 +143,19 @@ class _SignInPageState extends State<SignInPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SquareTileButton(onTap: (){
-                      // sign in with google
-                      AuthService().signInWithGoogle();
-                    }, imageId: 'images/GOOG.png'),
+                    SquareTileButton(
+                      onTap: () {
+                        AuthService().signInWithGoogle();
+                      },
+                      imageId: ImagesConstants.kGoogleLogo,
+                    ),
                     const SizedBox(
                       width: 20,
                     ),
-                   SquareTileButton(onTap: () {
-                     // add sign in with apple
-
-                   }, imageId: 'images/apple.png'),
+                    SquareTileButton(
+                      onTap: () {},
+                      imageId: ImagesConstants.kAppleLogo,
+                    ),
                   ],
                 ),
                 const SizedBox(
@@ -155,7 +165,7 @@ class _SignInPageState extends State<SignInPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
-                      'Not a member?',
+                      StringConstants.kNotAMember,
                       style: TextStyle(
                         fontSize: 13,
                         color: Colors.black,
@@ -169,10 +179,10 @@ class _SignInPageState extends State<SignInPage> {
                     GestureDetector(
                       onTap: widget.onTap,
                       child: const Text(
-                        'Register now!',
+                        StringConstants.kRegisterNow,
                         style: TextStyle(
                           fontSize: 13,
-                          color: Colors.purpleAccent,
+                          color: ColorConstatns.kLightPurple,
                           fontWeight: FontWeight.bold,
                           letterSpacing: 1,
                         ),
@@ -188,5 +198,3 @@ class _SignInPageState extends State<SignInPage> {
     );
   }
 }
-
-
