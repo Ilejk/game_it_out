@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import '../constants/sizes_constants.dart';
+import '../widgets/main_character_box.dart';
+import '../widgets/progress_bar_idicator.dart';
 
 class MainHomeGamePage extends StatelessWidget {
   const MainHomeGamePage({super.key});
@@ -7,10 +10,13 @@ class MainHomeGamePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Column(
-        children: [
+        children: const [
           //TODO: LVL
-          //TODO: MALE OR FEMALE CHARACTER
-          //TODO: LVL BAR THATS GONNA FILL UP ACCRODINNG WITH THE LEVEL
+
+          SizesConstants.kSizedBox20height,
+          MainCharacterBox(),
+          ProgressBarIndicator(),
+
           // TODO: VALUE SHOULD CHANGE DEPENDS ON THE LVL GOING UP
         ],
       ),
