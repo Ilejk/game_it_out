@@ -8,4 +8,8 @@ class PaddingConstants {
   static const kLeftPadding25 = EdgeInsets.only(left: 20);
   static const kBottomNavigationBarPadding =
       EdgeInsets.only(top: 25, bottom: 25, right: 10, left: 10);
+  static const kProgressBarPadding =
+      EdgeInsets.only(top: 25, bottom: 25, right: 25, left: 25);
+  static const kCharacterImagePadding =
+      EdgeInsets.only(top: 25, right: 25, left: 25);
 }

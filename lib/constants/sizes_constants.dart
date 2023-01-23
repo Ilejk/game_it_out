@@ -26,4 +26,12 @@ class SizesConstants {
   static const kSignInButtonFontSize = 17.0;
   static const kTopBarTitleWidth = 300.0;
   static const kTopBarTitleHeight = 70.0;
+  static const kTopBarTitlePageSize = 20.0;
+  static const kProgressBarHeight = 30.0;
+  static const kProgressBarWidth = double.infinity;
+  static const kProgressBarRadius = Radius.circular(12);
+  static const kProgressBarLineHeight = 12.5;
+  static const kLVLfontsize = 25.0;
+  static const kCharacterBoxHeight = 440.0;
+  static const kCharacterBoxWidth = double.infinity;
 }

@@ -16,7 +16,8 @@ class StringConstants {
   static const kPasswordsDontMatch = 'PASSWORDS DON\'T MATCH!';
   static const kSignedInAS = 'Logged in as: ';
   static const kSignUp = 'Sign Up!';
-  static const kTaskPageTitle = 'Tasks';
-  static const kSettingPageTitle = 'Settings';
+  static const kTaskPageTitle = 'T A S K S';
+  static const kSettingPageTitle = 'S E T T I N G S';
   static const kWelcomeTitle = 'Welcome';
+  static const kLvLString = 'L V L';
 }

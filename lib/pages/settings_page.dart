@@ -29,7 +29,7 @@ class SettingsPage extends StatelessWidget {
                       StringConstants.kSettingPageTitle,
                       style: TextStyle(
                         color: ColorConstatns.kDarkGreyIcon,
-                        fontSize: SizesConstants.kTopNavigationBarFontSize,
+                        fontSize: SizesConstants.kTopBarTitlePageSize,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 2,
                       ),
