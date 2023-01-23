@@ -13,4 +13,5 @@ class IconsConstants {
   static const kTaskMenuIcon = Icons.menu_book;
   static const kSettingsIcon = Icons.settings;
   static const kProfileLogOutIcon = Icons.exit_to_app;
+  static const kGoBackIcon = Icons.arrow_back_ios_new;
 }

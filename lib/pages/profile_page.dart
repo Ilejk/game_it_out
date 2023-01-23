@@ -4,6 +4,7 @@ import 'package:login_logout_simple_ui/constants/color_constants.dart';
 import 'package:login_logout_simple_ui/constants/icons_constants.dart';
 import 'package:login_logout_simple_ui/constants/padding_constants.dart';
 import 'package:login_logout_simple_ui/constants/string_constants.dart';
+import 'package:login_logout_simple_ui/pages/choose_your_character_page.dart';
 import 'package:login_logout_simple_ui/widgets/shadow_box_container.dart';
 import '../constants/sizes_constants.dart';
 
@@ -58,7 +59,29 @@ class MyProfilePage extends StatelessWidget {
           ),
         ),
         SingleChildScrollView(
-          child: Column(),
+          child: Column(
+            children: [
+              ShadowBoxContainer(
+                height: SizesConstants.kBottomNavigatiorHeight,
+                width: SizesConstants.kBottomNavigatiorWidth,
+                child: IconButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (BuildContext cotext) =>
+                            const ChooseYourCharacterPage(),
+                      ),
+                    );
+                  },
+                  icon: Icon(
+                    IconsConstants.kProfileLogOutIcon,
+                    size: SizesConstants.kTopNavigationBarIconSize,
+                    color: ColorConstatns.kDarkGreyIcon,
+                  ),
+                ),
+              ),
+            ],
+          ),
         )
       ],
     );
