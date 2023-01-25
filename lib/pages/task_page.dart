@@ -1,12 +1,10 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-import 'package:login_logout_simple_ui/constants/color_constants.dart';
 import 'package:login_logout_simple_ui/constants/icons_constants.dart';
 import 'package:login_logout_simple_ui/constants/padding_constants.dart';
 import 'package:login_logout_simple_ui/constants/sizes_constants.dart';
 import 'package:login_logout_simple_ui/constants/string_constants.dart';
 import 'package:login_logout_simple_ui/widgets/shadow_box_container.dart';
+import '../constants/textstyle_constants.dart';
 
 class TaskPage extends StatelessWidget {
   const TaskPage({super.key});
@@ -23,17 +21,24 @@ class TaskPage extends StatelessWidget {
               Padding(
                 padding: PaddingConstants.kBasePadding10,
                 child: ShadowBoxContainer(
-                  height: SizesConstants.kTopBarTitleHeight,
-                  width: SizesConstants.kTopBarTitleWidth,
+                  height: SizesConstants.kBottomNavigatiorHeight,
+                  width: SizesConstants.kBottomNavigatiorWidth,
+                  child: IconButton(
+                    onPressed: () {
+                      //TODO:  GO TO CREATE A NEW TASK PAGE
+                    },
+                    icon: IconsConstants.kAddIcon,
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: PaddingConstants.kBasePadding10,
                   child: Center(
                     child: Text(
+                      textAlign: TextAlign.center,
                       StringConstants.kTaskPageTitle,
-                      style: TextStyle(
-                        color: ColorConstatns.kDarkGreyIcon,
-                        fontSize: SizesConstants.kTopBarTitlePageSize,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 2,
-                      ),
+                      style: TextStyleConstants.kTopBarTextStyleTitle,
                     ),
                   ),
                 ),

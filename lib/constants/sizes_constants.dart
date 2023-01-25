@@ -34,4 +34,8 @@ class SizesConstants {
   static const kLVLfontsize = 25.0;
   static const kCharacterBoxHeight = 440.0;
   static const kCharacterBoxWidth = double.infinity;
+  static const kChooseYourCharacterBoxHeight = 200.0;
+  static const kChooseYourCharacterBoxWidth = 200.0;
+  static const kProcedeButtonHeight = 70.0;
+  static const kProcedeButtonWidth = 300.0;
 }

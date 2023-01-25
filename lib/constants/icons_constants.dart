@@ -6,7 +6,7 @@ class IconsConstants {
   static final kAddIcon = Icon(
     Icons.add_box_outlined,
     size: SizesConstants.kBottomNavigatiorBarIconSize,
-    color: ColorConstatns.kDarkGreyIcon,
+    color: ColorConstatns.kDarkGrey,
   );
   static const kProfileIcon = Icons.person;
   static const kMainHomeGamePageIcon = Icons.home_filled;
@@ -14,4 +14,5 @@ class IconsConstants {
   static const kSettingsIcon = Icons.settings;
   static const kProfileLogOutIcon = Icons.exit_to_app;
   static const kGoBackIcon = Icons.arrow_back_ios_new;
+  static const kGoForwardIcon = Icons.arrow_forward_ios;
 }

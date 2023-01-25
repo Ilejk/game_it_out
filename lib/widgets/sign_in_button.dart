@@ -26,7 +26,7 @@ class SignInButton extends StatelessWidget {
             offset: Offset(-5, -5),
           ),
         ],
-        color: ColorConstatns.kDarkGreyIcon,
+        color: ColorConstatns.kDarkGrey,
         borderRadius: SizesConstants.kBorderRadius12,
         border: Border.all(color: ColorConstatns.kWhite),
       ),

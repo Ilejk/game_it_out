@@ -29,7 +29,7 @@ class BottomNavigationBarButton extends StatelessWidget {
           height: SizesConstants.kBottomNavigatiorHeight,
           width: SizesConstants.kBottomNavigatiorWidth,
           child: IconButton(
-            color: ColorConstatns.kDarkGreyIcon,
+            color: ColorConstatns.kDarkGrey,
             iconSize: SizesConstants.kBottomNavigatiorBarIconSize,
             icon: Icon(icon),
             onPressed: () {

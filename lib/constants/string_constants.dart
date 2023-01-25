@@ -20,4 +20,7 @@ class StringConstants {
   static const kSettingPageTitle = 'S E T T I N G S';
   static const kWelcomeTitle = 'Welcome';
   static const kLvLString = 'L V L';
+  static const kMenu = 'M E N U';
+  static const kChooseYourCharacter = 'Choose Your Character!';
+  static const kProcede = 'P R O C E D E';
 }

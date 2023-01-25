@@ -29,7 +29,7 @@ class MainCharacterBox extends StatelessWidget {
                   style: TextStyle(
                     fontSize: SizesConstants.kLVLfontsize,
                     fontWeight: FontWeight.bold,
-                    color: ColorConstatns.kDarkGreyIcon,
+                    color: ColorConstatns.kDarkGrey,
                   ),
                 ),
               ),
