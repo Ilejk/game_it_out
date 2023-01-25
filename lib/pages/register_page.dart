@@ -5,11 +5,11 @@ import 'package:login_logout_simple_ui/constants/images_constants.dart';
 import 'package:login_logout_simple_ui/constants/padding_constants.dart';
 import 'package:login_logout_simple_ui/constants/sizes_constants.dart';
 import 'package:login_logout_simple_ui/constants/string_constants.dart';
+import 'package:login_logout_simple_ui/constants/textstyle_constants.dart';
 import 'package:login_logout_simple_ui/services/auth_service.dart';
 import 'package:login_logout_simple_ui/widgets/sign_in_button.dart';
 import 'package:login_logout_simple_ui/widgets/input_textfield.dart';
 import 'package:login_logout_simple_ui/widgets/square_title_button_logo.dart';
-
 import '../widgets/shadow_box_container.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -97,20 +97,12 @@ class _RegisterPageState extends State<RegisterPage> {
                 SizesConstants.kSizedBox20height,
                 const Text(
                   StringConstants.kWelcomeTitle,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: SizesConstants.kTitleTextFontSize,
-                  ),
+                  style: TextStyleConstants.kSignInRegisterTitleTextStyle,
                 ),
                 SizesConstants.kSizedBox15height,
                 Text(
                   StringConstants.kLetsCreateAnAccountForYou,
-                  style: TextStyle(
-                    fontSize: SizesConstants.kSubTextFontSize,
-                    letterSpacing: 1,
-                    color: ColorConstatns.kSubTextLightGrey500,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyleConstants.kSubTitleTextStyle,
                 ),
                 SizesConstants.kSizedBox20height,
                 InputTextFieldWidget(
@@ -141,11 +133,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 SizesConstants.kSizedBox45height,
                 Text(
                   StringConstants.kOrContinueWith,
-                  style: TextStyle(
-                    color: ColorConstatns.kSubTextLightGrey500,
-                    fontWeight: FontWeight.bold,
-                    fontSize: SizesConstants.kSubTextFontSize,
-                  ),
+                  style: TextStyleConstants.kSubTextTextStyleGrey,
                 ),
                 SizesConstants.kSizedBox45height,
                 Row(
@@ -172,24 +160,14 @@ class _RegisterPageState extends State<RegisterPage> {
                   children: [
                     const Text(
                       StringConstants.kAlreadyHaveAnAccount,
-                      style: TextStyle(
-                        fontSize: SizesConstants.kSubTextFontSize,
-                        color: ColorConstatns.kBlack,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 1,
-                      ),
+                      style: TextStyleConstants.kSubTextTextStyleBlack,
                     ),
                     SizesConstants.kSizedBox15width,
                     GestureDetector(
                       onTap: widget.onTap,
                       child: const Text(
                         StringConstants.kSignInNow,
-                        style: TextStyle(
-                          fontSize: SizesConstants.kSubTextFontSize,
-                          color: ColorConstatns.kLightPurpleText,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1,
-                        ),
+                        style: TextStyleConstants.kSubTextTextStylePurple,
                       ),
                     ),
                   ],

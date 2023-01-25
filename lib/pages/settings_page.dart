@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/constants/padding_constants.dart';
 import 'package:login_logout_simple_ui/constants/sizes_constants.dart';
+import 'package:login_logout_simple_ui/constants/textstyle_constants.dart';
 import 'package:login_logout_simple_ui/widgets/shadow_box_container.dart';
-
-import '../constants/color_constants.dart';
 import '../constants/icons_constants.dart';
 import '../constants/string_constants.dart';
 
@@ -19,20 +18,25 @@ class SettingsPage extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Padding(
+              const Padding(
                 padding: PaddingConstants.kBasePadding10,
                 child: ShadowBoxContainer(
-                  height: SizesConstants.kTopBarTitleHeight,
-                  width: SizesConstants.kTopBarTitleWidth,
+                  height: SizesConstants.kBottomNavigatiorHeight,
+                  width: SizesConstants.kBottomNavigatiorWidth,
+                  child: Icon(
+                    IconsConstants.kSettingsIcon,
+                    size: SizesConstants.kBottomNavigatiorBarIconSize,
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: PaddingConstants.kBasePadding10,
                   child: Center(
                     child: Text(
+                      textAlign: TextAlign.center,
                       StringConstants.kSettingPageTitle,
-                      style: TextStyle(
-                        color: ColorConstatns.kDarkGreyIcon,
-                        fontSize: SizesConstants.kTopBarTitlePageSize,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 2,
-                      ),
+                      style: TextStyleConstants.kTopBarTextStyleTitle,
                     ),
                   ),
                 ),
