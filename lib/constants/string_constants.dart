@@ -23,4 +23,5 @@ class StringConstants {
   static const kMenu = 'M E N U';
   static const kChooseYourCharacter = 'Choose Your Character!';
   static const kProcede = 'P R O C E D E';
+  static const kPlayTitle = 'P L A Y';
 }

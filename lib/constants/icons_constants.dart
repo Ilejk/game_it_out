@@ -15,4 +15,9 @@ class IconsConstants {
   static const kProfileLogOutIcon = Icons.exit_to_app;
   static const kGoBackIcon = Icons.arrow_back_ios_new;
   static const kGoForwardIcon = Icons.arrow_forward_ios;
+  static final kHelpIcon = Icon(
+    Icons.question_mark,
+    size: SizesConstants.kBottomNavigatiorBarIconSize,
+    color: ColorConstatns.kDarkGrey,
+  );
 }
