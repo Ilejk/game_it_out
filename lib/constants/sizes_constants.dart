@@ -12,6 +12,7 @@ class SizesConstants {
   static const kSizedBox35width = SizedBox(width: 35);
   static const kSizedBox45width = SizedBox(width: 45);
   static const kSizedBox15width = SizedBox(width: 15);
+  static const kSizedBox50width = SizedBox(width: 50);
   static const kSubTextFontSize = 13.0;
   static const kTitleTextFontSize = 40.0;
   static const kMainLogoHeight = 175.0;

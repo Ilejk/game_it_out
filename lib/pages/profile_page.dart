@@ -23,41 +23,23 @@ class MyProfilePage extends StatelessWidget {
         Padding(
           padding: PaddingConstants.kBasePadding10,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Padding(
                 padding: PaddingConstants.kBasePadding10,
-                child: ShadowBoxContainer(
-                  height: SizesConstants.kBottomNavigatiorHeight,
-                  width: SizesConstants.kBottomNavigatiorWidth,
-                  child: IconButton(
-                    onPressed: () {
-                      //TODO : do sth
-                    },
-                    icon: Icon(
-                      IconsConstants.kProfileLogOutIcon,
-                      size: SizesConstants.kTopNavigationBarIconSize,
+                child: Center(
+                  child: Text(
+                    user.email.toString(),
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold,
                       color: ColorConstatns.kDarkGrey,
                     ),
                   ),
                 ),
               ),
-              Expanded(
-                child: Padding(
-                  padding: PaddingConstants.kBasePadding10,
-                  child: Center(
-                    child: Text(
-                      user.email.toString(),
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold,
-                        color: ColorConstatns.kDarkGrey,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              SizesConstants.kSizedBox15width,
               Padding(
                 padding: PaddingConstants.kBasePadding10,
                 child: ShadowBoxContainer(

@@ -16,31 +16,19 @@ class SettingsPage extends StatelessWidget {
         Padding(
           padding: PaddingConstants.kBasePadding10,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              const Padding(
+              Padding(
                 padding: PaddingConstants.kBasePadding10,
-                child: ShadowBoxContainer(
-                  height: SizesConstants.kBottomNavigatiorHeight,
-                  width: SizesConstants.kBottomNavigatiorWidth,
-                  child: Icon(
-                    IconsConstants.kSettingsIcon,
-                    size: SizesConstants.kBottomNavigatiorBarIconSize,
+                child: Center(
+                  child: Text(
+                    textAlign: TextAlign.center,
+                    StringConstants.kSettingPageTitle,
+                    style: TextStyleConstants.kTopBarTextStyleTitle,
                   ),
                 ),
               ),
-              Expanded(
-                child: Padding(
-                  padding: PaddingConstants.kBasePadding10,
-                  child: Center(
-                    child: Text(
-                      textAlign: TextAlign.center,
-                      StringConstants.kSettingPageTitle,
-                      style: TextStyleConstants.kTopBarTextStyleTitle,
-                    ),
-                  ),
-                ),
-              ),
+              SizesConstants.kSizedBox15width,
               const Padding(
                 padding: PaddingConstants.kBasePadding10,
                 child: ShadowBoxContainer(

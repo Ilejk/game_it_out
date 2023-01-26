@@ -14,33 +14,30 @@ class AppBottomNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: PaddingConstants.kBasePadding10,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          BottomNavigationBarButton(
-            pageController: _pageController,
-            pageIndex: 0,
-            icon: IconsConstants.kMainHomeGamePageIcon,
-          ),
-          BottomNavigationBarButton(
-            pageController: _pageController,
-            pageIndex: 1,
-            icon: IconsConstants.kTaskMenuIcon,
-          ),
-          BottomNavigationBarButton(
-            pageController: _pageController,
-            pageIndex: 2,
-            icon: IconsConstants.kSettingsIcon,
-          ),
-          BottomNavigationBarButton(
-            pageController: _pageController,
-            pageIndex: 3,
-            icon: IconsConstants.kProfileIcon,
-          ),
-        ],
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        BottomNavigationBarButton(
+          pageController: _pageController,
+          pageIndex: 0,
+          icon: IconsConstants.kMainHomeGamePageIcon,
+        ),
+        BottomNavigationBarButton(
+          pageController: _pageController,
+          pageIndex: 1,
+          icon: IconsConstants.kTaskMenuIcon,
+        ),
+        BottomNavigationBarButton(
+          pageController: _pageController,
+          pageIndex: 2,
+          icon: IconsConstants.kSettingsIcon,
+        ),
+        BottomNavigationBarButton(
+          pageController: _pageController,
+          pageIndex: 3,
+          icon: IconsConstants.kProfileIcon,
+        ),
+      ],
     );
   }
 }

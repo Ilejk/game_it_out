@@ -16,33 +16,19 @@ class TaskPage extends StatelessWidget {
         Padding(
           padding: PaddingConstants.kBasePadding10,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Padding(
                 padding: PaddingConstants.kBasePadding10,
-                child: ShadowBoxContainer(
-                  height: SizesConstants.kBottomNavigatiorHeight,
-                  width: SizesConstants.kBottomNavigatiorWidth,
-                  child: IconButton(
-                    onPressed: () {
-                      //TODO:  GO TO CREATE A NEW TASK PAGE
-                    },
-                    icon: IconsConstants.kAddIcon,
+                child: Center(
+                  child: Text(
+                    textAlign: TextAlign.center,
+                    StringConstants.kTaskPageTitle,
+                    style: TextStyleConstants.kTopBarTextStyleTitle,
                   ),
                 ),
               ),
-              Expanded(
-                child: Padding(
-                  padding: PaddingConstants.kBasePadding10,
-                  child: Center(
-                    child: Text(
-                      textAlign: TextAlign.center,
-                      StringConstants.kTaskPageTitle,
-                      style: TextStyleConstants.kTopBarTextStyleTitle,
-                    ),
-                  ),
-                ),
-              ),
+              SizesConstants.kSizedBox45width,
               Padding(
                 padding: PaddingConstants.kBasePadding10,
                 child: ShadowBoxContainer(
