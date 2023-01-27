@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/widgets/shadow_box_container.dart';
-
 import '../constants/icons_constants.dart';
 import '../constants/padding_constants.dart';
 import '../constants/sizes_constants.dart';
@@ -8,9 +7,20 @@ import '../constants/string_constants.dart';
 import '../constants/textstyle_constants.dart';
 
 class TaskWidget extends StatelessWidget {
+  final String taskName;
+  final String difficulty;
+  final int taskLenght;
+  final Function()? onTap;
+  final int expGained;
+
   const TaskWidget({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+    required this.taskName,
+    required this.difficulty,
+    required this.taskLenght,
+    required this.onTap,
+    required this.expGained,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,21 +35,21 @@ class TaskWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Exercise',
+                  taskName,
                   //TODO: make it changeable so it changes when with accordance what the user chooses
                   textAlign: TextAlign.left,
                   style: TextStyleConstants.kTaskTitleTextStyle,
                 ),
                 SizesConstants.kSizedBox15height,
                 Text(
-                  'Medium',
+                  difficulty,
                   //TODO: make it changeable so it changes when with accordance what the user chooses
                   textAlign: TextAlign.left,
                   style: TextStyleConstants.kTaskSubTitleTextStyle,
                 ),
                 SizesConstants.kSizedBox15height,
                 Text(
-                  '${StringConstants.kDuration}  2 ${StringConstants.kHours}',
+                  '${StringConstants.kDuration}  $taskLenght ${StringConstants.kHours}',
                   //TODO: make it changeable so it changes when with accordance what the user chooses
                   textAlign: TextAlign.left,
                   style: TextStyleConstants.kTaskSubTitleTextStyle,
@@ -52,7 +62,7 @@ class TaskWidget extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  '15  ${StringConstants.kExp}',
+                  '$expGained  ${StringConstants.kExp}',
                   //TODO: make it changeable so it changes when with accordance what the user chooses
                   style: TextStyleConstants.kTaskSubTitleTextStyle,
                 ),
@@ -61,9 +71,7 @@ class TaskWidget extends StatelessWidget {
                   height: SizesConstants.kTaskDoneIconBoxHeight,
                   width: SizesConstants.kTaskDoneIconBoxWidth,
                   child: IconButton(
-                    onPressed: () {
-                      //TODO : add exp to the progress bar
-                    },
+                    onPressed: onTap,
                     icon: IconsConstants.kDoneTaskIcon,
                   ),
                 )

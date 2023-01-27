@@ -1,17 +1,243 @@
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:login_logout_simple_ui/constants/base_values.dart';
+import 'package:login_logout_simple_ui/constants/color_constants.dart';
+import 'package:login_logout_simple_ui/constants/list_constants.dart';
+import '../constants/icons_constants.dart';
+import '../constants/padding_constants.dart';
+import '../constants/sizes_constants.dart';
+import '../constants/string_constants.dart';
+import '../constants/textstyle_constants.dart';
+import '../widgets/shadow_box_container.dart';
 
-class CreateANewTaskPage extends StatelessWidget {
+class CreateANewTaskPage extends StatefulWidget {
   const CreateANewTaskPage({super.key});
 
   @override
+  State<CreateANewTaskPage> createState() => _CreateANewTaskPageState();
+}
+
+class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
+  // ignore: avoid_init_to_null
+  var _dropDownMenuValue = null;
+  void dropDownCallBack(Object? selectedValue) {
+    if (selectedValue is String) {
+      setState(() {
+        _dropDownMenuValue = selectedValue;
+      });
+    }
+  }
+
+  // ignore: avoid_init_to_null
+  var _dropDownMenuDurationValue = null;
+  void dropDownCallBackDuration(Object? selectedDurationValue) {
+    if (selectedDurationValue is String) {
+      setState(() {
+        _dropDownMenuDurationValue = selectedDurationValue;
+      });
+    }
+  }
+
+  double expGained = BaseValues.kBaseExpValue;
+  void getExpGained() {
+    if (_dropDownMenuValue == 'Easy') {
+      setState(() {
+        expGained = double.parse(_dropDownMenuDurationValue) *
+            BaseValues.kEasyDifficultyValue *
+            BaseValues.kBaseExpValueGiven;
+      });
+    } else if (_dropDownMenuValue == 'Medium') {
+      setState(() {
+        expGained = double.parse(_dropDownMenuDurationValue) *
+            BaseValues.kMediumDifficultyValue *
+            BaseValues.kBaseExpValueGiven;
+      });
+    } else if (_dropDownMenuValue == 'Hard') {
+      setState(() {
+        expGained = double.parse(_dropDownMenuDurationValue) *
+            BaseValues.kHardDifficultyValue *
+            BaseValues.kBaseExpValueGiven;
+      });
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        //TODO: CREATE A NEW TASK TITLE
-        //TODO: INPUT FIELDS : NAME OF THE TASK :
-        // TIME FOR WHICH THE TASK NEEDS TO BE PERFOMED :
-        //TODO: THE DIFFICULTY OF THE TASK
-      ],
+    return Scaffold(
+      backgroundColor: ColorConstatns.kBackGroundGrey,
+      body: SafeArea(
+        child: Column(
+          children: [
+            Padding(
+              padding: PaddingConstants.kBasePadding10,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Padding(
+                    padding: PaddingConstants.kBasePadding10,
+                    child: ShadowBoxContainer(
+                      height: SizesConstants.kBottomNavigatiorHeight,
+                      width: SizesConstants.kBottomNavigatiorWidth,
+                      child: IconButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        icon: Icon(
+                          IconsConstants.kGoBackIcon,
+                          size: SizesConstants.kTopNavigationBarIconSize,
+                          color: ColorConstatns.kDarkGrey,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizesConstants.kSizedBox15width,
+                  Expanded(
+                    child: Padding(
+                      padding: PaddingConstants.kBasePadding10,
+                      child: Center(
+                        child: Text(
+                          textAlign: TextAlign.center,
+                          StringConstants.kNewTaskTitle,
+                          style: TextStyleConstants.kTopBarTextStyleTitle,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizesConstants.kSizedBox15width,
+                  const Padding(
+                    padding: PaddingConstants.kBasePadding10,
+                    child: ShadowBoxContainer(
+                      height: SizesConstants.kBottomNavigatiorHeight,
+                      width: SizesConstants.kBottomNavigatiorWidth,
+                      child: Icon(
+                        IconsConstants.kTaskMenuIcon,
+                        size: SizesConstants.kBottomNavigatiorBarIconSize,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            SizesConstants.kSizedBox45height,
+            const ShadowBoxContainer(
+              height: SizesConstants.kTaskNameTextFieldHeight,
+              width: SizesConstants.kTaskNameTextFieldWidth,
+              child: Padding(
+                padding: PaddingConstants.kLeftPadding25,
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    hintText: StringConstants.kTaskNameHintText,
+                  ),
+                ),
+              ),
+            ),
+            SizesConstants.kSizedBox45height,
+            ShadowBoxContainer(
+              height: SizesConstants.kTaskDifficultyTextFieldHeight,
+              width: SizesConstants.kTaskDifficultyTextFieldWidth,
+              child: Padding(
+                padding: PaddingConstants.kLeftPadding25,
+                child: DropdownButtonHideUnderline(
+                  child: DropdownButton2(
+                    dropdownMaxHeight:
+                        SizesConstants.kTaskDifficultyDropDownMaxHeight,
+                    dropdownWidth:
+                        SizesConstants.kTaskDifficultyDropDownMaxWidth,
+                    dropdownDecoration: BoxDecoration(
+                      borderRadius: SizesConstants.kBorderRadius12,
+                      color: ColorConstatns.kBackGroundGrey,
+                    ),
+                    iconSize: 0.0,
+                    onChanged: dropDownCallBack,
+                    value: _dropDownMenuValue,
+                    hint: const Text(StringConstants.kDifficultyHintText),
+                    items: ListConstants.kDifficultyList,
+                  ),
+                ),
+              ),
+            ),
+            SizesConstants.kSizedBox45height,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ShadowBoxContainer(
+                  height: SizesConstants.kTaskDurationTextFieldHeight,
+                  width: SizesConstants.kTaskDurationTextFieldWidth,
+                  child: Padding(
+                    padding: PaddingConstants.kLeftPadding25,
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton2(
+                        dropdownWidth:
+                            SizesConstants.kTaskDurationDropDownMaxWidth,
+                        dropdownMaxHeight:
+                            SizesConstants.kTaskDurationDropDownMaxHeight,
+                        dropdownDecoration: BoxDecoration(
+                          borderRadius: SizesConstants.kBorderRadius12,
+                          color: ColorConstatns.kBackGroundGrey,
+                        ),
+                        iconSize: 0.0,
+                        onChanged: dropDownCallBackDuration,
+                        value: _dropDownMenuDurationValue,
+                        hint: const Text(StringConstants.kDurationHintText),
+                        items: ListConstants.kDurationsList,
+                      ),
+                    ),
+                  ),
+                ),
+                SizesConstants.kSizedBox55width,
+                Column(
+                  children: [
+                    Text(
+                      StringConstants.kExp,
+                      style: TextStyleConstants.kTaskSubTitleTextStyle,
+                    ),
+                    SizesConstants.kSizedBox10height,
+                    Text(
+                      expGained.toStringAsFixed(2),
+                      style: TextStyleConstants.kTaskSubTitleTextStyle,
+                    ),
+                  ],
+                )
+              ],
+            ),
+            const Expanded(child: SizedBox()),
+            SizesConstants.kSizedBox45height,
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  getExpGained();
+                });
+              },
+              child: ShadowBoxContainer(
+                height: SizesConstants.kTaskCalculateButtonHeight,
+                width: SizesConstants.kTaskCalculateButtonWidth,
+                child: Center(
+                  child: Text(
+                    StringConstants.kCalculateButtonText,
+                    style: TextStyleConstants.kTaskSubTitleTextStyle,
+                  ),
+                ),
+              ),
+            ),
+            SizesConstants.kSizedBox45height,
+            GestureDetector(
+              onTap: () {},
+              child: ShadowBoxContainer(
+                height: SizesConstants.kTaskCreateButtonHeight,
+                width: SizesConstants.kTaskCreateteButtonWidth,
+                child: Center(
+                  child: Text(
+                    StringConstants.kCreateButtonText,
+                    style: TextStyleConstants.kTaskSubTitleTextStyle,
+                  ),
+                ),
+              ),
+            ),
+            SizesConstants.kSizedBox45height,
+          ],
+        ),
+      ),
     );
   }
 }

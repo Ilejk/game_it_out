@@ -25,7 +25,13 @@ class StringConstants {
   static const kProcede = 'P R O C E D E';
   static const kPlayTitle = 'P L A Y';
   static const kDuration = 'Duration:';
-  static const kHours = 'hours';
+  static const kHours = 'hour/s';
   static const kMinutes = 'minutes';
   static const kExp = 'EXP';
+  static const kNewTaskTitle = 'A D D';
+  static const kDifficultyHintText = 'Choose Difficulty';
+  static const kDurationHintText = 'Choose Duration';
+  static const kTaskNameHintText = 'Enter a Task';
+  static const kCalculateButtonText = 'C A L C U L A T E';
+  static const kCreateButtonText = 'C R E A T E';
 }

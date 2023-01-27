@@ -3,12 +3,24 @@ import 'package:login_logout_simple_ui/constants/icons_constants.dart';
 import 'package:login_logout_simple_ui/constants/padding_constants.dart';
 import 'package:login_logout_simple_ui/constants/sizes_constants.dart';
 import 'package:login_logout_simple_ui/constants/string_constants.dart';
+import 'package:login_logout_simple_ui/pages/create_a_new_task_page.dart';
 import 'package:login_logout_simple_ui/widgets/shadow_box_container.dart';
 import '../constants/textstyle_constants.dart';
 import '../widgets/task_widget.dart';
 
-class TaskPage extends StatelessWidget {
+class TaskPage extends StatefulWidget {
   const TaskPage({super.key});
+
+  @override
+  State<TaskPage> createState() => _TaskPageState();
+}
+
+class _TaskPageState extends State<TaskPage> {
+  List taskList = [
+    ['Exercise', 'Medium', 2, 12],
+    ['Code', 'Hard', 4, 55],
+    ['Write', 'Easy', 3, 30],
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +49,12 @@ class TaskPage extends StatelessWidget {
                   width: SizesConstants.kBottomNavigatiorWidth,
                   child: IconButton(
                     onPressed: () {
-                      //TODO:  GO TO CREATE A NEW TASK PAGE
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (BuildContext cotext) =>
+                              const CreateANewTaskPage(),
+                        ),
+                      );
                     },
                     icon: IconsConstants.kAddIcon,
                   ),
@@ -47,13 +64,19 @@ class TaskPage extends StatelessWidget {
           ),
         ),
         Expanded(
-          child: SingleChildScrollView(
-            child: Column(
-              children: const [
-                TaskWidget(),
-                TaskWidget(),
-              ],
-            ),
+          child: ListView.builder(
+            itemBuilder: (context, index) {
+              return TaskWidget(
+                taskName: taskList[index][0],
+                difficulty: taskList[index][1],
+                taskLenght: taskList[index][2],
+                onTap: () {
+                  //TODO: add exp value to progrss bar
+                },
+                expGained: taskList[index][3],
+              );
+            },
+            itemCount: taskList.length,
           ),
         ),
 

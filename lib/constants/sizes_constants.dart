@@ -4,6 +4,7 @@ class SizesConstants {
   static const kBottomNavigatiorBarIconSize = 30.0;
   static const kTopNavigationBarIconSize = 26.0;
   static const kTopNavigationBarFontSize = 26.0;
+  static const kSizedBox10height = SizedBox(height: 10);
   static const kSizedBox20height = SizedBox(height: 20);
   static const kSizedBox35height = SizedBox(height: 35);
   static const kSizedBox45height = SizedBox(height: 45);
@@ -14,6 +15,7 @@ class SizesConstants {
   static const kSizedBox15width = SizedBox(width: 15);
   static const kSizedBox50width = SizedBox(width: 50);
   static const kSizedBox55width = SizedBox(width: 55);
+  static const kSizedBox60width = SizedBox(width: 60);
   static const kSubTextFontSize = 13.0;
   static const kTitleTextFontSize = 40.0;
   static const kMainLogoHeight = 175.0;
@@ -42,4 +44,18 @@ class SizesConstants {
   static const kProcedeButtonWidth = 300.0;
   static const kTaskDoneIconBoxHeight = 55.0;
   static const kTaskDoneIconBoxWidth = 55.0;
+  static const kTaskNameTextFieldHeight = 50.0;
+  static const kTaskNameTextFieldWidth = 300.0;
+  static const kTaskDifficultyTextFieldHeight = 50.0;
+  static const kTaskDifficultyTextFieldWidth = 300.0;
+  static const kTaskDurationTextFieldHeight = 50.0;
+  static const kTaskDurationTextFieldWidth = 200.0;
+  static const kTaskDifficultyDropDownMaxHeight = 150.0;
+  static const kTaskDifficultyDropDownMaxWidth = 260.0;
+  static const kTaskDurationDropDownMaxHeight = 300.0;
+  static const kTaskDurationDropDownMaxWidth = 160.0;
+  static const kTaskCalculateButtonHeight = 50.0;
+  static const kTaskCalculateButtonWidth = 300.0;
+  static const kTaskCreateButtonHeight = 50.0;
+  static const kTaskCreateteButtonWidth = 300.0;
 }
