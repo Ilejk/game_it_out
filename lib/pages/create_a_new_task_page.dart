@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/constants/base_values.dart';
 import 'package:login_logout_simple_ui/constants/color_constants.dart';
 import 'package:login_logout_simple_ui/constants/list_constants.dart';
+import 'package:login_logout_simple_ui/providers/task.dart';
+import 'package:login_logout_simple_ui/providers/task_provider.dart';
+import 'package:provider/provider.dart';
 import '../constants/icons_constants.dart';
 import '../constants/padding_constants.dart';
 import '../constants/sizes_constants.dart';
@@ -11,7 +14,9 @@ import '../constants/textstyle_constants.dart';
 import '../widgets/shadow_box_container.dart';
 
 class CreateANewTaskPage extends StatefulWidget {
-  const CreateANewTaskPage({super.key});
+  final controller = TextEditingController();
+
+  CreateANewTaskPage({super.key});
 
   @override
   State<CreateANewTaskPage> createState() => _CreateANewTaskPageState();
@@ -19,42 +24,62 @@ class CreateANewTaskPage extends StatefulWidget {
 
 class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
   // ignore: avoid_init_to_null
-  var _dropDownMenuValue = null;
+  var dropDownDifficultyValue = null;
+  var _addedTask = Task(
+    title: '',
+    difficulty: '',
+    duration: 0.0,
+    exp: 0.0,
+  );
+  // ignore: prefer_typing_uninitialized_variables
+  void _saveTask() {
+    setState(() {
+      _addedTask = Task(
+        title: widget.controller.text,
+        difficulty: dropDownDifficultyValue,
+        duration: double.parse(dropDownDurationValue),
+        exp: expGainedValue,
+      );
+    });
+    Provider.of<TaskProvider>(context, listen: false).addTask(_addedTask);
+    Navigator.of(context).pop();
+  }
+
   void dropDownCallBack(Object? selectedValue) {
     if (selectedValue is String) {
       setState(() {
-        _dropDownMenuValue = selectedValue;
+        dropDownDifficultyValue = selectedValue;
       });
     }
   }
 
   // ignore: avoid_init_to_null
-  var _dropDownMenuDurationValue = null;
+  var dropDownDurationValue = null;
   void dropDownCallBackDuration(Object? selectedDurationValue) {
     if (selectedDurationValue is String) {
       setState(() {
-        _dropDownMenuDurationValue = selectedDurationValue;
+        dropDownDurationValue = selectedDurationValue;
       });
     }
   }
 
-  double expGained = BaseValues.kBaseExpValue;
+  double expGainedValue = BaseValues.kBaseExpValue;
   void getExpGained() {
-    if (_dropDownMenuValue == 'Easy') {
+    if (dropDownDifficultyValue == 'Easy') {
       setState(() {
-        expGained = double.parse(_dropDownMenuDurationValue) *
+        expGainedValue = double.parse(dropDownDurationValue) *
             BaseValues.kEasyDifficultyValue *
             BaseValues.kBaseExpValueGiven;
       });
-    } else if (_dropDownMenuValue == 'Medium') {
+    } else if (dropDownDifficultyValue == 'Medium') {
       setState(() {
-        expGained = double.parse(_dropDownMenuDurationValue) *
+        expGainedValue = double.parse(dropDownDurationValue) *
             BaseValues.kMediumDifficultyValue *
             BaseValues.kBaseExpValueGiven;
       });
-    } else if (_dropDownMenuValue == 'Hard') {
+    } else if (dropDownDifficultyValue == 'Hard') {
       setState(() {
-        expGained = double.parse(_dropDownMenuDurationValue) *
+        expGainedValue = double.parse(dropDownDurationValue) *
             BaseValues.kHardDifficultyValue *
             BaseValues.kBaseExpValueGiven;
       });
@@ -119,13 +144,14 @@ class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
               ),
             ),
             SizesConstants.kSizedBox45height,
-            const ShadowBoxContainer(
+            ShadowBoxContainer(
               height: SizesConstants.kTaskNameTextFieldHeight,
               width: SizesConstants.kTaskNameTextFieldWidth,
               child: Padding(
                 padding: PaddingConstants.kLeftPadding25,
                 child: TextField(
-                  decoration: InputDecoration(
+                  controller: widget.controller,
+                  decoration: const InputDecoration(
                     border: InputBorder.none,
                     hintText: StringConstants.kTaskNameHintText,
                   ),
@@ -150,7 +176,7 @@ class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
                     ),
                     iconSize: 0.0,
                     onChanged: dropDownCallBack,
-                    value: _dropDownMenuValue,
+                    value: dropDownDifficultyValue,
                     hint: const Text(StringConstants.kDifficultyHintText),
                     items: ListConstants.kDifficultyList,
                   ),
@@ -178,7 +204,7 @@ class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
                         ),
                         iconSize: 0.0,
                         onChanged: dropDownCallBackDuration,
-                        value: _dropDownMenuDurationValue,
+                        value: dropDownDurationValue,
                         hint: const Text(StringConstants.kDurationHintText),
                         items: ListConstants.kDurationsList,
                       ),
@@ -194,7 +220,7 @@ class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
                     ),
                     SizesConstants.kSizedBox10height,
                     Text(
-                      expGained.toStringAsFixed(2),
+                      expGainedValue.toStringAsFixed(2),
                       style: TextStyleConstants.kTaskSubTitleTextStyle,
                     ),
                   ],
@@ -204,11 +230,7 @@ class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
             const Expanded(child: SizedBox()),
             SizesConstants.kSizedBox45height,
             GestureDetector(
-              onTap: () {
-                setState(() {
-                  getExpGained();
-                });
-              },
+              onTap: getExpGained,
               child: ShadowBoxContainer(
                 height: SizesConstants.kTaskCalculateButtonHeight,
                 width: SizesConstants.kTaskCalculateButtonWidth,
@@ -222,7 +244,9 @@ class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
             ),
             SizesConstants.kSizedBox45height,
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                _saveTask();
+              },
               child: ShadowBoxContainer(
                 height: SizesConstants.kTaskCreateButtonHeight,
                 width: SizesConstants.kTaskCreateteButtonWidth,

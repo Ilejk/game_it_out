@@ -9,9 +9,9 @@ import '../constants/textstyle_constants.dart';
 class TaskWidget extends StatelessWidget {
   final String taskName;
   final String difficulty;
-  final int taskLenght;
+  final double taskLenght;
   final Function()? onTap;
-  final int expGained;
+  final double expGained;
 
   const TaskWidget({
     super.key,
@@ -36,21 +36,18 @@ class TaskWidget extends StatelessWidget {
               children: [
                 Text(
                   taskName,
-                  //TODO: make it changeable so it changes when with accordance what the user chooses
                   textAlign: TextAlign.left,
                   style: TextStyleConstants.kTaskTitleTextStyle,
                 ),
                 SizesConstants.kSizedBox15height,
                 Text(
                   difficulty,
-                  //TODO: make it changeable so it changes when with accordance what the user chooses
                   textAlign: TextAlign.left,
                   style: TextStyleConstants.kTaskSubTitleTextStyle,
                 ),
                 SizesConstants.kSizedBox15height,
                 Text(
                   '${StringConstants.kDuration}  $taskLenght ${StringConstants.kHours}',
-                  //TODO: make it changeable so it changes when with accordance what the user chooses
                   textAlign: TextAlign.left,
                   style: TextStyleConstants.kTaskSubTitleTextStyle,
                 ),
@@ -62,8 +59,7 @@ class TaskWidget extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  '$expGained  ${StringConstants.kExp}',
-                  //TODO: make it changeable so it changes when with accordance what the user chooses
+                  '$expGained  \n${StringConstants.kExp}',
                   style: TextStyleConstants.kTaskSubTitleTextStyle,
                 ),
                 SizesConstants.kSizedBox15height,

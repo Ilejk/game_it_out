@@ -4,7 +4,9 @@ import 'package:login_logout_simple_ui/constants/padding_constants.dart';
 import 'package:login_logout_simple_ui/constants/sizes_constants.dart';
 import 'package:login_logout_simple_ui/constants/string_constants.dart';
 import 'package:login_logout_simple_ui/pages/create_a_new_task_page.dart';
+import 'package:login_logout_simple_ui/providers/task_provider.dart';
 import 'package:login_logout_simple_ui/widgets/shadow_box_container.dart';
+import 'package:provider/provider.dart';
 import '../constants/textstyle_constants.dart';
 import '../widgets/task_widget.dart';
 
@@ -16,12 +18,6 @@ class TaskPage extends StatefulWidget {
 }
 
 class _TaskPageState extends State<TaskPage> {
-  List taskList = [
-    ['Exercise', 'Medium', 2, 12],
-    ['Code', 'Hard', 4, 55],
-    ['Write', 'Easy', 3, 30],
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -52,7 +48,7 @@ class _TaskPageState extends State<TaskPage> {
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (BuildContext cotext) =>
-                              const CreateANewTaskPage(),
+                              CreateANewTaskPage(),
                         ),
                       );
                     },
@@ -63,28 +59,28 @@ class _TaskPageState extends State<TaskPage> {
             ],
           ),
         ),
-        Expanded(
-          child: ListView.builder(
-            itemBuilder: (context, index) {
-              return TaskWidget(
-                taskName: taskList[index][0],
-                difficulty: taskList[index][1],
-                taskLenght: taskList[index][2],
-                onTap: () {
-                  //TODO: add exp value to progrss bar
-                },
-                expGained: taskList[index][3],
-              );
-            },
-            itemCount: taskList.length,
+        Consumer<TaskProvider>(
+          builder: (context, taskData, _) => Expanded(
+            child: ListView.builder(
+              itemBuilder: (context, index) {
+                return TaskWidget(
+                  taskName: taskData.items[index].title,
+                  difficulty: taskData.items[index].difficulty,
+                  taskLenght: taskData.items[index].duration,
+                  expGained: taskData.items[index].exp,
+                  onTap: () {
+                    //TODO: add exp value to progrss bar
+                  },
+                );
+              },
+              itemCount: taskData.items.length,
+            ),
           ),
         ),
 
-        //TODO: SCROLLABLE LIST OF TASKS
         //TODO: LIKE 10 TASKS HARDCODED
         //TODO: A TASK SHOULD HAVE AN OPTION TO BE DELETED ON SLIDE TO THE LEFT
         //TODO: OR MARKED AS DONE AND THAT SHOULD ADD APPRIOPRIATE VALUE TO THE PROGRESS BAR
-        //TODO: AT THE TOP THERE SHOULD BE A PLUS ICON ALLOWING TO ADD A NEW TASK => CREATE A NEW TAST PAGE
       ],
     );
   }
