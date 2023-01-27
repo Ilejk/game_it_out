@@ -20,4 +20,9 @@ class IconsConstants {
     size: SizesConstants.kBottomNavigatiorBarIconSize,
     color: ColorConstatns.kDarkGrey,
   );
+  static final kDoneTaskIcon = Icon(
+    Icons.done,
+    size: SizesConstants.kTopNavigationBarIconSize,
+    color: ColorConstatns.kDarkGrey,
+  );
 }

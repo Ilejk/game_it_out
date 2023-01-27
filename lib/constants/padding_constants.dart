@@ -12,4 +12,6 @@ class PaddingConstants {
       EdgeInsets.only(top: 25, bottom: 25, right: 25, left: 25);
   static const kCharacterImagePadding =
       EdgeInsets.only(top: 25, right: 25, left: 25);
+  static const kTaskPadding =
+      EdgeInsets.only(top: 10, left: 20, right: 10, bottom: 10);
 }

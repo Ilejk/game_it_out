@@ -5,6 +5,7 @@ import 'package:login_logout_simple_ui/constants/sizes_constants.dart';
 import 'package:login_logout_simple_ui/constants/string_constants.dart';
 import 'package:login_logout_simple_ui/widgets/shadow_box_container.dart';
 import '../constants/textstyle_constants.dart';
+import '../widgets/task_widget.dart';
 
 class TaskPage extends StatelessWidget {
   const TaskPage({super.key});
@@ -45,6 +46,17 @@ class TaskPage extends StatelessWidget {
             ],
           ),
         ),
+        Expanded(
+          child: SingleChildScrollView(
+            child: Column(
+              children: const [
+                TaskWidget(),
+                TaskWidget(),
+              ],
+            ),
+          ),
+        ),
+
         //TODO: SCROLLABLE LIST OF TASKS
         //TODO: LIKE 10 TASKS HARDCODED
         //TODO: A TASK SHOULD HAVE AN OPTION TO BE DELETED ON SLIDE TO THE LEFT

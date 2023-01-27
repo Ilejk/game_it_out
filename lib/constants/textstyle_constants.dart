@@ -37,4 +37,15 @@ class TextStyleConstants {
     fontWeight: FontWeight.bold,
     letterSpacing: 1,
   );
+  static final kTaskTitleTextStyle = TextStyle(
+    fontSize: 25,
+    fontWeight: FontWeight.bold,
+    letterSpacing: 2,
+    color: ColorConstatns.kDarkGrey,
+  );
+  static final kTaskSubTitleTextStyle = TextStyle(
+    fontSize: 15,
+    letterSpacing: 2,
+    color: ColorConstatns.kDarkGrey,
+  );
 }

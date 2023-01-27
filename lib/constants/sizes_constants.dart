@@ -40,4 +40,6 @@ class SizesConstants {
   static const kChooseYourCharacterBoxWidth = 200.0;
   static const kProcedeButtonHeight = 70.0;
   static const kProcedeButtonWidth = 300.0;
+  static const kTaskDoneIconBoxHeight = 55.0;
+  static const kTaskDoneIconBoxWidth = 55.0;
 }

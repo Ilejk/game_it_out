@@ -24,4 +24,8 @@ class StringConstants {
   static const kChooseYourCharacter = 'Choose Your Character!';
   static const kProcede = 'P R O C E D E';
   static const kPlayTitle = 'P L A Y';
+  static const kDuration = 'Duration:';
+  static const kHours = 'hours';
+  static const kMinutes = 'minutes';
+  static const kExp = 'EXP';
 }
