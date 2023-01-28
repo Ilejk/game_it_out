@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:login_logout_simple_ui/constants/color_constants.dart';
 import 'package:login_logout_simple_ui/constants/icons_constants.dart';
 import 'package:login_logout_simple_ui/constants/padding_constants.dart';
@@ -229,6 +230,9 @@ class MyProfilePage extends StatelessWidget {
           ],
         )
       ],
-    );
+    ).animate().fadeIn(
+          duration: 600.ms,
+          curve: Curves.easeIn,
+        );
   }
 }

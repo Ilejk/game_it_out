@@ -1,5 +1,6 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:login_logout_simple_ui/constants/base_values.dart';
 import 'package:login_logout_simple_ui/constants/color_constants.dart';
 import 'package:login_logout_simple_ui/constants/list_constants.dart';

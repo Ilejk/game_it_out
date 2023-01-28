@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:login_logout_simple_ui/constants/color_constants.dart';
 import 'package:login_logout_simple_ui/constants/icons_constants.dart';
 import 'package:login_logout_simple_ui/constants/padding_constants.dart';
 import 'package:login_logout_simple_ui/constants/sizes_constants.dart';
@@ -18,6 +20,8 @@ class TaskPage extends StatefulWidget {
 }
 
 class _TaskPageState extends State<TaskPage> {
+  bool _toggleAnimation = false;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -74,6 +78,7 @@ class _TaskPageState extends State<TaskPage> {
                     });
                   },
                   taskFinished: (p0) {
+                    setState(() {});
                     //TODO: task finished function
                     //TODO: add exp value to progrss bar
                   },
@@ -84,6 +89,9 @@ class _TaskPageState extends State<TaskPage> {
           ),
         ),
       ],
-    );
+    ).animate().fadeIn(
+          duration: 600.ms,
+          curve: Curves.easeIn,
+        );
   }
 }

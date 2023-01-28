@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:login_logout_simple_ui/constants/color_constants.dart';
 import '../constants/icons_constants.dart';

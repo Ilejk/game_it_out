@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:login_logout_simple_ui/constants/color_constants.dart';
 import '../constants/icons_constants.dart';
 import '../constants/padding_constants.dart';
@@ -71,7 +72,7 @@ class HelpPage extends StatelessWidget {
                     StringConstants.kHowToPlay,
                     textAlign: TextAlign.center,
                     style: TextStyleConstants.kHowToPlayTextStyle,
-                  ),
+                  ).animate().fadeIn(duration: 600.ms, curve: Curves.easeIn),
                 ),
                 SizesConstants.kSizedBox15height,
                 Padding(
@@ -79,7 +80,8 @@ class HelpPage extends StatelessWidget {
                   child: Text(
                     StringConstants.kRules,
                     style: TextStyleConstants.kRulesTextStyle,
-                  ),
+                  ).animate().fadeIn(
+                      duration: 600.ms, curve: Curves.easeIn, delay: 600.ms),
                 ),
                 SizesConstants.kSizedBox15height,
                 Padding(
@@ -88,7 +90,8 @@ class HelpPage extends StatelessWidget {
                     StringConstants.kPleaseRead,
                     textAlign: TextAlign.center,
                     style: TextStyleConstants.kHowToPlayTextStyle,
-                  ),
+                  ).animate().fadeIn(
+                      duration: 600.ms, curve: Curves.easeIn, delay: 1200.ms),
                 ),
                 SizesConstants.kSizedBox15height,
                 Padding(
@@ -96,7 +99,8 @@ class HelpPage extends StatelessWidget {
                   child: Text(
                     StringConstants.kPleaseReadRules,
                     style: TextStyleConstants.kRulesTextStyle,
-                  ),
+                  ).animate().fadeIn(
+                      duration: 600.ms, curve: Curves.easeIn, delay: 1800.ms),
                 ),
               ],
             )

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:login_logout_simple_ui/pages/help_page.dart';
 import '../constants/icons_constants.dart';
 import '../constants/padding_constants.dart';
@@ -61,6 +62,9 @@ class MainHomeGamePage extends StatelessWidget {
           // TODO: VALUE SHOULD CHANGE DEPENDS ON THE LVL GOING UP
         ],
       ),
-    );
+    ).animate().fadeIn(
+          duration: 600.ms,
+          curve: Curves.easeIn,
+        );
   }
 }
