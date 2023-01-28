@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_logout_simple_ui/pages/help_page.dart';
 import '../constants/icons_constants.dart';
 import '../constants/padding_constants.dart';
 import '../constants/sizes_constants.dart';
@@ -40,7 +41,11 @@ class MainHomeGamePage extends StatelessWidget {
                     width: SizesConstants.kBottomNavigatiorWidth,
                     child: IconButton(
                       onPressed: () {
-                        //TODO: go to help page
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (BuildContext cotext) => const HelpPage(),
+                          ),
+                        );
                       },
                       icon: IconsConstants.kHelpIcon,
                     ),

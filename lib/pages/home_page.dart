@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/constants/color_constants.dart';
 import 'package:login_logout_simple_ui/pages/main_home_game_page.dart';
 import 'package:login_logout_simple_ui/pages/profile_page.dart';
-import 'package:login_logout_simple_ui/pages/settings_page.dart';
 import 'package:login_logout_simple_ui/pages/task_page.dart';
 import '../widgets/bottom_navigation_bar.dart';
 
@@ -42,7 +41,6 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   const MainHomeGamePage(),
                   const TaskPage(),
-                  const SettingsPage(),
                   MyProfilePage(),
                 ],
               ),

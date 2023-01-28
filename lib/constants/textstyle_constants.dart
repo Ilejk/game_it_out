@@ -48,4 +48,9 @@ class TextStyleConstants {
     letterSpacing: 2,
     color: ColorConstatns.kDarkGrey,
   );
+  static final kSettingsTextStyle = TextStyle(
+    fontSize: 20,
+    letterSpacing: 2,
+    color: ColorConstatns.kDarkGrey,
+  );
 }

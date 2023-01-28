@@ -34,4 +34,8 @@ class StringConstants {
   static const kTaskNameHintText = 'Enter a Task';
   static const kCalculateButtonText = 'C A L C U L A T E';
   static const kCreateButtonText = 'C R E A T E';
+  static const kHelpPageTitle = 'H E L P';
+  static const kLogOut = 'L O G   O U T';
+  static const kChangeTheme = 'C H A N G E   T H E M E';
+  static const kMyProfile = 'M Y   P R O F I L E';
 }

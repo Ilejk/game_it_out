@@ -29,11 +29,6 @@ class AppBottomNavigationBar extends StatelessWidget {
         BottomNavigationBarButton(
           pageController: _pageController,
           pageIndex: 2,
-          icon: IconsConstants.kSettingsIcon,
-        ),
-        BottomNavigationBarButton(
-          pageController: _pageController,
-          pageIndex: 3,
           icon: IconsConstants.kProfileIcon,
         ),
       ],
