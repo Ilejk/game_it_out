@@ -11,4 +11,7 @@ class ColorConstatns {
   static Color kShadownGrey500 = Colors.grey.shade500;
   static Color kDarkPurple = Colors.purple.shade900;
   static Color kDarkGrey = Colors.grey.shade900;
+  static Color kMediumGrey = Colors.grey.shade700;
+  static Color kGreen = Colors.green.shade500;
+  static Color kRed = Colors.red.shade500;
 }

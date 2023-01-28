@@ -44,7 +44,7 @@ class SettingsPage extends StatelessWidget {
           ),
         ),
         const Expanded(child: SizedBox())
-        //TODO: TOP BAR SAYING SETTINGS
+
         //TODO: OPTION TO LOG OUT
         //TODO: LIST OF SETTINGS
       ],

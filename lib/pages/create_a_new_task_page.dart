@@ -31,7 +31,7 @@ class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
     duration: 0.0,
     exp: 0.0,
   );
-  // ignore: prefer_typing_uninitialized_variables
+
   void _saveTask() {
     setState(() {
       _addedTask = Task(

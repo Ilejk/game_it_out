@@ -62,7 +62,7 @@ class ChooseYourCharacterPage extends StatelessWidget {
                           //TODO : go somewhere
                         },
                         icon: Icon(
-                          IconsConstants.kGoForwardIcon,
+                          IconsConstants.kChooseYourChracterIcon,
                           size: SizesConstants.kTopNavigationBarIconSize,
                           color: ColorConstatns.kDarkGrey,
                         ),

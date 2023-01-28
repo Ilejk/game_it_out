@@ -40,7 +40,7 @@ class MainHomeGamePage extends StatelessWidget {
                     width: SizesConstants.kBottomNavigatiorWidth,
                     child: IconButton(
                       onPressed: () {
-                        //TODO:  GO TO CREATE A NEW TASK PAGE
+                        //TODO: go to help page
                       },
                       icon: IconsConstants.kHelpIcon,
                     ),

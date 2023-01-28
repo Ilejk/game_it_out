@@ -4,7 +4,7 @@ import 'package:login_logout_simple_ui/constants/sizes_constants.dart';
 
 class IconsConstants {
   static final kAddIcon = Icon(
-    Icons.add_box_outlined,
+    Icons.add,
     size: SizesConstants.kBottomNavigatiorBarIconSize,
     color: ColorConstatns.kDarkGrey,
   );
@@ -25,4 +25,8 @@ class IconsConstants {
     size: SizesConstants.kTopNavigationBarIconSize,
     color: ColorConstatns.kDarkGrey,
   );
+  static const kDelete = Icons.delete;
+  static const kChooseYourChracterIcon =
+      Icons.photo_size_select_actual_outlined;
+  static const kTaskFinished = Icons.done_all;
 }

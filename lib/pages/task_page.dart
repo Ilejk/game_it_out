@@ -68,7 +68,13 @@ class _TaskPageState extends State<TaskPage> {
                   difficulty: taskData.items[index].difficulty,
                   taskLenght: taskData.items[index].duration,
                   expGained: taskData.items[index].exp,
-                  onTap: () {
+                  deleteTask: (ctx) {
+                    setState(() {
+                      taskData.deleteTask(taskData.items[index].title);
+                    });
+                  },
+                  taskFinished: (p0) {
+                    //TODO: task finished function
                     //TODO: add exp value to progrss bar
                   },
                 );
@@ -77,10 +83,6 @@ class _TaskPageState extends State<TaskPage> {
             ),
           ),
         ),
-
-        //TODO: LIKE 10 TASKS HARDCODED
-        //TODO: A TASK SHOULD HAVE AN OPTION TO BE DELETED ON SLIDE TO THE LEFT
-        //TODO: OR MARKED AS DONE AND THAT SHOULD ADD APPRIOPRIATE VALUE TO THE PROGRESS BAR
       ],
     );
   }
