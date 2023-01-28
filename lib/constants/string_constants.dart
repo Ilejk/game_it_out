@@ -38,4 +38,10 @@ class StringConstants {
   static const kLogOut = 'L O G   O U T';
   static const kChangeTheme = 'C H A N G E   T H E M E';
   static const kMyProfile = 'M Y   P R O F I L E';
+  static const kRules =
+      '1. Choose Your Chracter \n2. Go to Tasks Page \n3. Create your tasks \n4. To delete a task - swipe left and click delete \n5. To mark task as finished - swipe right and click finished \n6. According amount of exp will be added to your lvl progress bar \n7. Lvl up, have fun and progress in your life !';
+  static const kHowToPlay = 'How To Play ?';
+  static const kPleaseRead = 'Please read before you play';
+  static const kPleaseReadRules =
+      '1. Remeber the goal of the game is to help you progress in your life \n2. The only person that will ever see that you are cheating is you \n3. The lvl that you reach is a metaphor to your life progression and this is the only way it should be viewed and understood \n4. The lvl you reach is a reward for you not for everybody else :)';
 }

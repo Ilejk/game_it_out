@@ -53,4 +53,16 @@ class TextStyleConstants {
     letterSpacing: 2,
     color: ColorConstatns.kDarkGrey,
   );
+  static final kHowToPlayTextStyle = TextStyle(
+    fontSize: 22,
+    letterSpacing: 3,
+    color: ColorConstatns.kDarkGrey,
+    fontWeight: FontWeight.bold,
+  );
+  static final kRulesTextStyle = TextStyle(
+    fontSize: 18,
+    letterSpacing: 3,
+    height: 1.4,
+    color: ColorConstatns.kDarkGrey,
+  );
 }
