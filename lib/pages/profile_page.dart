@@ -8,6 +8,7 @@ import 'package:login_logout_simple_ui/widgets/shadow_box_container.dart';
 import '../constants/sizes_constants.dart';
 import '../constants/string_constants.dart';
 import '../constants/textstyle_constants.dart';
+import '../widgets/divider_widget.dart';
 import 'help_page.dart';
 
 class MyProfilePage extends StatelessWidget {
@@ -61,7 +62,7 @@ class MyProfilePage extends StatelessWidget {
               padding: PaddingConstants.kBasePadding10,
               child: Center(
                 child: Text(
-                  'Logged in as: ${user.email.toString()}',
+                  '${StringConstants.kSignedInAS} ${user.email.toString()}',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 17,
@@ -71,7 +72,7 @@ class MyProfilePage extends StatelessWidget {
                 ),
               ),
             ),
-            SizesConstants.kSizedBox45height,
+            const DividerWidget(),
             Padding(
               padding: PaddingConstants.kBasePadding10,
               child: ShadowBoxContainer(
@@ -94,7 +95,7 @@ class MyProfilePage extends StatelessWidget {
                 ),
               ),
             ),
-            SizesConstants.kSizedBox35height,
+            const DividerWidget(),
             Padding(
               padding: PaddingConstants.kBasePadding10,
               child: GestureDetector(
@@ -127,7 +128,7 @@ class MyProfilePage extends StatelessWidget {
                 ),
               ),
             ),
-            SizesConstants.kSizedBox35height,
+            const DividerWidget(),
             Padding(
               padding: PaddingConstants.kBasePadding10,
               child: GestureDetector(
@@ -160,7 +161,7 @@ class MyProfilePage extends StatelessWidget {
                 ),
               ),
             ),
-            SizesConstants.kSizedBox35height,
+            const DividerWidget(),
             Padding(
               padding: PaddingConstants.kBasePadding10,
               child: GestureDetector(
@@ -193,7 +194,7 @@ class MyProfilePage extends StatelessWidget {
                 ),
               ),
             ),
-            SizesConstants.kSizedBox35height,
+            const DividerWidget(),
             Padding(
               padding: PaddingConstants.kBasePadding10,
               child: GestureDetector(
@@ -224,6 +225,7 @@ class MyProfilePage extends StatelessWidget {
                 ),
               ),
             ),
+            const DividerWidget(),
           ],
         )
       ],
