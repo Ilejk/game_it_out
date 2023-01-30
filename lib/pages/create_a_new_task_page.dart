@@ -1,6 +1,7 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:hive/hive.dart';
 import 'package:login_logout_simple_ui/constants/base_values.dart';
 import 'package:login_logout_simple_ui/constants/color_constants.dart';
 import 'package:login_logout_simple_ui/constants/list_constants.dart';
@@ -25,6 +26,7 @@ class CreateANewTaskPage extends StatefulWidget {
 
 class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
   // ignore: avoid_init_to_null
+  final _storageBox = Hive.box('tBox');
   var dropDownDifficultyValue = null;
   var _addedTask = Task(
     title: '',
@@ -42,6 +44,7 @@ class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
         exp: expGainedValue,
       );
     });
+
     Provider.of<TaskProvider>(context, listen: false).addTask(_addedTask);
     Navigator.of(context).pop();
   }
@@ -247,6 +250,8 @@ class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
             GestureDetector(
               onTap: () {
                 _saveTask();
+                Provider.of<TaskProvider>(context, listen: false)
+                    .updateDataBase();
               },
               child: ShadowBoxContainer(
                 height: SizesConstants.kTaskCreateButtonHeight,

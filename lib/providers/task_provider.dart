@@ -3,7 +3,7 @@ import 'package:hive/hive.dart';
 import 'package:login_logout_simple_ui/providers/task.dart';
 
 class TaskProvider with ChangeNotifier {
-  final _storageBox = Hive.box('storageBox');
+  final _storageBox = Hive.box('tBox');
   List<Task> _items = [];
 
   void createInitialDataBase() {
@@ -60,11 +60,19 @@ class TaskProvider with ChangeNotifier {
   }
 
   void loadDataBase() {
-    _items = _storageBox.get('ITEMS');
+    var tasks = _storageBox.get('TASKS');
+    if (tasks != null) {
+      _items = (tasks as List<dynamic>)
+          .map((task) => Task.fromJson(
+              (task as Map<dynamic, dynamic>).cast<String, dynamic>()))
+          .toList();
+    } else {
+      _items = [];
+    }
   }
 
   void updateDataBase() {
-    _storageBox.put('ITEMS', _items);
+    _storageBox.put('TASKS', _items.map((task) => task.toJson()).toList());
   }
 
   List<Task> get items {
@@ -80,6 +88,7 @@ class TaskProvider with ChangeNotifier {
     );
     _items.add(newTask);
     updateDataBase();
+    loadDataBase();
     notifyListeners();
   }
 
@@ -89,25 +98,40 @@ class TaskProvider with ChangeNotifier {
     Task? existingTask = _items[existingTaskIndex];
     _items.removeAt(existingTaskIndex);
     updateDataBase();
+    loadDataBase();
     notifyListeners();
     existingTask = null;
   }
-  //TODO: create an adapter for hive so that it fucking works !
-  //TODO: create an adapter for hive so that it fucking works !
-  //TODO: create an adapter for hive so that it fucking works !
-  //TODO: create an adapter for hive so that it fucking works !
-  //TODO: create an adapter for hive so that it fucking works !//TODO: create an adapter for hive so that it fucking works !
-
-  //TODO: create an adapter for hive so that it fucking works !
-  //TODO: create an adapter for hive so that it fucking works !
 }
 
+class TaskAdapter extends TypeAdapter<Task> {
+  @override
+  final typeId = 0;
 
-// class TaskAdapter extends TypeAdapter<Task> {
-// Task read(BinaryReader reader) {
+  @override
+  Task read(BinaryReader reader) {
+    var numOfFields = reader.readByte();
+    var fields = <int, dynamic>{
+      for (var i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return Task(
+      title: fields[0] as String,
+      difficulty: fields[1] as String,
+      duration: fields[2] as double,
+      exp: fields[3] as double,
+    );
+  }
 
-// }
-// }
-
-
-
+  @override
+  void write(BinaryWriter writer, Task obj) {
+    writer.writeByte(4);
+    writer.writeByte(0);
+    writer.write(obj.title);
+    writer.writeByte(1);
+    writer.write(obj.difficulty);
+    writer.writeByte(2);
+    writer.write(obj.duration);
+    writer.writeByte(3);
+    writer.write(obj.exp);
+  }
+}

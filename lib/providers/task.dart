@@ -12,4 +12,20 @@ class Task with ChangeNotifier {
     required this.duration,
     required this.exp,
   });
+  factory Task.fromJson(Map<String, dynamic> json) {
+    return Task(
+      title: json['title'] as String,
+      difficulty: json['difficulty'] as String,
+      duration: json['duration'] as double,
+      exp: json['exp'] as double,
+    );
+  }
+  Map<String, dynamic> toJson() {
+    return {
+      'title': title,
+      'difficulty': difficulty,
+      'duration': duration,
+      'exp': exp,
+    };
+  }
 }

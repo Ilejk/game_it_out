@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:login_logout_simple_ui/pages/auth_page.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:login_logout_simple_ui/providers/task.dart';
 import 'package:login_logout_simple_ui/providers/task_provider.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 
 void main() async {
   await Hive.initFlutter();
-  var box = await Hive.openBox('storageBox');
+  Hive.registerAdapter<Task>(TaskAdapter());
+  var box = await Hive.openBox('tBox');
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());

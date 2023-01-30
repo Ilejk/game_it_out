@@ -16,12 +16,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final _storageBox = Hive.box('storageBox');
+  final _storageBox = Hive.box('tBox');
   final PageController _pageController =
       PageController(initialPage: 0, keepPage: true);
   @override
   void didChangeDependencies() {
-    if (_storageBox.get('ITEMS') == null) {
+    if (_storageBox.get('TASKS') == null) {
       Provider.of<TaskProvider>(context).createInitialDataBase();
     } else {
       Provider.of<TaskProvider>(context).loadDataBase();

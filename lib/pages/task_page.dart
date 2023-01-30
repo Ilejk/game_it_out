@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:hive/hive.dart';
 import 'package:login_logout_simple_ui/constants/color_constants.dart';
 import 'package:login_logout_simple_ui/constants/icons_constants.dart';
 import 'package:login_logout_simple_ui/constants/padding_constants.dart';
@@ -20,6 +21,7 @@ class TaskPage extends StatefulWidget {
 }
 
 class _TaskPageState extends State<TaskPage> {
+  final _storageBox = Hive.box('tBox');
   bool _toggleAnimation = false;
 
   @override
@@ -74,6 +76,7 @@ class _TaskPageState extends State<TaskPage> {
                   expGained: taskData.items[index].exp,
                   deleteTask: (ctx) {
                     setState(() {
+                      taskData.updateDataBase();
                       taskData.deleteTask(taskData.items[index].title);
                     });
                   },
