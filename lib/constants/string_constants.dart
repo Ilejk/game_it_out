@@ -44,4 +44,20 @@ class StringConstants {
   static const kPleaseRead = 'Please read before you play';
   static const kPleaseReadRules =
       '1. Remeber the goal of the game is to help you progress in your life \n2. The only person that will ever see that you are cheating is you \n3. The lvl that you reach is a metaphor to your life progression and this is the only way it should be viewed and understood \n4. The lvl you reach is a reward for you not for everybody else :)';
+  static const kKijano1 =
+      '⡿⡿⣻⢿⢿⢿⢿⢿⣿⣿⣿⠟⡋⠍⠊⠌⠌⠌⠂⠊⠄⠂⠙⠿⠻⡻⠻⢛⠻⠿⢿⣿⣿⣿⣿⢿⢿⢿⢿⣻\n         ⣗⡽⡮⡷⣽⣺⣽⣿⣾⠟⠈⠄⠄⡀⢁⠂⢘⠈⡈⡠⠁⠄⢀⠘⠄⠄⠈⠄⠄⠄⠈⠈⠳⠻⣯⣿⣽⣞⣵⡳\n         ⣗⢯⢫⢯⣷⡿⣽⠏⡁⠁⠄⠄⠄⢄⠅⠐⡂⠁⠁⠄⠄⠄⠐⡑⠄⠌⡄⠅⠄⡀⠄⠄⠄⠄⠘⢿⣻⣾⣳⢯';
+  static const kKijano2 =
+      '⣿⡴⣤⠅⢓⢹⢜⠁⡀⠄⠄⡡⠈⠂⡀⠄⠄⠄⠄⠄⠄⠄⠐⠘⢀⠄⠄⡀⠄⠠⠁⡀⠄⠄⠄⠄⠙⣿⣿⣟\n         ⠿⢿⠻⢝⣿⡿⢢⢁⢀⢑⠌⠄⡈⠄⠄⠄⠄⢀⣰⣴⣴⣬⣄⣀⠂⠄⠂⠄⢀⠄⠄⠄⠄⠄⠄⠄⠄⢟⣿⣿\n         ⡀⠄⠄⣸⣾⣛⢈⠄⢸⠐⠄⠨⠄⠄⠄⡀⣜⣞⣾⣿⣯⣿⣿⣿⣄⡀⢴⢼⣐⢬⠠⠄⠐⠄⠄⠄⠄⠘⣿⣿';
+  static const kKijano3 =
+      '⠋⣀⣵⣿⣽⡇⢃⢘⠜⠅⠈⠄⠄⢀⢔⣿⣿⣿⣿⣿⡿⣽⢾⢿⣳⢷⢿⡯⣷⣿⡌⠄⠄⠨⠄⠄⠄⠄⣻⣿\n         ⠄⣿⣿⡟⣾⠇⢠⠧⠁⠄⠄⡀⠄⣰⣿⣿⣯⡏⣯⢿⢽⡹⣏⢿⡺⡱⢑⠽⡹⡺⣜⢄⠅⠄⠈⡀⠄⠄⢸⣿\n         ⣾⣻⢳⣝⡯⢡⢹⣇⠄⠐⠄⠄⢠⣺⣿⣿⣿⢾⣿⢽⡵⣽⡺⣝⢎⢎⢶⢕⢌⢭⢣⢑⠄⠄⠄⠈⠄⠄⢸⣿';
+  static const kKijano4 =
+      '⣿⠧⢃⡳⠉⡈⢮⠃⠄⠄⠇⠄⣔⣿⣿⣿⣾⣿⣯⣯⢿⢼⡪⡎⡯⡝⢵⣓⢱⢱⡱⡪⡂⠄⠐⠄⠂⠄⠰⣿\n         ⡿⢡⢪⠄⢰⠨⣿⠁⢈⣸⠄⠄⢿⢿⣻⢿⣽⣿⣿⣿⣿⣻⣮⢮⣯⣾⡵⣪⡪⡱⣹⣪⡂⠄⠄⢈⠄⠄⠄⣿\n         ⣈⡖⡅⠄⢪⢴⢊⠁⢐⢸⠄⠄⡨⡢⡈⠈⠉⠻⢟⣷⡿⣟⢗⣽⡷⣿⢯⣞⣕⣧⣷⡳⠅⠄⠅⢐⠄⠄⠄⣿';
+  static const kKijano5 =
+      '⡣⡟⠜⠸⡁⣷⠁⠄⢅⢸⡀⠄⠄⠈⡀⠥⠄⡀⠄⠄⠈⠐⣷⡳⠙⠕⠩⠘⠁⠃⠁⠄⠄⠄⡂⢆⠄⠄⠄⣸\n         ⣻⠍⠄⢣⣣⠏⠠⠐⠌⣪⠃⡐⢔⢌⡛⡎⡢⠄⢀⢄⢠⣳⣿⡎⠄⠄⢀⠤⠄⡈⠌⠊⠄⢀⠘⠨⠄⠄⠄⢸\n         ⠑⠠⢂⢮⡳⠠⠂⠁⡅⡯⠐⢨⡺⡌⡯⡪⣞⣼⣵⡧⣟⣿⣿⣗⠄⠄⠐⡢⣒⢆⢐⢠⠁⠄⠄⠈⠄⠄⠄⢻';
+  static const kKijano6 =
+      '⢅⢢⠫⡫⠙⠨⠄⣃⢎⡗⢈⠰⠸⡸⡸⣝⣿⣿⡗⡽⣽⣿⣿⣿⠄⢐⣔⢽⣼⣗⣷⢱⠁⠄⠅⠁⠐⠄⠄⢾\n         ⡵⣰⠏⡐⠱⡑⢨⡬⢻⡕⠐⠈⡪⡣⡳⡱⡳⠱⢍⣳⢳⣿⣿⣿⠄⢐⢵⢻⣳⣟⢎⠪⠄⠄⠐⠄⠄⠄⠄⣿\n         ⡷⠁⡀⠄⠨⢂⣸⢉⠆⢑⠌⢠⢣⢏⢜⠜⡀⡤⣿⣿⣿⣿⣿⣟⠠⠄⠨⡗⡧⡳⡑⠄⠄⠄⠄⠄⠄⠄⠄⣿';
+  static const kKijano7 =
+      '⢖⠠⠄⢰⠁⢴⣃⠞⠄⠕⣈⣺⣵⡫⡢⣕⣷⣷⡀⠄⡈⢟⠝⠈⢉⡢⡕⡭⣇⠣⠄⠄⠄⠄⠄⠄⠄⠄⠄⣿\n         ⢻⡐⢔⢠⠪⡌⢌⠆⠐⢐⢨⣾⣷⡙⠌⠊⠕⠁⠄⠊⡀⠄⠠⠄⠡⠁⠓⡝⡜⡈⠄⠄⠄⠄⠄⠄⡮⡀⠄⣿\n         ⠘⢨⢪⠼⠘⠅⠄⠂⠄⡀⢻⣿⣇⠃⠑⠄⠒⠁⢂⠑⡔⠄⠌⡐⠄⠂⠠⢰⡑⠄⠄⠄⠄⠄⠄⢠⣡⢱⣶⣿';
+  static const kKijano8 =
+      '⢢⢂⠫⡪⣊⠄⠣⡂⠂⡀⠨⠹⡐⣜⡾⡯⡯⢷⢶⢶⠶⣖⢦⢢⢪⠢⡂⡇⠅⠄⠄⠈⠄⢰⠡⣷⣿⣿⣿⣿\n         ⢑⠄⠧⣟⡎⢆⡃⡊⠔⢀⠄⠈⣮⢟⡽⣿⣝⡆⠅⠐⡁⠐⠔⣀⢣⢑⠐⠁⡐⠈⡀⢐⠁⠄⠈⠃⢻⣿⣿⣿\n         ⢑⠁⢮⣾⡎⢰⢐⠈⢌⢂⠐⡀⠂⡝⡽⣟⣿⣽⡪⢢⠂⡨⢪⠸⠨⢀⠂⡁⢀⠂⠄⢂⢊⠖⢄⠄⢀⢨⠉⠛\n         ⡰⢺⣾⡗⠄⡜⢔⠡⢊⠢⢅⢀⠑⠨⡪⠩⠣⠃⠜⡈⡐⡈⡊⡈⡐⢄⠣⢀⠂⡂⡁⢂⠄⢱⢨⠝⠄⠄⠄⠄';
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:login_logout_simple_ui/constants/string_constants.dart';
 import 'package:login_logout_simple_ui/providers/task.dart';
 
 class TaskProvider with ChangeNotifier {
@@ -92,6 +93,25 @@ class TaskProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  void printKijano() {
+    // ignore: avoid_print
+    print(StringConstants.kKijano1);
+    // ignore: avoid_print
+    print(StringConstants.kKijano2);
+    // ignore: avoid_print
+    print(StringConstants.kKijano3);
+    // ignore: avoid_print
+    print(StringConstants.kKijano4);
+    // ignore: avoid_print
+    print(StringConstants.kKijano5);
+    // ignore: avoid_print
+    print(StringConstants.kKijano6);
+    // ignore: avoid_print
+    print(StringConstants.kKijano7);
+    // ignore: avoid_print
+    print(StringConstants.kKijano8);
+  }
+
   void deleteTask(String title) {
     final existingTaskIndex = _items.indexWhere((task) => task.title == title);
     // ignore: unused_local_variable
@@ -99,7 +119,9 @@ class TaskProvider with ChangeNotifier {
     _items.removeAt(existingTaskIndex);
     updateDataBase();
     loadDataBase();
+    printKijano();
     notifyListeners();
+
     existingTask = null;
   }
 }
