@@ -1,3 +1,3 @@
-# Game_it_out
+# Game_It_Out
 
 
