@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_logout_simple_ui/src/data/constants/string_constants.dart';
+import 'package:login_logout_simple_ui/src/constants/string_constants.dart';
 
 class ListConstants {
   static const kDurationsList = [

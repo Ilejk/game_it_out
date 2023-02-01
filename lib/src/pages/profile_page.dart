@@ -1,14 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:login_logout_simple_ui/src/data/constants/color_constants.dart';
-import 'package:login_logout_simple_ui/src/data/constants/icons_constants.dart';
-import 'package:login_logout_simple_ui/src/data/constants/padding_constants.dart';
+import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
+import 'package:login_logout_simple_ui/src/constants/icons_constants.dart';
+import 'package:login_logout_simple_ui/src/constants/padding_constants.dart';
 import 'package:login_logout_simple_ui/src/pages/choose_your_character_page.dart';
 import 'package:login_logout_simple_ui/src/widgets/shadow_box_container.dart';
-import '../data/constants/sizes_constants.dart';
-import '../data/constants/string_constants.dart';
-import '../data/constants/textstyle_constants.dart';
+import '../constants/sizes_constants.dart';
+import '../constants/string_constants.dart';
+import '../constants/textstyle_constants.dart';
 import '../widgets/divider_widget.dart';
 import 'help_page.dart';
 

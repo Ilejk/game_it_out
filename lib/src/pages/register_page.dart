@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:login_logout_simple_ui/src/data/constants/color_constants.dart';
-import 'package:login_logout_simple_ui/src/data/constants/images_constants.dart';
-import 'package:login_logout_simple_ui/src/data/constants/padding_constants.dart';
-import 'package:login_logout_simple_ui/src/data/constants/sizes_constants.dart';
-import 'package:login_logout_simple_ui/src/data/constants/string_constants.dart';
-import 'package:login_logout_simple_ui/src/data/constants/textstyle_constants.dart';
+import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
+import 'package:login_logout_simple_ui/src/constants/images_constants.dart';
+import 'package:login_logout_simple_ui/src/constants/padding_constants.dart';
+import 'package:login_logout_simple_ui/src/constants/sizes_constants.dart';
+import 'package:login_logout_simple_ui/src/constants/string_constants.dart';
+import 'package:login_logout_simple_ui/src/constants/textstyle_constants.dart';
 import 'package:login_logout_simple_ui/src/services/auth_service.dart';
 import 'package:login_logout_simple_ui/src/widgets/sign_in_button.dart';
 import 'package:login_logout_simple_ui/src/widgets/input_textfield.dart';

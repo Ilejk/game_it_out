@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-import 'package:login_logout_simple_ui/src/data/constants/color_constants.dart';
+import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
 import 'package:login_logout_simple_ui/src/pages/main_home_game_page.dart';
 import 'package:login_logout_simple_ui/src/pages/profile_page.dart';
 import 'package:login_logout_simple_ui/src/pages/task_page.dart';

@@ -1,17 +1,17 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-import 'package:login_logout_simple_ui/src/data/constants/base_values.dart';
-import 'package:login_logout_simple_ui/src/data/constants/color_constants.dart';
-import 'package:login_logout_simple_ui/src/data/constants/list_constants.dart';
+import 'package:login_logout_simple_ui/src/constants/base_values.dart';
+import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
+import 'package:login_logout_simple_ui/src/constants/list_constants.dart';
 import 'package:login_logout_simple_ui/src/providers/task.dart';
 import 'package:login_logout_simple_ui/src/providers/task_provider.dart';
 import 'package:provider/provider.dart';
-import '../data/constants/icons_constants.dart';
-import '../data/constants/padding_constants.dart';
-import '../data/constants/sizes_constants.dart';
-import '../data/constants/string_constants.dart';
-import '../data/constants/textstyle_constants.dart';
+import '../constants/icons_constants.dart';
+import '../constants/padding_constants.dart';
+import '../constants/sizes_constants.dart';
+import '../constants/string_constants.dart';
+import '../constants/textstyle_constants.dart';
 import '../widgets/shadow_box_container.dart';
 
 class CreateANewTaskPage extends StatefulWidget {

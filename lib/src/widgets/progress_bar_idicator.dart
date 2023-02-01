@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/src/widgets/shadow_box_container.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
-import '../data/constants/color_constants.dart';
-import '../data/constants/padding_constants.dart';
-import '../data/constants/sizes_constants.dart';
+import '../constants/color_constants.dart';
+import '../constants/padding_constants.dart';
+import '../constants/sizes_constants.dart';
 
 class ProgressBarIndicator extends StatelessWidget {
   const ProgressBarIndicator({

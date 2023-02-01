@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-import 'package:login_logout_simple_ui/src/data/constants/string_constants.dart';
+import 'package:login_logout_simple_ui/src/constants/string_constants.dart';
 import 'package:login_logout_simple_ui/src/providers/task.dart';
 
 class TaskProvider with ChangeNotifier {
