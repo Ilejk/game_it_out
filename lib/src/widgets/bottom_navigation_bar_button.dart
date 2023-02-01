@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:login_logout_simple_ui/constants/color_constants.dart';
-import 'package:login_logout_simple_ui/constants/padding_constants.dart';
-import 'package:login_logout_simple_ui/constants/sizes_constants.dart';
-import 'package:login_logout_simple_ui/widgets/shadow_box_container.dart';
+import 'package:login_logout_simple_ui/src/data/constants/color_constants.dart';
+import 'package:login_logout_simple_ui/src/data/constants/padding_constants.dart';
+import 'package:login_logout_simple_ui/src/data/constants/sizes_constants.dart';
+import 'package:login_logout_simple_ui/src/widgets/shadow_box_container.dart';
 
 class BottomNavigationBarButton extends StatelessWidget {
   final IconData icon;

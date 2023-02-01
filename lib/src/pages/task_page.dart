@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:hive/hive.dart';
-import 'package:login_logout_simple_ui/constants/color_constants.dart';
-import 'package:login_logout_simple_ui/constants/icons_constants.dart';
-import 'package:login_logout_simple_ui/constants/padding_constants.dart';
-import 'package:login_logout_simple_ui/constants/sizes_constants.dart';
-import 'package:login_logout_simple_ui/constants/string_constants.dart';
-import 'package:login_logout_simple_ui/pages/create_a_new_task_page.dart';
-import 'package:login_logout_simple_ui/providers/task_provider.dart';
-import 'package:login_logout_simple_ui/widgets/shadow_box_container.dart';
+import 'package:login_logout_simple_ui/src/data/constants/icons_constants.dart';
+import 'package:login_logout_simple_ui/src/data/constants/padding_constants.dart';
+import 'package:login_logout_simple_ui/src/data/constants/sizes_constants.dart';
+import 'package:login_logout_simple_ui/src/data/constants/string_constants.dart';
+import 'package:login_logout_simple_ui/src/pages/create_a_new_task_page.dart';
+import 'package:login_logout_simple_ui/src/providers/task_provider.dart';
+import 'package:login_logout_simple_ui/src/widgets/shadow_box_container.dart';
 import 'package:provider/provider.dart';
-import '../constants/textstyle_constants.dart';
+import '../data/constants/textstyle_constants.dart';
 import '../widgets/task_widget.dart';
 
 class TaskPage extends StatefulWidget {

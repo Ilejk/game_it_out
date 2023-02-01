@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:login_logout_simple_ui/constants/color_constants.dart';
-import 'package:login_logout_simple_ui/constants/padding_constants.dart';
-import 'package:login_logout_simple_ui/constants/sizes_constants.dart';
+import 'package:login_logout_simple_ui/src/data/constants/color_constants.dart';
+import 'package:login_logout_simple_ui/src/data/constants/padding_constants.dart';
+import 'package:login_logout_simple_ui/src/data/constants/sizes_constants.dart';
 
 class InputTextFieldWidget extends StatelessWidget {
   // ignore: prefer_typing_uninitialized_variables

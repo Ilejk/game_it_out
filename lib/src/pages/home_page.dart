@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-import 'package:login_logout_simple_ui/constants/color_constants.dart';
-import 'package:login_logout_simple_ui/pages/main_home_game_page.dart';
-import 'package:login_logout_simple_ui/pages/profile_page.dart';
-import 'package:login_logout_simple_ui/pages/task_page.dart';
-import 'package:login_logout_simple_ui/providers/task_provider.dart';
+import 'package:login_logout_simple_ui/src/data/constants/color_constants.dart';
+import 'package:login_logout_simple_ui/src/pages/main_home_game_page.dart';
+import 'package:login_logout_simple_ui/src/pages/profile_page.dart';
+import 'package:login_logout_simple_ui/src/pages/task_page.dart';
+import 'package:login_logout_simple_ui/src/providers/task_provider.dart';
 import 'package:provider/provider.dart';
 import '../widgets/bottom_navigation_bar.dart';
 

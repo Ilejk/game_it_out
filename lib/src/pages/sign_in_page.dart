@@ -1,32 +1,32 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:login_logout_simple_ui/constants/color_constants.dart';
-import 'package:login_logout_simple_ui/constants/images_constants.dart';
-import 'package:login_logout_simple_ui/constants/padding_constants.dart';
-import 'package:login_logout_simple_ui/constants/sizes_constants.dart';
-import 'package:login_logout_simple_ui/constants/string_constants.dart';
-import 'package:login_logout_simple_ui/constants/textstyle_constants.dart';
-import 'package:login_logout_simple_ui/services/auth_service.dart';
-import 'package:login_logout_simple_ui/widgets/sign_in_button.dart';
-import 'package:login_logout_simple_ui/widgets/input_textfield.dart';
-import 'package:login_logout_simple_ui/widgets/square_title_button_logo.dart';
-import '../widgets/shadow_box_container.dart';
+import 'package:login_logout_simple_ui/src/data/constants/color_constants.dart';
+import 'package:login_logout_simple_ui/src/data/constants/images_constants.dart';
+import 'package:login_logout_simple_ui/src/data/constants/padding_constants.dart';
+import 'package:login_logout_simple_ui/src/data/constants/sizes_constants.dart';
+import 'package:login_logout_simple_ui/src/data/constants/string_constants.dart';
+import 'package:login_logout_simple_ui/src/data/constants/textstyle_constants.dart';
+import 'package:login_logout_simple_ui/src/services/auth_service.dart';
+import 'package:login_logout_simple_ui/src/widgets/shadow_box_container.dart';
+import 'package:login_logout_simple_ui/src/widgets/sign_in_button.dart';
+import 'package:login_logout_simple_ui/src/widgets/input_textfield.dart';
+import 'package:login_logout_simple_ui/src/widgets/square_title_button_logo.dart';
 
-class RegisterPage extends StatefulWidget {
+class SignInPage extends StatefulWidget {
   final Function()? onTap;
 
-  const RegisterPage({super.key, required this.onTap});
+  const SignInPage({super.key, required this.onTap});
 
   @override
-  State<RegisterPage> createState() => _RegisterPageState();
+  State<SignInPage> createState() => _SignInPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
+class _SignInPageState extends State<SignInPage> {
   final emailTextController = TextEditingController();
-  final passwordTextController = TextEditingController();
-  final confirmPasswordTextController = TextEditingController();
 
-  void signUerUp() async {
+  final passwordTextController = TextEditingController();
+
+  void signUerIn() async {
     showDialog(
         context: context,
         builder: (context) {
@@ -38,20 +38,9 @@ class _RegisterPageState extends State<RegisterPage> {
         });
 
     try {
-      if (passwordTextController.text == confirmPasswordTextController.text) {
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: emailTextController.text,
-          password: passwordTextController.text,
-        );
-      } else {
-        showDialog(
-            context: context,
-            builder: (context) {
-              return const AlertDialog(
-                title: Text(StringConstants.kPasswordsDontMatch),
-              );
-            });
-      }
+          password: passwordTextController.text);
       // ignore: use_build_context_synchronously
       Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
@@ -79,8 +68,7 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:
-          ColorConstatns.kLogInOrRegisterBackgroundColorLightGrey300,
+      backgroundColor: ColorConstatns.kBackGroundGrey,
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -96,12 +84,12 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 SizesConstants.kSizedBox20height,
                 const Text(
-                  StringConstants.kWelcomeTitle,
+                  StringConstants.kHelloAgain,
                   style: TextStyleConstants.kSignInRegisterTitleTextStyle,
                 ),
                 SizesConstants.kSizedBox15height,
                 Text(
-                  StringConstants.kLetsCreateAnAccountForYou,
+                  StringConstants.kWelcomeBack,
                   style: TextStyleConstants.kSubTitleTextStyle,
                 ),
                 SizesConstants.kSizedBox20height,
@@ -115,18 +103,13 @@ class _RegisterPageState extends State<RegisterPage> {
                   hintText: StringConstants.kPassword,
                   obscureText: true,
                 ),
-                InputTextFieldWidget(
-                  controller: confirmPasswordTextController,
-                  hintText: StringConstants.kConfirmPassword,
-                  obscureText: true,
-                ),
                 SizesConstants.kSizedBox20height,
                 Padding(
                   padding: PaddingConstants.kLeftRightPadding25,
                   child: GestureDetector(
-                    onTap: signUerUp,
+                    onTap: signUerIn,
                     child: const SignInButton(
-                      title: StringConstants.kSignUp,
+                      title: StringConstants.kSignIn,
                     ),
                   ),
                 ),
@@ -148,7 +131,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     SizesConstants.kSizedBox20width,
                     SquareTileButtonLogo(
                       onTap: () {
-                        //TODO: add register in with apple
+                        //TODO: add log in with apple
                       },
                       imageId: ImagesConstants.kAppleLogo,
                     ),
@@ -159,14 +142,14 @@ class _RegisterPageState extends State<RegisterPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
-                      StringConstants.kAlreadyHaveAnAccount,
+                      StringConstants.kNotAMember,
                       style: TextStyleConstants.kSubTextTextStyleBlack,
                     ),
                     SizesConstants.kSizedBox15width,
                     GestureDetector(
                       onTap: widget.onTap,
                       child: const Text(
-                        StringConstants.kSignInNow,
+                        StringConstants.kRegisterNow,
                         style: TextStyleConstants.kSubTextTextStylePurple,
                       ),
                     ),

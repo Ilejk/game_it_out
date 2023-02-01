@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-import 'package:login_logout_simple_ui/constants/string_constants.dart';
-import 'package:login_logout_simple_ui/providers/task.dart';
+import 'package:login_logout_simple_ui/src/data/constants/string_constants.dart';
+import 'package:login_logout_simple_ui/src/providers/task.dart';
 
 class TaskProvider with ChangeNotifier {
   final _storageBox = Hive.box('tBox');

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_logout_simple_ui/constants/sizes_constants.dart';
+import 'package:login_logout_simple_ui/src/data/constants/sizes_constants.dart';
 
 import 'color_constants.dart';
 

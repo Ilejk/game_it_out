@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:login_logout_simple_ui/constants/icons_constants.dart';
-import 'package:login_logout_simple_ui/widgets/bottom_navigation_bar_button.dart';
+import 'package:login_logout_simple_ui/src/data/constants/icons_constants.dart';
+import 'package:login_logout_simple_ui/src/widgets/bottom_navigation_bar_button.dart';
 
 class AppBottomNavigationBar extends StatelessWidget {
   const AppBottomNavigationBar({
