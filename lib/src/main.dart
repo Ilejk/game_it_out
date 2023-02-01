@@ -10,7 +10,7 @@ import 'firebase_options.dart';
 void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter<Task>(TaskAdapter());
-  var box = await Hive.openBox('tBox');
+  await Hive.openBox('tBox');
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());

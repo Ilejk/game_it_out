@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:login_logout_simple_ui/src/constants/list_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/string_constants.dart';
 import 'package:login_logout_simple_ui/src/providers/task.dart';
 
@@ -90,6 +91,34 @@ class TaskProvider with ChangeNotifier {
     _items.add(newTask);
     updateDataBase();
     loadDataBase();
+    notifyListeners();
+  }
+
+  double currentExpValue = 0.0;
+  double maxValueExpValue = 100.0;
+  changeMaxExpValue() {
+    for (int i = 0; i < ListConstants.kMaxExpValuesList.length; i++) {
+      if (currentExpValue >= ListConstants.kMaxExpValuesList[i]) {
+        if (i + 1 < ListConstants.kMaxExpValuesList.length) {
+          maxValueExpValue = ListConstants.kMaxExpValuesList[i + 1];
+        } else {
+          maxValueExpValue = ListConstants.kMaxExpValuesList[i];
+        }
+      } else {
+        break;
+      }
+    }
+    notifyListeners();
+  }
+  //TODO: change the difference between 2 lvl to % etc bla bla bla
+
+  void addTaskExp(Task task) {
+    currentExpValue += task.exp;
+
+    changeMaxExpValue();
+    print(currentExpValue);
+    print(maxValueExpValue);
+
     notifyListeners();
   }
 

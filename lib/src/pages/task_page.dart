@@ -83,6 +83,7 @@ class _TaskPageState extends State<TaskPage> {
                     setState(() {});
                     //TODO: task finished function
                     //TODO: add exp value to progrss bar
+                    taskData.addTaskExp(taskData.items[index]);
                   },
                 );
               },
