@@ -96,6 +96,8 @@ class TaskProvider with ChangeNotifier {
 
   double currentExpValue = 0.0;
   double maxValueExpValue = 100.0;
+  double previousMaxValueExpValue = 100.0;
+  double leftValue = 0.0;
   changeMaxExpValue() {
     for (int i = 0; i < ListConstants.kMaxExpValuesList.length; i++) {
       if (currentExpValue >= ListConstants.kMaxExpValuesList[i]) {
@@ -108,17 +110,32 @@ class TaskProvider with ChangeNotifier {
         break;
       }
     }
+
+    if (maxValueExpValue != previousMaxValueExpValue) {
+      leftValue = (previousMaxValueExpValue - currentExpValue) * -1;
+      currentExpValue = 0.0 + leftValue;
+      previousMaxValueExpValue = maxValueExpValue;
+    }
     notifyListeners();
   }
-  //TODO: change the difference between 2 lvl to % etc bla bla bla
+
+  double differenceInExpValue = 0.0;
+  void getDifferenceInExpValue() {
+    differenceInExpValue = maxValueExpValue - currentExpValue;
+  }
+
+  double differenctInPercentageExpValue = 0.0;
+  getPercentageInExpValue() {
+    getDifferenceInExpValue();
+    differenctInPercentageExpValue =
+        1.0 - (differenceInExpValue / maxValueExpValue);
+    return differenctInPercentageExpValue;
+  }
 
   void addTaskExp(Task task) {
     currentExpValue += task.exp;
-
     changeMaxExpValue();
-    print(currentExpValue);
-    print(maxValueExpValue);
-
+    getPercentageInExpValue();
     notifyListeners();
   }
 
