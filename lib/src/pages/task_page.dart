@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:hive/hive.dart';
 import 'package:login_logout_simple_ui/src/constants/icons_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/padding_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/sizes_constants.dart';
@@ -20,9 +19,6 @@ class TaskPage extends StatefulWidget {
 }
 
 class _TaskPageState extends State<TaskPage> {
-  final _storageBox = Hive.box('tBox');
-  bool _toggleAnimation = false;
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -79,11 +75,10 @@ class _TaskPageState extends State<TaskPage> {
                       taskData.deleteTask(taskData.items[index].title);
                     });
                   },
-                  taskFinished: (p0) {
-                    setState(() {});
-                    //TODO: task finished function
-                    //TODO: add exp value to progrss bar
-                    taskData.addTaskExp(taskData.items[index]);
+                  taskFinished: (ctx) {
+                    setState(() {
+                      taskData.addTaskExp(taskData.items[index]);
+                    });
                   },
                 );
               },

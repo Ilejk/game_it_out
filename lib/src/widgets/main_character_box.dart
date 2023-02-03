@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:login_logout_simple_ui/src/providers/task_provider.dart';
 import 'package:login_logout_simple_ui/src/widgets/shadow_box_container.dart';
+import 'package:provider/provider.dart';
 import '../constants/color_constants.dart';
 import '../constants/images_constants.dart';
 import '../constants/padding_constants.dart';
@@ -13,6 +15,7 @@ class MainCharacterBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var lvlData = Provider.of<TaskProvider>(context);
     return Padding(
       padding: PaddingConstants.kCharacterImagePadding,
       child: ShadowBoxContainer(
@@ -25,7 +28,7 @@ class MainCharacterBox extends StatelessWidget {
               Padding(
                 padding: PaddingConstants.kBasePadding10,
                 child: Text(
-                  '${StringConstants.kLvLString}    3',
+                  '${StringConstants.kLvLString}    ${lvlData.currentLvlCount}',
                   style: TextStyle(
                     fontSize: SizesConstants.kLVLfontsize,
                     fontWeight: FontWeight.bold,

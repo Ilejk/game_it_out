@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:login_logout_simple_ui/src/constants/base_values.dart';
 import 'package:login_logout_simple_ui/src/constants/list_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/string_constants.dart';
 import 'package:login_logout_simple_ui/src/providers/task.dart';
@@ -71,10 +72,14 @@ class TaskProvider with ChangeNotifier {
     } else {
       _items = [];
     }
+    // differenctInPercentageExpValue =
+    //     _storageBox.get('DIFFERENCE_PERCENTAGE', defaultValue: 0.0);
   }
 
   void updateDataBase() {
+    // double percentage = getPercentageInExpValue();
     _storageBox.put('TASKS', _items.map((task) => task.toJson()).toList());
+    // _storageBox.put('DIFFERENCE_PERCENTAGE', percentage);
   }
 
   List<Task> get items {
@@ -94,12 +99,15 @@ class TaskProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  double currentExpValue = 0.0;
-  double maxValueExpValue = 100.0;
-  double previousMaxValueExpValue = 100.0;
-  double leftValue = 0.0;
-  changeMaxExpValue() {
+  int currentLvlCount = 1;
+  double currentExpValue = BaseValues.kBaseCurrentExpValue;
+  double maxValueExpValue = BaseValues.kBaseMaxExpValue;
+  double previousMaxValueExpValue = BaseValues.kBasePreviousExpValue;
+  double leftValue = BaseValues.kBaseLeftExpValue;
+
+  void changeMaxExpValue() {
     for (int i = 0; i < ListConstants.kMaxExpValuesList.length; i++) {
+      print(' exp ${ListConstants.kMaxExpValuesList[i]}');
       if (currentExpValue >= ListConstants.kMaxExpValuesList[i]) {
         if (i + 1 < ListConstants.kMaxExpValuesList.length) {
           maxValueExpValue = ListConstants.kMaxExpValuesList[i + 1];
@@ -107,29 +115,48 @@ class TaskProvider with ChangeNotifier {
           maxValueExpValue = ListConstants.kMaxExpValuesList[i];
         }
       } else {
+        print('set exp ${ListConstants.kMaxExpValuesList[i]}');
         break;
       }
     }
 
+    print("Max Value: $maxValueExpValue");
+
     if (maxValueExpValue != previousMaxValueExpValue) {
-      leftValue = (previousMaxValueExpValue - currentExpValue) * -1;
+      currentLvlCount++;
+      leftValue = currentExpValue - previousMaxValueExpValue;
       currentExpValue = 0.0 + leftValue;
-      previousMaxValueExpValue = maxValueExpValue;
+      if (currentExpValue < maxValueExpValue) {
+        previousMaxValueExpValue = maxValueExpValue;
+      }
     }
+    print("Previous Max Value: $previousMaxValueExpValue");
     notifyListeners();
   }
 
-  double differenceInExpValue = 0.0;
+  double differenceInExpValue = BaseValues.kBaseDifferenceInExpValue;
   void getDifferenceInExpValue() {
-    differenceInExpValue = maxValueExpValue - currentExpValue;
+    if (maxValueExpValue > currentExpValue) {
+      differenceInExpValue = maxValueExpValue - currentExpValue;
+    } else {
+      print(differenceInExpValue);
+    }
   }
 
-  double differenctInPercentageExpValue = 0.0;
-  getPercentageInExpValue() {
+  double differenctInPercentageExpValue =
+      BaseValues.kBaseDifferenctInPercentageExpValue;
+  void getPercentageInExpValue() {
     getDifferenceInExpValue();
-    differenctInPercentageExpValue =
-        1.0 - (differenceInExpValue / maxValueExpValue);
-    return differenctInPercentageExpValue;
+
+    if (differenceInExpValue < 0) {
+      differenctInPercentageExpValue =
+          (1.0 - (differenceInExpValue / maxValueExpValue)) * -1;
+    } else {
+      differenctInPercentageExpValue = (currentExpValue / maxValueExpValue);
+      // print(differenceInExpValue);
+      // print(maxValueExpValue);
+      // print(differenctInPercentageExpValue);
+    }
   }
 
   void addTaskExp(Task task) {

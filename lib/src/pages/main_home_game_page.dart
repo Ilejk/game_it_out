@@ -18,7 +18,6 @@ class MainHomeGamePage extends StatelessWidget {
     return Center(
       child: Column(
         children: [
-          //TODO: LVL
           Padding(
             padding: PaddingConstants.kBasePadding10,
             child: Row(
@@ -58,8 +57,6 @@ class MainHomeGamePage extends StatelessWidget {
           SizesConstants.kSizedBox20height,
           const MainCharacterBox(),
           const ProgressBarIndicator(),
-
-          // TODO: VALUE SHOULD CHANGE DEPENDS ON THE LVL GOING UP
         ],
       ),
     ).animate().fadeIn(
