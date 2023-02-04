@@ -4,11 +4,11 @@ import 'package:login_logout_simple_ui/src/constants/sizes_constants.dart';
 import 'color_constants.dart';
 
 class TextStyleConstants {
-  static final kTopBarTextStyleTitle = TextStyle(
+  static const kTopBarTextStyleTitle = TextStyle(
     fontSize: SizesConstants.kTopBarTitlePageSize,
     fontWeight: FontWeight.bold,
     letterSpacing: 3,
-    color: ColorConstatns.kDarkGrey,
+    color: ColorConstatns.kBackGroundGrey,
   );
   static const kSignInRegisterTitleTextStyle = TextStyle(
     fontWeight: FontWeight.bold,

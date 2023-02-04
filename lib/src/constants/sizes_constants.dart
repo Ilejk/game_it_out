@@ -30,7 +30,7 @@ class SizesConstants {
   static const kSignInButtonFontSize = 17.0;
   static const kTopBarTitleWidth = 300.0;
   static const kTopBarTitleHeight = 70.0;
-  static const kTopBarTitlePageSize = 20.0;
+  static const kTopBarTitlePageSize = 26.0;
   static const kProgressBarHeight = 30.0;
   static const kProgressBarWidth = double.infinity;
   static const kProgressBarRadius = Radius.circular(12);
@@ -58,4 +58,6 @@ class SizesConstants {
   static const kTaskCalculateButtonWidth = 300.0;
   static const kTaskCreateButtonHeight = 50.0;
   static const kTaskCreateteButtonWidth = 300.0;
+  static const kTopBarRadius = BorderRadius.only(
+      bottomLeft: Radius.circular(12), bottomRight: Radius.circular(12));
 }

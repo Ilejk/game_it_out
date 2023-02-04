@@ -1,12 +1,20 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:provider/provider.dart';
+
 import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
+import 'package:login_logout_simple_ui/src/constants/string_constants.dart';
+import 'package:login_logout_simple_ui/src/pages/achievement_page.dart';
 import 'package:login_logout_simple_ui/src/pages/main_home_game_page.dart';
 import 'package:login_logout_simple_ui/src/pages/profile_page.dart';
 import 'package:login_logout_simple_ui/src/pages/task_page.dart';
 import 'package:login_logout_simple_ui/src/providers/task_provider.dart';
-import 'package:provider/provider.dart';
-import '../widgets/bottom_navigation_bar.dart';
+
+import '../constants/icons_constants.dart';
+import '../constants/padding_constants.dart';
+import '../widgets/bottom_navigation_bar/bottom_navigation_bar.dart';
+import 'help_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -38,6 +46,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(5.0),
+        child: AppBar(
+          elevation: 0.0,
+          backgroundColor: ColorConstatns.kDarkGrey,
+        ),
+      ),
       bottomNavigationBar: AppBottomNavigationBar(
         pageController: _pageController,
       ),
@@ -54,6 +69,7 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   const MainHomeGamePage(),
                   const TaskPage(),
+                  const AchievementsPage(),
                   MyProfilePage(),
                 ],
               ),

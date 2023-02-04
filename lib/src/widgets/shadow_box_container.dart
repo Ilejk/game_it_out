@@ -25,7 +25,7 @@ class ShadowBoxContainer extends StatelessWidget {
         borderRadius: SizesConstants.kBorderRadius12,
         boxShadow: [
           BoxShadow(
-            color: ColorConstatns.kShadownGrey500,
+            color: ColorConstatns.kMediumGrey,
             blurRadius: 12,
             offset: const Offset(5, 5),
           ),

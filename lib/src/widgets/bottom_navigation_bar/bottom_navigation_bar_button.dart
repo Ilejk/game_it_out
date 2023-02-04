@@ -25,21 +25,20 @@ class BottomNavigationBarButton extends StatelessWidget {
       },
       child: Padding(
         padding: PaddingConstants.kBottomNavigationBarPadding,
-        child: ShadowBoxContainer(
-          height: SizesConstants.kBottomNavigatiorHeight,
-          width: SizesConstants.kBottomNavigatiorWidth,
-          child: IconButton(
-            color: ColorConstatns.kDarkGrey,
-            iconSize: SizesConstants.kBottomNavigatiorBarIconSize,
-            icon: Icon(icon),
-            onPressed: () {
-              pageController.animateToPage(
-                pageIndex,
-                duration: const Duration(milliseconds: 300),
-                curve: Curves.easeIn,
-              );
-            },
+        child: IconButton(
+          color: ColorConstatns.kDarkGrey,
+          iconSize: SizesConstants.kBottomNavigatiorBarIconSize,
+          icon: Icon(
+            icon,
+            color: ColorConstatns.kBackGroundGrey,
           ),
+          onPressed: () {
+            pageController.animateToPage(
+              pageIndex,
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeIn,
+            );
+          },
         ),
       ),
     );

@@ -38,6 +38,7 @@ class StringConstants {
   static const kLogOut = 'L O G   O U T';
   static const kChangeTheme = 'C H A N G E   T H E M E';
   static const kMyProfile = 'M Y   P R O F I L E';
+  static const kAchievement = 'A C H I E V E M E N T S';
   static const kRules =
       '1. Choose Your Chracter \n2. Go to Tasks Page \n3. Create your tasks \n4. To delete a task - swipe left and click delete \n5. To mark task as finished - swipe right and click finished \n6. According amount of exp will be added to your lvl progress bar \n7. Lvl up, have fun and progress in your life !';
   static const kHowToPlay = 'How To Play ?';
