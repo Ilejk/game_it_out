@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/padding_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/sizes_constants.dart';
-import 'package:login_logout_simple_ui/src/widgets/shadow_box_container.dart';
 
-class BottomNavigationBarButton extends StatelessWidget {
+class BottomNavigationBarButton extends StatefulWidget {
   final IconData icon;
   final int pageIndex;
   final PageController pageController;
@@ -17,11 +16,35 @@ class BottomNavigationBarButton extends StatelessWidget {
   });
 
   @override
+  State<BottomNavigationBarButton> createState() =>
+      _BottomNavigationBarButtonState();
+}
+
+class _BottomNavigationBarButtonState extends State<BottomNavigationBarButton> {
+  late int? selectedIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    selectedIndex = widget.pageController.page?.round();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    Color shadowColor = Colors.transparent;
+
+    if (selectedIndex == widget.pageIndex) {
+      shadowColor = Colors.white;
+    } else {
+      shadowColor = Colors.transparent;
+    }
     return GestureDetector(
       onTap: () {
-        pageController.animateToPage(pageIndex,
+        widget.pageController.animateToPage(widget.pageIndex,
             duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
+        setState(() {
+          selectedIndex = widget.pageIndex;
+        });
       },
       child: Padding(
         padding: PaddingConstants.kBottomNavigationBarPadding,
@@ -29,15 +52,22 @@ class BottomNavigationBarButton extends StatelessWidget {
           color: ColorConstatns.kDarkGrey,
           iconSize: SizesConstants.kBottomNavigatiorBarIconSize,
           icon: Icon(
-            icon,
+            widget.icon,
             color: ColorConstatns.kBackGroundGrey,
+            shadows: [
+              Shadow(color: shadowColor, blurRadius: 3),
+              Shadow(color: shadowColor, blurRadius: 6),
+            ],
           ),
           onPressed: () {
-            pageController.animateToPage(
-              pageIndex,
+            widget.pageController.animateToPage(
+              widget.pageIndex,
               duration: const Duration(milliseconds: 300),
               curve: Curves.easeIn,
             );
+            setState(() {
+              selectedIndex = widget.pageIndex;
+            });
           },
         ),
       ),
