@@ -23,7 +23,11 @@ class ProgressBarIndicator extends StatelessWidget {
         child: LinearPercentIndicator(
           barRadius: SizesConstants.kProgressBarRadius,
           backgroundColor: Colors.transparent,
-          progressColor: ColorConstatns.kLightPurpleText,
+          linearGradient: LinearGradient(colors: [
+            ColorConstatns.kLightPurple,
+            ColorConstatns.kMediumPurple,
+            ColorConstatns.kDarkPurple,
+          ]),
           lineHeight: SizesConstants.kProgressBarLineHeight,
           percent: expData.differenctInPercentageExpValue,
         ),

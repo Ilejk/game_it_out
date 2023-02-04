@@ -9,6 +9,8 @@ class ColorConstatns {
   static const kWhite = Colors.white;
   static const kBackGroundGrey = Color.fromRGBO(217, 217, 217, 1);
   static Color kShadownGrey500 = Colors.grey.shade500;
+  static Color kLightPurple = Colors.purple.shade300;
+  static Color kMediumPurple = Colors.purple.shade600;
   static Color kDarkPurple = Colors.purple.shade900;
   static Color kDarkGrey = Colors.grey.shade900;
   static Color kMediumGrey = Colors.grey.shade700;
