@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_logout_simple_ui/src/providers/task_provider.dart';
+import 'package:login_logout_simple_ui/src/data/database_provider.dart';
 import 'package:login_logout_simple_ui/src/widgets/shadow_box_container.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:provider/provider.dart';
@@ -14,7 +14,7 @@ class ProgressBarIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var expData = Provider.of<TaskProvider>(context);
+    var expData = Provider.of<DataBaseProvider>(context);
     return Padding(
       padding: PaddingConstants.kProgressBarPadding,
       child: ShadowBoxContainer(

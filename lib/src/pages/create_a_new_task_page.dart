@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/src/constants/base_values.dart';
 import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/list_constants.dart';
-import 'package:login_logout_simple_ui/src/providers/task.dart';
-import 'package:login_logout_simple_ui/src/providers/task_provider.dart';
+import 'package:login_logout_simple_ui/src/data/task.dart';
+import 'package:login_logout_simple_ui/src/data/database_provider.dart';
 import 'package:provider/provider.dart';
 import '../constants/padding_constants.dart';
 import '../constants/sizes_constants.dart';
@@ -44,7 +44,7 @@ class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
       );
     });
 
-    Provider.of<TaskProvider>(context, listen: false).addTask(_addedTask);
+    Provider.of<DataBaseProvider>(context, listen: false).addTask(_addedTask);
     Navigator.of(context).pop();
   }
 
@@ -207,7 +207,7 @@ class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
             GestureDetector(
               onTap: () {
                 _saveTask();
-                Provider.of<TaskProvider>(context, listen: false)
+                Provider.of<DataBaseProvider>(context, listen: false)
                     .updateDataBase();
               },
               child: ShadowBoxContainer(

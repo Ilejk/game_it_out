@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:login_logout_simple_ui/src/providers/task_typeAdapter.dart';
+import 'package:login_logout_simple_ui/src/data/task_typeAdapter.dart';
 import 'package:login_logout_simple_ui/src/pages/auth_page.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:login_logout_simple_ui/src/providers/task.dart';
-import 'package:login_logout_simple_ui/src/providers/task_provider.dart';
+import 'package:login_logout_simple_ui/src/data/task.dart';
+import 'package:login_logout_simple_ui/src/data/database_provider.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(
-          value: TaskProvider(),
+          value: DataBaseProvider(),
         )
       ],
       child: const MaterialApp(

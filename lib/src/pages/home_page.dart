@@ -6,7 +6,7 @@ import 'package:login_logout_simple_ui/src/pages/achievement_page.dart';
 import 'package:login_logout_simple_ui/src/pages/main_home_game_page.dart';
 import 'package:login_logout_simple_ui/src/pages/profile_page.dart';
 import 'package:login_logout_simple_ui/src/pages/task_page.dart';
-import 'package:login_logout_simple_ui/src/providers/task_provider.dart';
+import 'package:login_logout_simple_ui/src/data/database_provider.dart';
 import 'package:provider/provider.dart';
 import '../widgets/bottom_navigation_bar/bottom_navigation_bar.dart';
 
@@ -25,9 +25,9 @@ class _HomePageState extends State<HomePage> {
   @override
   void didChangeDependencies() {
     if (_storageBox.get('TASKS') == null) {
-      Provider.of<TaskProvider>(context).createInitialDataBase();
+      Provider.of<DataBaseProvider>(context).createInitialDataBase();
     } else {
-      Provider.of<TaskProvider>(context).loadDataBase();
+      Provider.of<DataBaseProvider>(context).loadDataBase();
     }
     super.didChangeDependencies();
   }

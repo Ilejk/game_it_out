@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
-import 'package:login_logout_simple_ui/src/providers/task_provider.dart';
+import 'package:login_logout_simple_ui/src/data/database_provider.dart';
 import 'package:provider/provider.dart';
 import '../widgets/appbars/task_page_appbar.dart';
 import '../widgets/task_widget.dart';
@@ -24,7 +24,7 @@ class _TaskPageState extends State<TaskPage> {
     return Column(
       children: [
         const TaskPageAppBar(),
-        Consumer<TaskProvider>(
+        Consumer<DataBaseProvider>(
           builder: (context, taskData, _) => Expanded(
             child: LiquidPullToRefresh(
               height: 300.0,

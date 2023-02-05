@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:login_logout_simple_ui/src/constants/base_values.dart';
 import 'package:login_logout_simple_ui/src/constants/list_constants.dart';
-import 'package:login_logout_simple_ui/src/providers/task.dart';
+import 'package:login_logout_simple_ui/src/data/task.dart';
 
-class TaskProvider with ChangeNotifier {
+class DataBaseProvider with ChangeNotifier {
   final _storageBox = Hive.box('dBox');
   List<Task> _items = [];
 
