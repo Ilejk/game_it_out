@@ -6,13 +6,13 @@ import 'package:login_logout_simple_ui/src/constants/list_constants.dart';
 import 'package:login_logout_simple_ui/src/data/task.dart';
 import 'package:login_logout_simple_ui/src/data/database_provider.dart';
 import 'package:login_logout_simple_ui/src/widgets/create_new_task_button.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:provider/provider.dart';
 import '../constants/padding_constants.dart';
 import '../constants/sizes_constants.dart';
 import '../constants/string_constants.dart';
-import '../constants/textstyle_constants.dart';
 import '../widgets/appbars/create_a_new_task_page_appbar.dart';
+import '../widgets/holder.dart';
+import '../widgets/percenatge_exp_value_indicator.dart';
 import '../widgets/shadow_box_container.dart';
 
 class CreateANewTaskPage extends StatefulWidget {
@@ -71,26 +71,21 @@ class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
   }
 
   double expGainedValue = BaseValues.kBaseExpValue;
+
   void getExpGained() {
+    double difficultyFactor = 1.0;
     if (dropDownDifficultyValue == 'Easy') {
-      setState(() {
-        expGainedValue = double.parse(dropDownDurationValue) *
-            BaseValues.kEasyDifficultyValue *
-            BaseValues.kBaseExpValueGiven;
-      });
+      difficultyFactor = BaseValues.kEasyDifficultyValue;
     } else if (dropDownDifficultyValue == 'Medium') {
-      setState(() {
-        expGainedValue = double.parse(dropDownDurationValue) *
-            BaseValues.kMediumDifficultyValue *
-            BaseValues.kBaseExpValueGiven;
-      });
+      difficultyFactor = BaseValues.kMediumDifficultyValue;
     } else if (dropDownDifficultyValue == 'Hard') {
-      setState(() {
-        expGainedValue = double.parse(dropDownDurationValue) *
-            BaseValues.kHardDifficultyValue *
-            BaseValues.kBaseExpValueGiven;
-      });
+      difficultyFactor = BaseValues.kHardDifficultyValue;
     }
+    setState(() {
+      expGainedValue = double.parse(dropDownDurationValue) *
+          difficultyFactor *
+          BaseValues.kBaseExpValueGiven;
+    });
     getPercentageValue();
   }
 
@@ -180,41 +175,14 @@ class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
                 ),
               ),
             ),
-            const Expanded(child: SizedBox()),
+            const Holder(),
             SizesConstants.kSizedBox45height,
-            CircularPercentIndicator(
-              percent: percentageValue,
-              backgroundColor: Colors.transparent,
-              circularStrokeCap: CircularStrokeCap.round,
-              lineWidth: SizesConstants.kProgressBarLineHeight,
-              radius: 100,
-              center: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    StringConstants.kExp,
-                    style: TextStyleConstants.kTaskSubTitleTextStyle,
-                  ),
-                  SizesConstants.kSizedBox10height,
-                  Text(
-                    expGainedValue.toStringAsFixed(2),
-                    style: TextStyleConstants.kTaskSubTitleTextStyle,
-                  ),
-                ],
-              ),
-              linearGradient: LinearGradient(
-                colors: [
-                  ColorConstatns.kShadow1,
-                  ColorConstatns.kShadow2,
-                  ColorConstatns.kShadow3,
-                  ColorConstatns.kShadow4,
-                  ColorConstatns.kShadow5,
-                  ColorConstatns.kShadow6,
-                ],
-              ),
+            PercentageBarExpValueIndicator(
+              percentageValue: percentageValue,
+              expGainedValue: expGainedValue,
             ),
             SizesConstants.kSizedBox45height,
-            const Expanded(child: SizedBox()),
+            const Holder(),
             GestureDetector(
               onTap: () {
                 _saveTask();

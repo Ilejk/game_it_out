@@ -40,7 +40,7 @@ class ChooseYourCharacterPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Expanded(
+                  const Expanded(
                     child: Padding(
                       padding: PaddingConstants.kBasePadding10,
                       child: Center(
