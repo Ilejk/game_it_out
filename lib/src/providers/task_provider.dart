@@ -1,14 +1,11 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:login_logout_simple_ui/src/constants/base_values.dart';
 import 'package:login_logout_simple_ui/src/constants/list_constants.dart';
-import 'package:login_logout_simple_ui/src/constants/string_constants.dart';
 import 'package:login_logout_simple_ui/src/providers/task.dart';
 
 class TaskProvider with ChangeNotifier {
-  final _storageBox = Hive.box('tBox');
+  final _storageBox = Hive.box('dBox');
   List<Task> _items = [];
 
   void createInitialDataBase() {
@@ -66,6 +63,11 @@ class TaskProvider with ChangeNotifier {
 
   void loadDataBase() {
     var tasks = _storageBox.get('TASKS');
+    var currentLvlCountS = _storageBox.get('LEVEL_COUNT');
+    var currentExpValueS = _storageBox.get('EXP_VALUE');
+    var currentMaxValueS = _storageBox.get('MAX_VALUE');
+    var diffInPercentageS = _storageBox.get('DIFF_IN_PERCENTAGE');
+
     if (tasks != null) {
       _items = (tasks as List<dynamic>)
           .map((task) => Task.fromJson(
@@ -74,14 +76,36 @@ class TaskProvider with ChangeNotifier {
     } else {
       _items = [];
     }
-    // differenctInPercentageExpValue =
-    //     _storageBox.get('DIFFERENCE_PERCENTAGE', defaultValue: 0.0);
+    if (currentLvlCountS != null) {
+      currentLvlCount = currentLvlCountS;
+    } else {
+      currentLvlCount = 1;
+    }
+
+    if (currentExpValueS != null) {
+      currentExpValue = currentExpValueS;
+    } else {
+      currentExpValue = 0.0;
+    }
+
+    if (currentMaxValueS != null) {
+      currentMaxExpValue = currentMaxValueS;
+    } else {
+      currentMaxExpValue = 100.0;
+    }
+    if (diffInPercentageS != null) {
+      differenctInPercentageExpValue = diffInPercentageS;
+    } else {
+      differenctInPercentageExpValue = 0.0;
+    }
   }
 
   void updateDataBase() {
-    // double percentage = getPercentageInExpValue();
     _storageBox.put('TASKS', _items.map((task) => task.toJson()).toList());
-    // _storageBox.put('DIFFERENCE_PERCENTAGE', percentage);
+    _storageBox.put('LEVEL_COUNT', currentLvlCount);
+    _storageBox.put('EXP_VALUE', currentExpValue);
+    _storageBox.put('MAX_VALUE', currentMaxExpValue);
+    _storageBox.put('DIFF_IN_PERCENTAGE', differenctInPercentageExpValue);
   }
 
   List<Task> get items {
@@ -103,39 +127,9 @@ class TaskProvider with ChangeNotifier {
 
   int currentLvlCount = 1;
   double currentExpValue = BaseValues.kBaseCurrentExpValue;
-  double maxValueExpValue = ListConstants.kMaxExpValuesList[0];
-  double previousMaxValueExpValue = BaseValues.kBasePreviousExpValue;
+  double currentMaxExpValue = ListConstants.kMaxExpValuesList[0];
   double differenctInPercentageExpValue =
       BaseValues.kBaseDifferenctInPercentageExpValue;
-
-  // void changeMaxExpValue() {
-  //   for (int i = 0; i < ListConstants.kMaxExpValuesList.length; i++) {
-  //     var currentElementValue = ListConstants.kMaxExpValuesList[i];
-  //     var nextElementValue = ListConstants.kMaxExpValuesList[i + 1];
-  //     if (currentExpValue >= currentElementValue) {
-  //       var isNotLastElement = i + 1 < ListConstants.kMaxExpValuesList.length;
-  //       if (isNotLastElement) {
-  //         var isNotAlreadyIncreased = currentLvlCount == i;
-  //         if (isNotAlreadyIncreased) {
-  //           currentLvlCount++;
-  //           updatePrecentageValue(nextElementValue, currentElementValue);
-  //           break;
-  //         } else {
-  //           if (currentExpValue < nextElementValue) {
-  //             updatePrecentageValue(nextElementValue, currentElementValue);
-  //             break;
-  //           }
-  //         }
-  //       } else {
-  //         break;
-  //       }
-  //     } else {
-  //       updatePrecentageValue(nextElementValue, currentElementValue);
-  //       break;
-  //     }
-  //   }
-  //   notifyListeners();
-  // }
 
   void changeMaxExpValue() {
     // ignore: prefer_typing_uninitialized_variables
@@ -147,6 +141,8 @@ class TaskProvider with ChangeNotifier {
       if (currentExpValue > currentElementValue &&
           currentExpValue <= nextElementValue) {
         lvlIndex = i;
+        updateDataBase();
+        loadDataBase();
         break;
       }
     }
@@ -159,9 +155,9 @@ class TaskProvider with ChangeNotifier {
     } else {
       differenctInPercentageExpValue = 1.0;
     }
-
+    updateDataBase();
+    loadDataBase();
     notifyListeners();
-    //TODO:rr
   }
 
   void updatePrecentageValue(
@@ -169,31 +165,16 @@ class TaskProvider with ChangeNotifier {
     var diffValue = nextElementValue - currentElementValue;
     differenctInPercentageExpValue =
         (currentExpValue - currentElementValue) / diffValue;
+    updateDataBase();
+    loadDataBase();
   }
 
   void addTaskExp(Task task) {
     currentExpValue += task.exp;
     changeMaxExpValue();
+    updateDataBase();
+    loadDataBase();
     notifyListeners();
-  }
-
-  void printKijano() {
-    // ignore: avoid_print
-    print(StringConstants.kKijano1);
-    // ignore: avoid_print
-    print(StringConstants.kKijano2);
-    // ignore: avoid_print
-    print(StringConstants.kKijano3);
-    // ignore: avoid_print
-    print(StringConstants.kKijano4);
-    // ignore: avoid_print
-    print(StringConstants.kKijano5);
-    // ignore: avoid_print
-    print(StringConstants.kKijano6);
-    // ignore: avoid_print
-    print(StringConstants.kKijano7);
-    // ignore: avoid_print
-    print(StringConstants.kKijano8);
   }
 
   void deleteTask(String title) {
@@ -203,41 +184,8 @@ class TaskProvider with ChangeNotifier {
     _items.removeAt(existingTaskIndex);
     updateDataBase();
     loadDataBase();
-    printKijano();
     notifyListeners();
 
     existingTask = null;
-  }
-}
-
-class TaskAdapter extends TypeAdapter<Task> {
-  @override
-  final typeId = 0;
-
-  @override
-  Task read(BinaryReader reader) {
-    var numOfFields = reader.readByte();
-    var fields = <int, dynamic>{
-      for (var i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
-    };
-    return Task(
-      title: fields[0] as String,
-      difficulty: fields[1] as String,
-      duration: fields[2] as double,
-      exp: fields[3] as double,
-    );
-  }
-
-  @override
-  void write(BinaryWriter writer, Task obj) {
-    writer.writeByte(4);
-    writer.writeByte(0);
-    writer.write(obj.title);
-    writer.writeByte(1);
-    writer.write(obj.difficulty);
-    writer.writeByte(2);
-    writer.write(obj.duration);
-    writer.writeByte(3);
-    writer.write(obj.exp);
   }
 }

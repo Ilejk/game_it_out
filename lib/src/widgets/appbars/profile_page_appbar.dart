@@ -13,39 +13,36 @@ class ProfilePageAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: SizesConstants.kTopBarRadius,
-      child: Container(
-        color: ColorConstatns.kDarkGrey,
-        child: Padding(
-          padding: PaddingConstants.kBasePadding10,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: PaddingConstants.kBasePadding10,
-                child: IconsConstants.kHolder,
-              ),
-              const Padding(
-                padding: PaddingConstants.kBasePadding10,
-                child: Center(
-                  child: Text(
-                    textAlign: TextAlign.center,
-                    StringConstants.kSettingPageTitle,
-                    style: TextStyleConstants.kTopBarTextStyleTitle,
-                  ),
+    return Container(
+      color: ColorConstatns.kDarkGrey,
+      child: Padding(
+        padding: PaddingConstants.kBasePadding10,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Padding(
+              padding: PaddingConstants.kBasePadding10,
+              child: IconsConstants.kHolder,
+            ),
+            const Padding(
+              padding: PaddingConstants.kBasePadding10,
+              child: Center(
+                child: Text(
+                  textAlign: TextAlign.center,
+                  StringConstants.kSettingPageTitle,
+                  style: TextStyleConstants.kTopBarTextStyleTitle,
                 ),
               ),
-              const Padding(
-                padding: PaddingConstants.kBasePadding10,
-                child: Icon(
-                  IconsConstants.kSettingsIcon,
-                  size: SizesConstants.kBottomNavigatiorBarIconSize,
-                  color: ColorConstatns.kBackGroundGrey,
-                ),
-              )
-            ],
-          ),
+            ),
+            const Padding(
+              padding: PaddingConstants.kBasePadding10,
+              child: Icon(
+                IconsConstants.kSettingsIcon,
+                size: SizesConstants.kBottomNavigatiorBarIconSize,
+                color: ColorConstatns.kBackGroundGrey,
+              ),
+            )
+          ],
         ),
       ),
     );

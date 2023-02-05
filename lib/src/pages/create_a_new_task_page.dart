@@ -1,6 +1,5 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 import 'package:login_logout_simple_ui/src/constants/base_values.dart';
 import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/list_constants.dart';
@@ -25,8 +24,9 @@ class CreateANewTaskPage extends StatefulWidget {
 
 class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
   // ignore: avoid_init_to_null
-  final _storageBox = Hive.box('tBox');
+
   var dropDownDifficultyValue = null;
+
   var _addedTask = Task(
     title: '',
     difficulty: '',

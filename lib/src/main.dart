@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:login_logout_simple_ui/src/providers/task_typeAdapter.dart';
 import 'package:login_logout_simple_ui/src/pages/auth_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:login_logout_simple_ui/src/providers/task.dart';
@@ -10,7 +11,7 @@ import 'firebase_options.dart';
 void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter<Task>(TaskAdapter());
-  await Hive.openBox('tBox');
+  await Hive.openBox('dBox');
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());

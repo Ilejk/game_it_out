@@ -1,22 +1,14 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:hive/hive.dart';
-import 'package:login_logout_simple_ui/src/constants/sizes_constants.dart';
-import 'package:provider/provider.dart';
-
 import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
-import 'package:login_logout_simple_ui/src/constants/string_constants.dart';
 import 'package:login_logout_simple_ui/src/pages/achievement_page.dart';
 import 'package:login_logout_simple_ui/src/pages/main_home_game_page.dart';
 import 'package:login_logout_simple_ui/src/pages/profile_page.dart';
 import 'package:login_logout_simple_ui/src/pages/task_page.dart';
 import 'package:login_logout_simple_ui/src/providers/task_provider.dart';
-
-import '../constants/icons_constants.dart';
-import '../constants/padding_constants.dart';
+import 'package:provider/provider.dart';
 import '../widgets/bottom_navigation_bar/bottom_navigation_bar.dart';
-import 'help_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -26,9 +18,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final _storageBox = Hive.box('tBox');
+  final _storageBox = Hive.box('dBox');
   final PageController _pageController =
       PageController(initialPage: 0, keepPage: true);
+
   @override
   void didChangeDependencies() {
     if (_storageBox.get('TASKS') == null) {

@@ -13,50 +13,47 @@ class CreateAnewTaskPageAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: SizesConstants.kTopBarRadius,
-      child: Container(
-        color: ColorConstatns.kDarkGrey,
-        child: Padding(
-          padding: PaddingConstants.kBasePadding10,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Padding(
-                padding: PaddingConstants.kBasePadding10,
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  icon: const Icon(
-                    IconsConstants.kGoBackIcon,
-                    size: SizesConstants.kTopNavigationBarIconSize,
-                    color: ColorConstatns.kBackGroundGrey,
-                  ),
-                ),
-              ),
-              const Expanded(
-                child: Padding(
-                  padding: PaddingConstants.kBasePadding10,
-                  child: Center(
-                    child: Text(
-                      textAlign: TextAlign.center,
-                      StringConstants.kNewTaskTitle,
-                      style: TextStyleConstants.kTopBarTextStyleTitle,
-                    ),
-                  ),
-                ),
-              ),
-              const Padding(
-                padding: PaddingConstants.kBasePadding10,
-                child: Icon(
-                  IconsConstants.kTaskMenuIcon,
+    return Container(
+      color: ColorConstatns.kDarkGrey,
+      child: Padding(
+        padding: PaddingConstants.kBasePadding10,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Padding(
+              padding: PaddingConstants.kBasePadding10,
+              child: IconButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                icon: const Icon(
+                  IconsConstants.kGoBackIcon,
+                  size: SizesConstants.kTopNavigationBarIconSize,
                   color: ColorConstatns.kBackGroundGrey,
-                  size: SizesConstants.kBottomNavigatiorBarIconSize,
                 ),
-              )
-            ],
-          ),
+              ),
+            ),
+            const Expanded(
+              child: Padding(
+                padding: PaddingConstants.kBasePadding10,
+                child: Center(
+                  child: Text(
+                    textAlign: TextAlign.center,
+                    StringConstants.kNewTaskTitle,
+                    style: TextStyleConstants.kTopBarTextStyleTitle,
+                  ),
+                ),
+              ),
+            ),
+            const Padding(
+              padding: PaddingConstants.kBasePadding10,
+              child: Icon(
+                IconsConstants.kTaskMenuIcon,
+                color: ColorConstatns.kBackGroundGrey,
+                size: SizesConstants.kBottomNavigatiorBarIconSize,
+              ),
+            )
+          ],
         ),
       ),
     );
