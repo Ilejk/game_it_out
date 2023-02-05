@@ -5,9 +5,10 @@ import '../../constants/padding_constants.dart';
 import '../../constants/sizes_constants.dart';
 import '../../constants/string_constants.dart';
 import '../../constants/textstyle_constants.dart';
+import '../shadow_box_container.dart';
 
-class CreateAnewTaskPageAppBar extends StatelessWidget {
-  const CreateAnewTaskPageAppBar({
+class HelpPageAppBar extends StatelessWidget {
+  const HelpPageAppBar({
     Key? key,
   }) : super(key: key);
 
@@ -37,19 +38,16 @@ class CreateAnewTaskPageAppBar extends StatelessWidget {
               child: Center(
                 child: Text(
                   textAlign: TextAlign.center,
-                  StringConstants.kNewTaskTitle,
+                  StringConstants.kHelpPageTitle,
                   style: TextStyleConstants.kTopBarTextStyleTitle,
                 ),
               ),
             ),
           ),
-          const Padding(
+          SizesConstants.kSizedBox15width,
+          Padding(
             padding: PaddingConstants.kBasePadding10,
-            child: Icon(
-              IconsConstants.kTaskMenuIcon,
-              color: ColorConstatns.kBackGroundGrey,
-              size: SizesConstants.kBottomNavigatiorBarIconSize,
-            ),
+            child: IconsConstants.kHolder,
           )
         ],
       ),

@@ -15,37 +15,36 @@ class TaskPageAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: ColorConstatns.kDarkGrey,
-      child: Padding(
-        padding: PaddingConstants.kBasePadding10,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Padding(
-              padding: PaddingConstants.kBasePadding10,
-              child: IconsConstants.kHolder,
-            ),
-            const Padding(
-              padding: PaddingConstants.kBasePadding10,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Padding(
+            padding: PaddingConstants.kBasePadding10,
+            child: IconsConstants.kHolder,
+          ),
+          const Padding(
+            padding: PaddingConstants.kBasePadding10,
+            child: Center(
               child: Text(
                 StringConstants.kTaskPageTitle,
                 style: TextStyleConstants.kTopBarTextStyleTitle,
               ),
             ),
-            Padding(
-              padding: PaddingConstants.kBasePadding10,
-              child: IconButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (BuildContext cotext) => CreateANewTaskPage(),
-                    ),
-                  );
-                },
-                icon: IconsConstants.kAddIcon,
-              ),
-            )
-          ],
-        ),
+          ),
+          Padding(
+            padding: PaddingConstants.kBasePadding10,
+            child: IconButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (BuildContext cotext) => CreateANewTaskPage(),
+                  ),
+                );
+              },
+              icon: IconsConstants.kAddIcon,
+            ),
+          )
+        ],
       ),
     );
   }

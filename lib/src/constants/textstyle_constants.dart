@@ -31,9 +31,9 @@ class TextStyleConstants {
     fontWeight: FontWeight.bold,
     letterSpacing: 1,
   );
-  static const kSubTextTextStylePurple = TextStyle(
+  static final kSubTextTextStyleOrange = TextStyle(
     fontSize: SizesConstants.kSubTextFontSize,
-    color: ColorConstatns.kLightPurpleText,
+    color: ColorConstatns.kShadow2,
     fontWeight: FontWeight.bold,
     letterSpacing: 1,
   );

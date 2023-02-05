@@ -30,9 +30,9 @@ class _SignInPageState extends State<SignInPage> {
     showDialog(
         context: context,
         builder: (context) {
-          return const Center(
+          return Center(
             child: CircularProgressIndicator(
-              color: ColorConstatns.kPurple,
+              color: ColorConstatns.kShadow2,
             ),
           );
         });
@@ -148,9 +148,9 @@ class _SignInPageState extends State<SignInPage> {
                     SizesConstants.kSizedBox15width,
                     GestureDetector(
                       onTap: widget.onTap,
-                      child: const Text(
+                      child: Text(
                         StringConstants.kRegisterNow,
-                        style: TextStyleConstants.kSubTextTextStylePurple,
+                        style: TextStyleConstants.kSubTextTextStyleOrange,
                       ),
                     ),
                   ],

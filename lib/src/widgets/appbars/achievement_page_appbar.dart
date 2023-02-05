@@ -13,22 +13,17 @@ class AchievementPageAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: ColorConstatns.kDarkGrey,
-      child: Padding(
+      child: const Padding(
         padding: PaddingConstants.kBasePadding10,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Padding(
-              padding: PaddingConstants.kBasePadding10,
-              child: Center(
-                child: Text(
-                  textAlign: TextAlign.center,
-                  StringConstants.kAchievement,
-                  style: TextStyleConstants.kTopBarTextStyleTitle,
-                ),
-              ),
+        child: Padding(
+          padding: PaddingConstants.kBasePadding10,
+          child: Center(
+            child: Text(
+              textAlign: TextAlign.center,
+              StringConstants.kAchievement,
+              style: TextStyleConstants.kTopBarTextStyleTitle,
             ),
-          ],
+          ),
         ),
       ),
     );

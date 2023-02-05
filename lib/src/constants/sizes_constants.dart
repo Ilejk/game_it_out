@@ -30,7 +30,7 @@ class SizesConstants {
   static const kSignInButtonFontSize = 17.0;
   static const kTopBarTitleWidth = 300.0;
   static const kTopBarTitleHeight = 70.0;
-  static const kTopBarTitlePageSize = 26.0;
+  static const kTopBarTitlePageSize = 25.0;
   static const kProgressBarHeight = 30.0;
   static const kProgressBarWidth = double.infinity;
   static const kProgressBarRadius = Radius.circular(12);
@@ -49,11 +49,11 @@ class SizesConstants {
   static const kTaskDifficultyTextFieldHeight = 50.0;
   static const kTaskDifficultyTextFieldWidth = 300.0;
   static const kTaskDurationTextFieldHeight = 50.0;
-  static const kTaskDurationTextFieldWidth = 200.0;
+  static const kTaskDurationTextFieldWidth = 300.0;
   static const kTaskDifficultyDropDownMaxHeight = 150.0;
   static const kTaskDifficultyDropDownMaxWidth = 260.0;
   static const kTaskDurationDropDownMaxHeight = 300.0;
-  static const kTaskDurationDropDownMaxWidth = 160.0;
+  static const kTaskDurationDropDownMaxWidth = 260.0;
   static const kTaskCalculateButtonHeight = 50.0;
   static const kTaskCalculateButtonWidth = 300.0;
   static const kTaskCreateButtonHeight = 50.0;

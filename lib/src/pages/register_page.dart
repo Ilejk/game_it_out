@@ -165,9 +165,9 @@ class _RegisterPageState extends State<RegisterPage> {
                     SizesConstants.kSizedBox15width,
                     GestureDetector(
                       onTap: widget.onTap,
-                      child: const Text(
+                      child: Text(
                         StringConstants.kSignInNow,
-                        style: TextStyleConstants.kSubTextTextStylePurple,
+                        style: TextStyleConstants.kSubTextTextStyleOrange,
                       ),
                     ),
                   ],

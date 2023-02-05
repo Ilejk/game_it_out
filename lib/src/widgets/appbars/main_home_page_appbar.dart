@@ -16,42 +16,17 @@ class MainGameHomePageAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: ColorConstatns.kDarkGrey,
-      child: Padding(
+      child: const Padding(
         padding: PaddingConstants.kBasePadding10,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Padding(
-              padding: PaddingConstants.kBasePadding10,
-              child: IconButton(
-                onPressed: () {},
-                icon: IconsConstants.kHolder,
-              ),
+        child: Padding(
+          padding: PaddingConstants.kBasePadding10,
+          child: Center(
+            child: Text(
+              textAlign: TextAlign.center,
+              StringConstants.kPlayTitle,
+              style: TextStyleConstants.kTopBarTextStyleTitle,
             ),
-            const Padding(
-              padding: PaddingConstants.kBasePadding10,
-              child: Center(
-                child: Text(
-                  textAlign: TextAlign.center,
-                  StringConstants.kPlayTitle,
-                  style: TextStyleConstants.kTopBarTextStyleTitle,
-                ),
-              ),
-            ),
-            Padding(
-              padding: PaddingConstants.kBasePadding10,
-              child: IconButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (BuildContext cotext) => const HelpPage(),
-                    ),
-                  );
-                },
-                icon: IconsConstants.kHelpIcon,
-              ),
-            )
-          ],
+          ),
         ),
       ),
     );

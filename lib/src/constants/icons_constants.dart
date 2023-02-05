@@ -15,10 +15,10 @@ class IconsConstants {
   static const kProfileLogOutIcon = Icons.logout;
   static const kGoBackIcon = Icons.arrow_back_ios_new;
   static const kGoForwardIcon = Icons.arrow_forward_ios;
-  static const kHelpIcon = Icon(
+  static final kHelpIcon = Icon(
     Icons.question_mark,
     size: SizesConstants.kBottomNavigatiorBarIconSize,
-    color: ColorConstatns.kBackGroundGrey,
+    color: ColorConstatns.kDarkGrey,
   );
   static final kDoneTaskIcon = Icon(
     Icons.done,

@@ -158,7 +158,7 @@ class MyProfilePage extends StatelessWidget {
                       ),
                       SizesConstants.kSizedBox50width,
                       const Expanded(child: SizedBox()),
-                      const Padding(
+                      Padding(
                         padding: PaddingConstants.kBasePadding10,
                         child: IconsConstants.kHelpIcon,
                       ),
