@@ -4,11 +4,10 @@ import 'package:login_logout_simple_ui/src/constants/images_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/padding_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/sizes_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/string_constants.dart';
-import 'package:login_logout_simple_ui/src/constants/textstyle_constants.dart';
 import 'package:login_logout_simple_ui/src/pages/home_page.dart';
 import 'package:login_logout_simple_ui/src/widgets/create_new_task_button.dart';
-import 'package:login_logout_simple_ui/src/widgets/holder.dart';
-import 'package:login_logout_simple_ui/src/widgets/shadow_box_container.dart';
+
+import '../widgets/linear_gradient_divider.dart';
 
 class StartTheGamePage extends StatelessWidget {
   const StartTheGamePage({super.key});
@@ -48,22 +47,7 @@ class StartTheGamePage extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
-              width: double.infinity,
-              height: 1.5,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    ColorConstatns.kShadow1,
-                    ColorConstatns.kShadow2,
-                    ColorConstatns.kShadow3,
-                    ColorConstatns.kShadow4,
-                    ColorConstatns.kShadow5,
-                    ColorConstatns.kShadow6,
-                  ],
-                ),
-              ),
-            ),
+            const GradientLinearDivider(),
             SizesConstants.kSizedBox45height,
           ],
         ),

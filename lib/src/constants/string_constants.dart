@@ -1,21 +1,5 @@
 class StringConstants {
-  static const kSignIn = 'Sign In!';
-  static const kNotAMember = 'Not a member?';
-  static const kRegisterNow = 'Register now!';
-  static const kOrContinueWith = 'Or continue with';
-  static const kEmail = 'Email';
-  static const kPassword = 'Password';
-  static const kConfirmPassword = 'Confirm Password';
-  static const kWelcomeBack = 'Welcome back!';
-  static const kHelloAgain = 'Hello Again!';
-  static const kUserNotFound = 'USER NOT FOUND!';
-  static const kWrongPassword = 'WRONG PASSWORD!';
-  static const kSignInNow = 'Sign In now';
-  static const kAlreadyHaveAnAccount = 'Already have an account?';
-  static const kLetsCreateAnAccountForYou = 'Let\'s create an account for you!';
-  static const kPasswordsDontMatch = 'PASSWORDS DON\'T MATCH!';
   static const kSignedInAS = 'Logged in as: ';
-  static const kSignUp = 'Sign Up!';
   static const kTaskPageTitle = 'T A S K S';
   static const kSettingPageTitle = 'S E T T I N G S';
   static const kWelcomeTitle = 'Welcome';
@@ -45,20 +29,8 @@ class StringConstants {
   static const kPleaseRead = 'Please read before you play';
   static const kPleaseReadRules =
       '1. Remeber the goal of the game is to help you progress in your life \n2. The only person that will ever see that you are cheating is you \n3. The lvl that you reach is a metaphor to your life progression and this is the only way it should be viewed and understood \n4. The lvl you reach is a reward for you not for everybody else :)';
-  static const kKijano1 =
-      '⡿⡿⣻⢿⢿⢿⢿⢿⣿⣿⣿⠟⡋⠍⠊⠌⠌⠌⠂⠊⠄⠂⠙⠿⠻⡻⠻⢛⠻⠿⢿⣿⣿⣿⣿⢿⢿⢿⢿⣻\n         ⣗⡽⡮⡷⣽⣺⣽⣿⣾⠟⠈⠄⠄⡀⢁⠂⢘⠈⡈⡠⠁⠄⢀⠘⠄⠄⠈⠄⠄⠄⠈⠈⠳⠻⣯⣿⣽⣞⣵⡳\n         ⣗⢯⢫⢯⣷⡿⣽⠏⡁⠁⠄⠄⠄⢄⠅⠐⡂⠁⠁⠄⠄⠄⠐⡑⠄⠌⡄⠅⠄⡀⠄⠄⠄⠄⠘⢿⣻⣾⣳⢯';
-  static const kKijano2 =
-      '⣿⡴⣤⠅⢓⢹⢜⠁⡀⠄⠄⡡⠈⠂⡀⠄⠄⠄⠄⠄⠄⠄⠐⠘⢀⠄⠄⡀⠄⠠⠁⡀⠄⠄⠄⠄⠙⣿⣿⣟\n         ⠿⢿⠻⢝⣿⡿⢢⢁⢀⢑⠌⠄⡈⠄⠄⠄⠄⢀⣰⣴⣴⣬⣄⣀⠂⠄⠂⠄⢀⠄⠄⠄⠄⠄⠄⠄⠄⢟⣿⣿\n         ⡀⠄⠄⣸⣾⣛⢈⠄⢸⠐⠄⠨⠄⠄⠄⡀⣜⣞⣾⣿⣯⣿⣿⣿⣄⡀⢴⢼⣐⢬⠠⠄⠐⠄⠄⠄⠄⠘⣿⣿';
-  static const kKijano3 =
-      '⠋⣀⣵⣿⣽⡇⢃⢘⠜⠅⠈⠄⠄⢀⢔⣿⣿⣿⣿⣿⡿⣽⢾⢿⣳⢷⢿⡯⣷⣿⡌⠄⠄⠨⠄⠄⠄⠄⣻⣿\n         ⠄⣿⣿⡟⣾⠇⢠⠧⠁⠄⠄⡀⠄⣰⣿⣿⣯⡏⣯⢿⢽⡹⣏⢿⡺⡱⢑⠽⡹⡺⣜⢄⠅⠄⠈⡀⠄⠄⢸⣿\n         ⣾⣻⢳⣝⡯⢡⢹⣇⠄⠐⠄⠄⢠⣺⣿⣿⣿⢾⣿⢽⡵⣽⡺⣝⢎⢎⢶⢕⢌⢭⢣⢑⠄⠄⠄⠈⠄⠄⢸⣿';
-  static const kKijano4 =
-      '⣿⠧⢃⡳⠉⡈⢮⠃⠄⠄⠇⠄⣔⣿⣿⣿⣾⣿⣯⣯⢿⢼⡪⡎⡯⡝⢵⣓⢱⢱⡱⡪⡂⠄⠐⠄⠂⠄⠰⣿\n         ⡿⢡⢪⠄⢰⠨⣿⠁⢈⣸⠄⠄⢿⢿⣻⢿⣽⣿⣿⣿⣿⣻⣮⢮⣯⣾⡵⣪⡪⡱⣹⣪⡂⠄⠄⢈⠄⠄⠄⣿\n         ⣈⡖⡅⠄⢪⢴⢊⠁⢐⢸⠄⠄⡨⡢⡈⠈⠉⠻⢟⣷⡿⣟⢗⣽⡷⣿⢯⣞⣕⣧⣷⡳⠅⠄⠅⢐⠄⠄⠄⣿';
-  static const kKijano5 =
-      '⡣⡟⠜⠸⡁⣷⠁⠄⢅⢸⡀⠄⠄⠈⡀⠥⠄⡀⠄⠄⠈⠐⣷⡳⠙⠕⠩⠘⠁⠃⠁⠄⠄⠄⡂⢆⠄⠄⠄⣸\n         ⣻⠍⠄⢣⣣⠏⠠⠐⠌⣪⠃⡐⢔⢌⡛⡎⡢⠄⢀⢄⢠⣳⣿⡎⠄⠄⢀⠤⠄⡈⠌⠊⠄⢀⠘⠨⠄⠄⠄⢸\n         ⠑⠠⢂⢮⡳⠠⠂⠁⡅⡯⠐⢨⡺⡌⡯⡪⣞⣼⣵⡧⣟⣿⣿⣗⠄⠄⠐⡢⣒⢆⢐⢠⠁⠄⠄⠈⠄⠄⠄⢻';
-  static const kKijano6 =
-      '⢅⢢⠫⡫⠙⠨⠄⣃⢎⡗⢈⠰⠸⡸⡸⣝⣿⣿⡗⡽⣽⣿⣿⣿⠄⢐⣔⢽⣼⣗⣷⢱⠁⠄⠅⠁⠐⠄⠄⢾\n         ⡵⣰⠏⡐⠱⡑⢨⡬⢻⡕⠐⠈⡪⡣⡳⡱⡳⠱⢍⣳⢳⣿⣿⣿⠄⢐⢵⢻⣳⣟⢎⠪⠄⠄⠐⠄⠄⠄⠄⣿\n         ⡷⠁⡀⠄⠨⢂⣸⢉⠆⢑⠌⢠⢣⢏⢜⠜⡀⡤⣿⣿⣿⣿⣿⣟⠠⠄⠨⡗⡧⡳⡑⠄⠄⠄⠄⠄⠄⠄⠄⣿';
-  static const kKijano7 =
-      '⢖⠠⠄⢰⠁⢴⣃⠞⠄⠕⣈⣺⣵⡫⡢⣕⣷⣷⡀⠄⡈⢟⠝⠈⢉⡢⡕⡭⣇⠣⠄⠄⠄⠄⠄⠄⠄⠄⠄⣿\n         ⢻⡐⢔⢠⠪⡌⢌⠆⠐⢐⢨⣾⣷⡙⠌⠊⠕⠁⠄⠊⡀⠄⠠⠄⠡⠁⠓⡝⡜⡈⠄⠄⠄⠄⠄⠄⡮⡀⠄⣿\n         ⠘⢨⢪⠼⠘⠅⠄⠂⠄⡀⢻⣿⣇⠃⠑⠄⠒⠁⢂⠑⡔⠄⠌⡐⠄⠂⠠⢰⡑⠄⠄⠄⠄⠄⠄⢠⣡⢱⣶⣿';
-  static const kKijano8 =
-      '⢢⢂⠫⡪⣊⠄⠣⡂⠂⡀⠨⠹⡐⣜⡾⡯⡯⢷⢶⢶⠶⣖⢦⢢⢪⠢⡂⡇⠅⠄⠄⠈⠄⢰⠡⣷⣿⣿⣿⣿\n         ⢑⠄⠧⣟⡎⢆⡃⡊⠔⢀⠄⠈⣮⢟⡽⣿⣝⡆⠅⠐⡁⠐⠔⣀⢣⢑⠐⠁⡐⠈⡀⢐⠁⠄⠈⠃⢻⣿⣿⣿\n         ⢑⠁⢮⣾⡎⢰⢐⠈⢌⢂⠐⡀⠂⡝⡽⣟⣿⣽⡪⢢⠂⡨⢪⠸⠨⢀⠂⡁⢀⠂⠄⢂⢊⠖⢄⠄⢀⢨⠉⠛\n         ⡰⢺⣾⡗⠄⡜⢔⠡⢊⠢⢅⢀⠑⠨⡪⠩⠣⠃⠜⡈⡐⡈⡊⡈⡐⢄⠣⢀⠂⡂⡁⢂⠄⢱⢨⠝⠄⠄⠄⠄';
+  static const kHomeBottomBar = 'Home';
+  static const kTaskBottomBar = 'Tasks';
+  static const kAchievementBottomBar = 'Done';
+  static const kProfileBottomBar = 'Profile';
 }

@@ -3,6 +3,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/icons_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/sizes_constants.dart';
+import 'package:login_logout_simple_ui/src/constants/string_constants.dart';
 
 class AppBottomNavigationBar extends StatelessWidget {
   const AppBottomNavigationBar({
@@ -33,34 +34,34 @@ class AppBottomNavigationBar extends StatelessWidget {
                 tabs: [
                   GButton(
                       icon: IconsConstants.kMainHomeGamePageIcon,
-                      text: 'Home',
+                      text: StringConstants.kHomeBottomBar,
                       onPressed: () {
                         _pageController.animateToPage(0,
-                            duration: const Duration(milliseconds: 300),
+                            duration: SizesConstants.kAnimationDuration,
                             curve: Curves.easeIn);
                       }),
                   GButton(
                       icon: IconsConstants.kTaskMenuIcon,
-                      text: 'Tasks',
+                      text: StringConstants.kTaskBottomBar,
                       onPressed: () {
                         _pageController.animateToPage(1,
-                            duration: const Duration(milliseconds: 300),
+                            duration: SizesConstants.kAnimationDuration,
                             curve: Curves.easeIn);
                       }),
                   GButton(
                       icon: IconsConstants.kAchievement,
-                      text: 'Done',
+                      text: StringConstants.kAchievementBottomBar,
                       onPressed: () {
                         _pageController.animateToPage(2,
-                            duration: const Duration(milliseconds: 300),
+                            duration: SizesConstants.kAnimationDuration,
                             curve: Curves.easeIn);
                       }),
                   GButton(
                       icon: IconsConstants.kProfileIcon,
-                      text: 'Profile',
+                      text: StringConstants.kProfileBottomBar,
                       onPressed: () {
                         _pageController.animateToPage(3,
-                            duration: const Duration(milliseconds: 300),
+                            duration: SizesConstants.kAnimationDuration,
                             curve: Curves.easeIn);
                       }),
                 ],

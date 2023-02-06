@@ -4,19 +4,42 @@ import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
 import 'package:login_logout_simple_ui/src/data/database_provider.dart';
 import 'package:provider/provider.dart';
+import '../constants/sizes_constants.dart';
 import '../widgets/appbars/task_page_appbar.dart';
 import '../widgets/task_widget.dart';
 
 class TaskPage extends StatefulWidget {
-  const TaskPage({super.key});
+  const TaskPage({
+    Key? key,
+    required PageController pageController,
+  })  : _pageController = pageController,
+        super(key: key);
+
+  final PageController _pageController;
 
   @override
-  State<TaskPage> createState() => _TaskPageState();
+  State<TaskPage> createState() =>
+      // ignore: no_logic_in_create_state
+      _TaskPageState(pageController: _pageController);
 }
 
 class _TaskPageState extends State<TaskPage> {
   Future<void> _handleRefresh() async {
     return await Future.delayed(const Duration(seconds: 2));
+  }
+
+  final PageController pageController;
+
+  _TaskPageState({required this.pageController});
+  void goBackToMainHomePage() {
+    setState(() {
+      pageController.animateToPage(0,
+          duration: SizesConstants.kAnimationDuration, curve: Curves.easeIn);
+      //TODO: FIX THE HIGHLIGH ON THE BOTTOM BAR WHEN THE PAGE CHANGES
+      //TODO: FIX THE HIGHLIGH ON THE BOTTOM BAR WHEN THE PAGE CHANGES
+      //TODO: FIX THE HIGHLIGH ON THE BOTTOM BAR WHEN THE PAGE CHANGES
+      //TODO: FIX THE HIGHLIGH ON THE BOTTOM BAR WHEN THE PAGE CHANGES
+    });
   }
 
   @override
@@ -50,6 +73,7 @@ class _TaskPageState extends State<TaskPage> {
                         taskData.addTaskExp(taskData.items[index]);
                         taskData.updateDataBase();
                       });
+                      goBackToMainHomePage();
                     },
                   );
                 },

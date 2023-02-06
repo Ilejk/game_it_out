@@ -63,9 +63,11 @@ class _HomePageState extends State<HomePage> {
                 scrollDirection: Axis.horizontal,
                 children: [
                   const MainHomeGamePage(),
-                  const TaskPage(),
+                  TaskPage(
+                    pageController: _pageController,
+                  ),
                   const AchievementsPage(),
-                  MyProfilePage(),
+                  const MyProfilePage(),
                 ],
               ),
             ),

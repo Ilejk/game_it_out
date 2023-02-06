@@ -60,4 +60,5 @@ class SizesConstants {
   static const kTaskCreateteButtonWidth = 300.0;
   static const kTopBarRadius = BorderRadius.only(
       bottomLeft: Radius.circular(12), bottomRight: Radius.circular(12));
+  static const kAnimationDuration = Duration(milliseconds: 300);
 }

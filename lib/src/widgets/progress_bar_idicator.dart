@@ -21,6 +21,9 @@ class ProgressBarIndicator extends StatelessWidget {
         height: SizesConstants.kProgressBarHeight,
         width: SizesConstants.kProgressBarWidth,
         child: LinearPercentIndicator(
+          animation: true,
+          animationDuration: 1200,
+          animateFromLastPercent: true,
           barRadius: SizesConstants.kProgressBarRadius,
           backgroundColor: Colors.transparent,
           linearGradient: LinearGradient(colors: [

@@ -21,6 +21,9 @@ class PercentageBarExpValueIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     return CircularPercentIndicator(
       percent: percentageValue,
+      animation: true,
+      animationDuration: 800,
+      animateFromLastPercent: true,
       backgroundColor: Colors.transparent,
       circularStrokeCap: CircularStrokeCap.round,
       lineWidth: SizesConstants.kProgressBarLineHeight,
