@@ -3,10 +3,10 @@ import 'package:login_logout_simple_ui/src/constants/sizes_constants.dart';
 
 import '../constants/color_constants.dart';
 
-class CreateNewTaskButton extends StatelessWidget {
+class ShadowBoxBlackButton extends StatelessWidget {
   final String title;
 
-  const CreateNewTaskButton({super.key, required this.title});
+  const ShadowBoxBlackButton({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {

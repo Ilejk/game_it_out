@@ -189,7 +189,7 @@ class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
                 Provider.of<DataBaseProvider>(context, listen: false)
                     .updateDataBase();
               },
-              child: const CreateNewTaskButton(
+              child: const ShadowBoxBlackButton(
                 title: StringConstants.kCreateButtonText,
               ),
             ),

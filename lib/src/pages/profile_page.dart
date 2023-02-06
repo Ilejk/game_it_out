@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
@@ -14,13 +13,7 @@ import '../widgets/divider_widget.dart';
 import 'help_page.dart';
 
 class MyProfilePage extends StatelessWidget {
-  final user = FirebaseAuth.instance.currentUser!;
-
-  MyProfilePage({super.key});
-
-  void signUserOut() {
-    FirebaseAuth.instance.signOut();
-  }
+  const MyProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +28,7 @@ class MyProfilePage extends StatelessWidget {
               padding: PaddingConstants.kBasePadding10,
               child: Center(
                 child: Text(
-                  '${StringConstants.kSignedInAS} ${user.email.toString()}',
+                  StringConstants.kSignedInAS,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 17,
@@ -171,7 +164,9 @@ class MyProfilePage extends StatelessWidget {
             Padding(
               padding: PaddingConstants.kBasePadding10,
               child: GestureDetector(
-                onTap: signUserOut,
+                onTap: () {
+                  //TODO: TO STH ABOUT THIS PAGE
+                },
                 child: SizedBox(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
