@@ -65,4 +65,15 @@ class TextStyleConstants {
     height: 1.4,
     color: ColorConstatns.kDarkGrey,
   );
+  static final kProfileInfoTextStyle = TextStyle(
+    fontSize: 17,
+    letterSpacing: 1.5,
+    color: ColorConstatns.kDarkGrey,
+  );
+  static final kProfilInfoBoldTextStyle = TextStyle(
+    fontSize: 18,
+    letterSpacing: 1.5,
+    color: ColorConstatns.kDarkGrey,
+    fontWeight: FontWeight.bold,
+  );
 }

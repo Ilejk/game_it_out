@@ -33,4 +33,11 @@ class StringConstants {
   static const kTaskBottomBar = 'Tasks';
   static const kAchievementBottomBar = 'Done';
   static const kProfileBottomBar = 'Profile';
+  static const kNameChange = 'N A M E    C H A N G E';
+  static const kDarkTheme = 'D A R K    T H E M E';
+  static const kReset = 'R E S E T';
+  static const kLevelCompletion = 'Level completion percentage: ';
+  static const kCurrentLVL = 'Current level: ';
+  static const kCureentEXP = 'Current exp gained: ';
+  static const kCharacterName = 'Character Name';
 }

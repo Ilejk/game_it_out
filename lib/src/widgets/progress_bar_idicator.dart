@@ -27,6 +27,7 @@ class ProgressBarIndicator extends StatelessWidget {
           barRadius: SizesConstants.kProgressBarRadius,
           backgroundColor: Colors.transparent,
           linearGradient: LinearGradient(colors: [
+            ColorConstatns.kShadow0,
             ColorConstatns.kShadow1,
             ColorConstatns.kShadow2,
             ColorConstatns.kShadow3,

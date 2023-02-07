@@ -44,6 +44,7 @@ class PercentageBarExpValueIndicator extends StatelessWidget {
       ),
       linearGradient: LinearGradient(
         colors: [
+          ColorConstatns.kShadow0,
           ColorConstatns.kShadow1,
           ColorConstatns.kShadow2,
           ColorConstatns.kShadow3,

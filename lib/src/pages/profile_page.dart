@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
-import 'package:login_logout_simple_ui/src/constants/icons_constants.dart';
+import 'package:login_logout_simple_ui/src/constants/images_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/padding_constants.dart';
-import 'package:login_logout_simple_ui/src/pages/choose_your_character_page.dart';
+import 'package:login_logout_simple_ui/src/constants/sizes_constants.dart';
+import 'package:login_logout_simple_ui/src/constants/textstyle_constants.dart';
+import 'package:login_logout_simple_ui/src/widgets/holder.dart';
 import 'package:login_logout_simple_ui/src/widgets/shadow_box_container.dart';
-import '../constants/sizes_constants.dart';
+import 'package:provider/provider.dart';
 import '../constants/string_constants.dart';
-import '../constants/textstyle_constants.dart';
+import '../data/database_provider.dart';
 import '../widgets/appbars/profile_page_appbar.dart';
-import '../widgets/divider_widget.dart';
+import '../widgets/create_new_task_button.dart';
 import 'help_page.dart';
 
 class MyProfilePage extends StatelessWidget {
@@ -17,189 +18,143 @@ class MyProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const ProfilePageAppBar(),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: PaddingConstants.kBasePadding10,
-              child: Center(
-                child: Text(
-                  StringConstants.kSignedInAS,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.bold,
-                    color: ColorConstatns.kDarkGrey,
+    var data = Provider.of<DataBaseProvider>(context);
+    return SafeArea(
+      child: Column(
+        children: [
+          const ProfilePageAppBar(),
+          const Holder(),
+          Padding(
+            padding: PaddingConstants.kBasePadding10,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                ShadowBoxContainer(
+                  height: 200,
+                  width: 200,
+                  child: ClipRRect(
+                    borderRadius: SizesConstants.kBorderRadius12,
+                    child: Image.asset(ImagesConstants.kManCharacterPNG),
                   ),
                 ),
-              ),
-            ),
-            const DividerWidget(),
-            Padding(
-              padding: PaddingConstants.kBasePadding10,
-              child: ShadowBoxContainer(
-                height: SizesConstants.kBottomNavigatiorHeight,
-                width: SizesConstants.kBottomNavigatiorWidth,
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (BuildContext cotext) =>
-                            const ChooseYourCharacterPage(),
-                      ),
-                    );
-                  },
-                  icon: Icon(
-                    IconsConstants.kProfileLogOutIcon,
-                    size: SizesConstants.kTopNavigationBarIconSize,
-                    color: ColorConstatns.kDarkGrey,
-                  ),
-                ),
-              ),
-            ),
-            const DividerWidget(),
-            Padding(
-              padding: PaddingConstants.kBasePadding10,
-              child: GestureDetector(
-                onTap: () {
-                  // TODO: GO TO MY PROFILE OR STH
-                },
-                child: SizedBox(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: PaddingConstants.kBasePadding10,
-                        child: Text(
-                          StringConstants.kMyProfile,
-                          style: TextStyleConstants.kSettingsTextStyle,
-                        ),
-                      ),
-                      SizesConstants.kSizedBox50width,
-                      const Expanded(child: SizedBox()),
-                      Padding(
-                        padding: PaddingConstants.kBasePadding10,
-                        child: Icon(
-                          IconsConstants.kProfileIcon,
-                          size: SizesConstants.kTopNavigationBarIconSize,
-                          color: ColorConstatns.kDarkGrey,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            const DividerWidget(),
-            Padding(
-              padding: PaddingConstants.kBasePadding10,
-              child: GestureDetector(
-                onTap: () {
-                  //TODO: CHNAGE THEME
-                },
-                child: SizedBox(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: PaddingConstants.kBasePadding10,
-                        child: Text(
-                          StringConstants.kChangeTheme,
-                          style: TextStyleConstants.kSettingsTextStyle,
-                        ),
-                      ),
-                      SizesConstants.kSizedBox50width,
-                      const Expanded(child: SizedBox()),
-                      Padding(
-                        padding: PaddingConstants.kBasePadding10,
-                        child: Icon(
-                          IconsConstants.kTheme,
-                          size: SizesConstants.kTopNavigationBarIconSize,
-                          color: ColorConstatns.kDarkGrey,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            const DividerWidget(),
-            Padding(
-              padding: PaddingConstants.kBasePadding10,
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (BuildContext cotext) => const HelpPage(),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      StringConstants.kCharacterName,
+                      style: TextStyleConstants.kProfilInfoBoldTextStyle,
                     ),
-                  );
-                },
-                child: SizedBox(
+                    SizesConstants.kSizedBox15height,
+                    Text(
+                      'Adrian',
+                      style: TextStyleConstants.kProfileInfoTextStyle,
+                    ),
+                    SizesConstants.kSizedBox15height,
+                    Text(
+                      'Skiba',
+                      style: TextStyleConstants.kProfileInfoTextStyle,
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+          const Holder(),
+          Padding(
+            padding: PaddingConstants.kBasePadding10,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: PaddingConstants.kBasePadding10,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Padding(
-                        padding: PaddingConstants.kBasePadding10,
-                        child: Text(
-                          StringConstants.kHelpPageTitle,
-                          style: TextStyleConstants.kSettingsTextStyle,
-                        ),
+                      Text(
+                        StringConstants.kCureentEXP,
+                        style: TextStyleConstants.kProfileInfoTextStyle,
                       ),
-                      SizesConstants.kSizedBox50width,
-                      const Expanded(child: SizedBox()),
-                      Padding(
-                        padding: PaddingConstants.kBasePadding10,
-                        child: IconsConstants.kHelpIcon,
+                      Text(
+                        '${data.currentExpValue.toStringAsFixed(2)} exp',
+                        style: TextStyleConstants.kProfilInfoBoldTextStyle,
                       ),
                     ],
                   ),
                 ),
-              ),
-            ),
-            const DividerWidget(),
-            Padding(
-              padding: PaddingConstants.kBasePadding10,
-              child: GestureDetector(
-                onTap: () {
-                  //TODO: TO STH ABOUT THIS PAGE
-                },
-                child: SizedBox(
+                Padding(
+                  padding: PaddingConstants.kBasePadding10,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Padding(
-                        padding: PaddingConstants.kBasePadding10,
-                        child: Text(
-                          StringConstants.kLogOut,
-                          style: TextStyleConstants.kSettingsTextStyle,
-                        ),
+                      Text(
+                        StringConstants.kCurrentLVL,
+                        style: TextStyleConstants.kProfileInfoTextStyle,
                       ),
-                      SizesConstants.kSizedBox50width,
-                      const Expanded(child: SizedBox()),
-                      Padding(
-                        padding: PaddingConstants.kBasePadding10,
-                        child: Icon(
-                          IconsConstants.kProfileLogOutIcon,
-                          size: SizesConstants.kTopNavigationBarIconSize,
-                          color: ColorConstatns.kDarkGrey,
-                        ),
-                      ),
+                      Text(
+                        '${data.currentLvlCount.toString()} lvl',
+                        style: TextStyleConstants.kProfilInfoBoldTextStyle,
+                      )
                     ],
                   ),
                 ),
-              ),
+                Padding(
+                  padding: PaddingConstants.kBasePadding10,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        StringConstants.kLevelCompletion,
+                        style: TextStyleConstants.kProfileInfoTextStyle,
+                      ),
+                      Text(
+                        '${data.differenctInPercentageExpValue.toStringAsFixed(2)} %',
+                        style: TextStyleConstants.kProfilInfoBoldTextStyle,
+                      )
+                    ],
+                  ),
+                ),
+              ],
             ),
-            const DividerWidget(),
-          ],
-        )
-      ],
-    ).animate().fadeIn(
-          duration: 600.ms,
-          curve: Curves.easeIn,
-        );
+          ),
+          const Holder(),
+          Padding(
+            padding: PaddingConstants.kBasePadding10,
+            child: Column(
+              children: [
+                const Padding(
+                  padding: PaddingConstants.kBasePadding10,
+                  child:
+                      ShadowBoxBlackButton(title: StringConstants.kNameChange),
+                ),
+                const Padding(
+                  padding: PaddingConstants.kBasePadding10,
+                  child: ShadowBoxBlackButton(
+                    title: StringConstants.kReset,
+                  ),
+                ),
+                Padding(
+                  padding: PaddingConstants.kBasePadding10,
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => const HelpPage(),
+                        ),
+                      );
+                    },
+                    child: const ShadowBoxBlackButton(
+                      title: StringConstants.kHelpPageTitle,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ).animate().fadeIn(
+            duration: 600.ms,
+            curve: Curves.easeIn,
+          ),
+    );
   }
 }

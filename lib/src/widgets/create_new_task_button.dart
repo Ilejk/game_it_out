@@ -33,6 +33,7 @@ class ShadowBoxBlackButton extends StatelessWidget {
       child: Center(
         child: Text(
           title,
+          textAlign: TextAlign.center,
           style: const TextStyle(
             color: ColorConstatns.kWhite,
             fontWeight: FontWeight.bold,
