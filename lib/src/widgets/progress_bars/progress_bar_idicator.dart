@@ -3,9 +3,9 @@ import 'package:login_logout_simple_ui/src/data/database_provider.dart';
 import 'package:login_logout_simple_ui/src/widgets/shadow_box_container.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:provider/provider.dart';
-import '../constants/color_constants.dart';
-import '../constants/padding_constants.dart';
-import '../constants/sizes_constants.dart';
+import '../../constants/color_constants.dart';
+import '../../constants/padding_constants.dart';
+import '../../constants/sizes_constants.dart';
 
 class ProgressBarIndicator extends StatelessWidget {
   const ProgressBarIndicator({

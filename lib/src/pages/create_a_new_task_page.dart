@@ -12,7 +12,7 @@ import '../constants/sizes_constants.dart';
 import '../constants/string_constants.dart';
 import '../widgets/appbars/create_a_new_task_page_appbar.dart';
 import '../widgets/holder.dart';
-import '../widgets/percenatge_exp_value_indicator.dart';
+import '../widgets/progress_bars/percenatge_exp_value_indicator.dart';
 import '../widgets/shadow_box_container.dart';
 
 class CreateANewTaskPage extends StatefulWidget {

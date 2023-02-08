@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:login_logout_simple_ui/src/data/task_typeAdapter.dart';
+import 'package:login_logout_simple_ui/src/data/task_type_adapter.dart';
 import 'package:login_logout_simple_ui/src/pages/auth_page.dart';
 import 'package:login_logout_simple_ui/src/data/task.dart';
 import 'package:login_logout_simple_ui/src/data/database_provider.dart';

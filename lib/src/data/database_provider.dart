@@ -2,10 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:login_logout_simple_ui/src/constants/base_values.dart';
 import 'package:login_logout_simple_ui/src/constants/list_constants.dart';
+import 'package:login_logout_simple_ui/src/data/achievemnet.dart';
 import 'package:login_logout_simple_ui/src/data/task.dart';
 
 class DataBaseProvider with ChangeNotifier {
   final _storageBox = Hive.box('dBox');
+  List<Achievement> _achievements = ListConstants.kAchievementList;
+  List<Achievement> get achievements {
+    return [..._achievements];
+  }
+
   List<Task> _items = [];
 
   void createInitialDataBase() {
@@ -188,4 +194,7 @@ class DataBaseProvider with ChangeNotifier {
 
     existingTask = null;
   }
+//   void addAchievement(Achievement achievement) {
+// final newAchievement
+//   }
 }

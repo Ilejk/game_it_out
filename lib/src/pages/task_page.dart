@@ -44,48 +44,50 @@ class _TaskPageState extends State<TaskPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const TaskPageAppBar(),
-        Consumer<DataBaseProvider>(
-          builder: (context, taskData, _) => Expanded(
-            child: LiquidPullToRefresh(
-              height: 300.0,
-              color: ColorConstatns.kDarkGrey,
-              animSpeedFactor: 2,
-              backgroundColor: ColorConstatns.kBackGroundGrey,
-              onRefresh: _handleRefresh,
-              child: ListView.builder(
-                itemBuilder: (context, index) {
-                  return TaskWidget(
-                    taskName: taskData.items[index].title,
-                    difficulty: taskData.items[index].difficulty,
-                    taskLenght: taskData.items[index].duration,
-                    expGained: taskData.items[index].exp,
-                    deleteTask: (ctx) {
-                      setState(() {
-                        taskData.updateDataBase();
-                        taskData.deleteTask(taskData.items[index].title);
-                      });
-                    },
-                    taskFinished: (ctx) {
-                      setState(() {
-                        taskData.addTaskExp(taskData.items[index]);
-                        taskData.updateDataBase();
-                      });
-                      goBackToMainHomePage();
-                    },
-                  );
-                },
-                itemCount: taskData.items.length,
+    return SafeArea(
+      child: Column(
+        children: [
+          const TaskPageAppBar(),
+          Consumer<DataBaseProvider>(
+            builder: (context, taskData, _) => Expanded(
+              child: LiquidPullToRefresh(
+                height: 300.0,
+                color: ColorConstatns.kDarkGrey,
+                animSpeedFactor: 2,
+                backgroundColor: ColorConstatns.kBackGroundGrey,
+                onRefresh: _handleRefresh,
+                child: ListView.builder(
+                  itemBuilder: (context, index) {
+                    return TaskWidget(
+                      taskName: taskData.items[index].title,
+                      difficulty: taskData.items[index].difficulty,
+                      taskLenght: taskData.items[index].duration,
+                      expGained: taskData.items[index].exp,
+                      deleteTask: (ctx) {
+                        setState(() {
+                          taskData.updateDataBase();
+                          taskData.deleteTask(taskData.items[index].title);
+                        });
+                      },
+                      taskFinished: (ctx) {
+                        setState(() {
+                          taskData.addTaskExp(taskData.items[index]);
+                          taskData.updateDataBase();
+                        });
+                        goBackToMainHomePage();
+                      },
+                    );
+                  },
+                  itemCount: taskData.items.length,
+                ),
               ),
             ),
           ),
-        ),
-      ],
-    ).animate().fadeIn(
-          duration: 600.ms,
-          curve: Curves.easeIn,
-        );
+        ],
+      ).animate().fadeIn(
+            duration: 600.ms,
+            curve: Curves.easeIn,
+          ),
+    );
   }
 }

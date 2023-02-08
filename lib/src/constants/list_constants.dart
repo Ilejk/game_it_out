@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/src/constants/string_constants.dart';
+import 'package:login_logout_simple_ui/src/data/achievemnet.dart';
 
 class ListConstants {
   static const kDurationsList = [
@@ -150,5 +151,75 @@ class ListConstants {
     89000.0,
     97000.0,
     100000.0,
+  ];
+  static var kAchievementList = [
+    Achievement(
+      title: 'Toddler',
+      isFinished: true,
+      description: 'Reach 200 exp',
+    ),
+    Achievement(
+      title: 'Tap Tap Tap',
+      isFinished: true,
+      description: 'Reach level 5',
+    ),
+    Achievement(
+      title: 'Baby steps',
+      isFinished: true,
+      description: 'Reach 1000 exp',
+    ),
+    Achievement(
+      title: 'Creator',
+      isFinished: false,
+      description: 'Create 5 tasks',
+      //TODO: somehow
+    ),
+    Achievement(
+      title: 'Bronze membership',
+      isFinished: true,
+      description: 'Reach level 10',
+    ),
+    Achievement(
+      title: 'Moving forward',
+      isFinished: true,
+      description: 'Reach 2000 exp',
+    ),
+    Achievement(
+      title: 'A lover',
+      isFinished: false,
+      description: 'Reach level 15',
+    ),
+    Achievement(
+      title: 'Inventor',
+      isFinished: false,
+      description: 'Create 10 new tasks',
+      //TODO: somehow
+    ),
+    Achievement(
+      title: 'Changed my mind',
+      isFinished: false,
+      description: 'Delete 10 tasks',
+    ),
+    Achievement(
+      title: 'Silver membership',
+      isFinished: false,
+      description: 'Reach level 20',
+    ),
+    Achievement(
+      title: 'A doer',
+      isFinished: false,
+      description: 'Complete 100 tasks',
+      //TODO: somehow
+    ),
+    Achievement(
+      title: 'Fast learner',
+      isFinished: false,
+      description: 'Reach 3000 exp',
+    ),
+    Achievement(
+      title: 'Gold membership',
+      isFinished: false,
+      description: 'Reach level 30',
+    ),
   ];
 }
