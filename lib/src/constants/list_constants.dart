@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/src/constants/string_constants.dart';
-import 'package:login_logout_simple_ui/src/data/achievemnet.dart';
+import 'package:login_logout_simple_ui/src/features/achievement_components/achievemnet.dart';
 
 class ListConstants {
   static const kDurationsList = [

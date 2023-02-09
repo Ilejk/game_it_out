@@ -5,7 +5,7 @@ import '../../constants/padding_constants.dart';
 import '../../constants/sizes_constants.dart';
 import '../../constants/string_constants.dart';
 import '../../constants/textstyle_constants.dart';
-import '../../pages/help_page.dart';
+import '../help/help_page.dart';
 
 class MainGameHomePageAppBar extends StatelessWidget {
   const MainGameHomePageAppBar({

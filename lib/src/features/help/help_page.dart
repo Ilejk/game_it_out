@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
-import '../constants/padding_constants.dart';
-import '../constants/sizes_constants.dart';
-import '../constants/string_constants.dart';
-import '../constants/textstyle_constants.dart';
-import '../widgets/appbars/help_page_appbar.dart';
+import '../../constants/padding_constants.dart';
+import '../../constants/sizes_constants.dart';
+import '../../constants/string_constants.dart';
+import '../../constants/textstyle_constants.dart';
+import 'help_page_appbar.dart';
 
 class HelpPage extends StatelessWidget {
   const HelpPage({super.key});

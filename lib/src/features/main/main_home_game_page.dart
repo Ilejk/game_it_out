@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import '../constants/sizes_constants.dart';
-import '../widgets/main_character_box.dart';
-import '../widgets/appbars/main_home_page_appbar.dart';
-import '../widgets/progress_bars/progress_bar_idicator.dart';
+import '../../constants/sizes_constants.dart';
+import 'main_character_box.dart';
+import 'main_home_page_appbar.dart';
+import 'main_home_progress_percentage_bar.dart';
 
 class MainHomeGamePage extends StatelessWidget {
   const MainHomeGamePage({super.key});

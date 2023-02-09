@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
-import 'package:login_logout_simple_ui/src/widgets/achievement_widget.dart';
-import 'package:login_logout_simple_ui/src/widgets/appbars/achievement_page_appbar.dart';
+import 'package:login_logout_simple_ui/src/features/achievement_components/achievement_widget.dart';
+import 'package:login_logout_simple_ui/src/features/achievement_components/achievement_page_appbar.dart';
 import 'package:provider/provider.dart';
-import '../constants/color_constants.dart';
-import '../data/database_provider.dart';
+import '../../constants/color_constants.dart';
+import '../../data/database_provider.dart';
 
 class AchievementsPage extends StatefulWidget {
   const AchievementsPage({super.key});

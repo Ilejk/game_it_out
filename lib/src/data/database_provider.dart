@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:login_logout_simple_ui/src/constants/base_values.dart';
 import 'package:login_logout_simple_ui/src/constants/list_constants.dart';
-import 'package:login_logout_simple_ui/src/data/achievemnet.dart';
-import 'package:login_logout_simple_ui/src/data/task.dart';
+import 'package:login_logout_simple_ui/src/features/achievement_components/achievemnet.dart';
+import 'package:login_logout_simple_ui/src/features/task_components/task.dart';
 
 class DataBaseProvider with ChangeNotifier {
   final _storageBox = Hive.box('dBox');

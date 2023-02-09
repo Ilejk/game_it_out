@@ -5,7 +5,7 @@ import '../../constants/padding_constants.dart';
 import '../../constants/sizes_constants.dart';
 import '../../constants/string_constants.dart';
 import '../../constants/textstyle_constants.dart';
-import '../shadow_box_container.dart';
+import '../universal_components/shadow_box_container.dart';
 
 class HelpPageAppBar extends StatelessWidget {
   const HelpPageAppBar({

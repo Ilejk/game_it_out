@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
-import '../constants/icons_constants.dart';
-import '../constants/padding_constants.dart';
-import '../constants/sizes_constants.dart';
-import '../constants/string_constants.dart';
-import '../constants/textstyle_constants.dart';
+import '../../constants/icons_constants.dart';
+import '../../constants/padding_constants.dart';
+import '../../constants/sizes_constants.dart';
+import '../../constants/string_constants.dart';
+import '../../constants/textstyle_constants.dart';
 
 class TaskWidget extends StatelessWidget {
   final String taskName;

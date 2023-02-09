@@ -4,10 +4,10 @@ import 'package:login_logout_simple_ui/src/constants/images_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/padding_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/sizes_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/string_constants.dart';
-import 'package:login_logout_simple_ui/src/pages/home_page.dart';
-import 'package:login_logout_simple_ui/src/widgets/create_new_task_button.dart';
+import 'package:login_logout_simple_ui/src/features/main/home_page.dart';
+import 'package:login_logout_simple_ui/src/features/task_components/create_new_task_button.dart';
 
-import '../widgets/linear_gradient_divider.dart';
+import '../universal_components/linear_gradient_divider.dart';
 
 class StartTheGamePage extends StatelessWidget {
   const StartTheGamePage({super.key});
@@ -42,7 +42,7 @@ class StartTheGamePage extends StatelessWidget {
                     ),
                   );
                 },
-                child: const ShadowBoxBlackButton(
+                child: const ShadowBoxBlack(
                   title: StringConstants.kPlayTitle,
                 ),
               ),

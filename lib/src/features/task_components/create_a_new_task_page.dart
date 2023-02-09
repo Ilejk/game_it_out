@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/src/constants/base_values.dart';
 import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/list_constants.dart';
-import 'package:login_logout_simple_ui/src/data/task.dart';
+import 'package:login_logout_simple_ui/src/features/task_components/task.dart';
 import 'package:login_logout_simple_ui/src/data/database_provider.dart';
-import 'package:login_logout_simple_ui/src/widgets/create_new_task_button.dart';
+import 'package:login_logout_simple_ui/src/features/task_components/create_new_task_button.dart';
 import 'package:provider/provider.dart';
-import '../constants/padding_constants.dart';
-import '../constants/sizes_constants.dart';
-import '../constants/string_constants.dart';
-import '../widgets/appbars/create_a_new_task_page_appbar.dart';
-import '../widgets/holder.dart';
-import '../widgets/progress_bars/percenatge_exp_value_indicator.dart';
-import '../widgets/shadow_box_container.dart';
+import '../../constants/padding_constants.dart';
+import '../../constants/sizes_constants.dart';
+import '../../constants/string_constants.dart';
+import 'create_a_new_task_page_appbar.dart';
+import '../universal_components/holder.dart';
+import 'create_a_new_task_percentage_bar.dart';
+import '../universal_components/shadow_box_container.dart';
 
 class CreateANewTaskPage extends StatefulWidget {
   final controller = TextEditingController();
@@ -189,7 +189,7 @@ class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
                 Provider.of<DataBaseProvider>(context, listen: false)
                     .updateDataBase();
               },
-              child: const ShadowBoxBlackButton(
+              child: const ShadowBoxBlack(
                 title: StringConstants.kCreateButtonText,
               ),
             ),

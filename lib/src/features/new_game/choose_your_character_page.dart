@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/src/constants/padding_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/string_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/textstyle_constants.dart';
-import '../constants/color_constants.dart';
-import '../constants/icons_constants.dart';
-import '../constants/images_constants.dart';
-import '../constants/sizes_constants.dart';
-import '../widgets/shadow_box_container.dart';
+import '../../constants/color_constants.dart';
+import '../../constants/icons_constants.dart';
+import '../../constants/images_constants.dart';
+import '../../constants/sizes_constants.dart';
+import '../universal_components/shadow_box_container.dart';
 
 class ChooseYourCharacterPage extends StatelessWidget {
   const ChooseYourCharacterPage({super.key});

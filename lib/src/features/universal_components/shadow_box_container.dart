@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../constants/color_constants.dart';
-import '../constants/sizes_constants.dart';
+import '../../constants/color_constants.dart';
+import '../../constants/sizes_constants.dart';
 
 class ShadowBoxContainer extends StatelessWidget {
   final double height;

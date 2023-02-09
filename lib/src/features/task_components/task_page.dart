@@ -4,9 +4,9 @@ import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
 import 'package:login_logout_simple_ui/src/data/database_provider.dart';
 import 'package:provider/provider.dart';
-import '../constants/sizes_constants.dart';
-import '../widgets/appbars/task_page_appbar.dart';
-import '../widgets/task_widget.dart';
+import '../../constants/sizes_constants.dart';
+import 'task_page_appbar.dart';
+import 'task_widget.dart';
 
 class TaskPage extends StatefulWidget {
   const TaskPage({

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/src/data/database_provider.dart';
-import 'package:login_logout_simple_ui/src/widgets/shadow_box_container.dart';
+import 'package:login_logout_simple_ui/src/features/universal_components/shadow_box_container.dart';
 import 'package:provider/provider.dart';
-import '../constants/color_constants.dart';
-import '../constants/images_constants.dart';
-import '../constants/padding_constants.dart';
-import '../constants/sizes_constants.dart';
-import '../constants/string_constants.dart';
+import '../../constants/color_constants.dart';
+import '../../constants/images_constants.dart';
+import '../../constants/padding_constants.dart';
+import '../../constants/sizes_constants.dart';
+import '../../constants/string_constants.dart';
 
 class MainCharacterBox extends StatelessWidget {
   const MainCharacterBox({

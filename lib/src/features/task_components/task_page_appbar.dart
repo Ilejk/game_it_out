@@ -4,7 +4,7 @@ import '../../constants/icons_constants.dart';
 import '../../constants/padding_constants.dart';
 import '../../constants/string_constants.dart';
 import '../../constants/textstyle_constants.dart';
-import '../../pages/create_a_new_task_page.dart';
+import 'create_a_new_task_page.dart';
 
 class TaskPageAppBar extends StatelessWidget {
   const TaskPageAppBar({

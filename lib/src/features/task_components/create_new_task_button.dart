@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/src/constants/sizes_constants.dart';
 
-import '../constants/color_constants.dart';
+import '../../constants/color_constants.dart';
 
-class ShadowBoxBlackButton extends StatelessWidget {
+class ShadowBoxBlack extends StatelessWidget {
   final String title;
 
-  const ShadowBoxBlackButton({super.key, required this.title});
+  const ShadowBoxBlack({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
