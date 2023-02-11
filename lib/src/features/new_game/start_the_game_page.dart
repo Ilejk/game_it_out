@@ -1,16 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/images_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/padding_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/sizes_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/string_constants.dart';
 import 'package:login_logout_simple_ui/src/features/main/home_page.dart';
+import 'package:login_logout_simple_ui/src/features/new_game/choose_your_character_page.dart';
 import 'package:login_logout_simple_ui/src/features/task_components/create_new_task_button.dart';
 
 import '../universal_components/linear_gradient_divider.dart';
 
-class StartTheGamePage extends StatelessWidget {
+class StartTheGamePage extends StatefulWidget {
   const StartTheGamePage({super.key});
+
+  @override
+  State<StartTheGamePage> createState() => _StartTheGamePageState();
+}
+
+class _StartTheGamePageState extends State<StartTheGamePage> {
+  var pushAfterStartingPage;
+  final _storageBox = Hive.box('dBox');
+
+  @override
+  void didChangeDependencies() {
+    if (_storageBox.get('TASKS') == null) {
+      pushAfterStartingPage = const ChooseYourCharacterPage();
+    } else {
+      pushAfterStartingPage = const HomePage();
+    }
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +58,7 @@ class StartTheGamePage extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (BuildContext context) => const HomePage(),
+                      builder: (BuildContext context) => pushAfterStartingPage,
                     ),
                   );
                 },
