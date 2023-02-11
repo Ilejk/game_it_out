@@ -1,9 +1,61 @@
 import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/src/constants/string_constants.dart';
-import 'package:login_logout_simple_ui/src/data/database_provider.dart';
 import 'package:login_logout_simple_ui/src/features/achievement_components/achievemnet.dart';
 
+import '../features/task_components/task.dart';
+
 class ListConstants {
+  static var kTaskBaseList = [
+    Task(
+      title: 'Code',
+      difficulty: 'Medium',
+      duration: 5.0,
+      exp: 50.55,
+    ),
+    Task(
+      title: 'Read',
+      difficulty: 'Easy',
+      duration: 1.0,
+      exp: 10.0,
+    ),
+    Task(
+      title: 'Go for a walk',
+      difficulty: 'Easy',
+      duration: 2.0,
+      exp: 20.0,
+    ),
+    Task(
+      title: 'Exercise',
+      difficulty: 'Hard',
+      duration: 0.5,
+      exp: 15.0,
+    ),
+    Task(
+      title: 'Study',
+      difficulty: 'Medium',
+      duration: 2.5,
+      exp: 22.25,
+    ),
+    Task(
+      title: 'Clean up',
+      difficulty: 'Easy',
+      duration: 1.0,
+      exp: 10.0,
+    ),
+    Task(
+      title: 'Cook dinner',
+      difficulty: 'Easy',
+      duration: 1.5,
+      exp: 15.0,
+    ),
+    Task(
+      title: 'Spend time with family',
+      difficulty: 'Easy',
+      duration: 1.5,
+      exp: 15.0,
+    ),
+  ];
+
   static const kDurationsList = [
     DropdownMenuItem(
       value: '0.5',
