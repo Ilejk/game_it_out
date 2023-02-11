@@ -4,12 +4,12 @@ import 'package:login_logout_simple_ui/src/constants/base_values.dart';
 import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/list_constants.dart';
 import 'package:login_logout_simple_ui/src/features/task_components/task.dart';
-import 'package:login_logout_simple_ui/src/data/database_provider.dart';
 import 'package:login_logout_simple_ui/src/features/task_components/create_new_task_button.dart';
 import 'package:provider/provider.dart';
 import '../../constants/padding_constants.dart';
 import '../../constants/sizes_constants.dart';
 import '../../constants/string_constants.dart';
+import '../../logic/logic_provider.dart';
 import 'create_a_new_task_page_appbar.dart';
 import '../universal_components/holder.dart';
 import 'create_a_new_task_percentage_bar.dart';
@@ -50,7 +50,7 @@ class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
       );
     });
 
-    Provider.of<DataBaseProvider>(context, listen: false).addTask(_addedTask);
+    Provider.of<LogicProvider>(context, listen: false).addTask(_addedTask);
     Navigator.of(context).pop();
   }
 
@@ -194,7 +194,7 @@ class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
             GestureDetector(
               onTap: () {
                 _saveTask();
-                Provider.of<DataBaseProvider>(context, listen: false)
+                Provider.of<LogicProvider>(context, listen: false)
                     .updateDataBase();
               },
               child: const ShadowBoxBlack(

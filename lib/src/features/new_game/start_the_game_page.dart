@@ -9,8 +9,7 @@ import 'package:login_logout_simple_ui/src/features/main/home_page.dart';
 import 'package:login_logout_simple_ui/src/features/new_game/choose_your_character_page.dart';
 import 'package:login_logout_simple_ui/src/features/task_components/create_new_task_button.dart';
 import 'package:provider/provider.dart';
-
-import '../../data/database_provider.dart';
+import '../../logic/logic_provider.dart';
 import '../universal_components/linear_gradient_divider.dart';
 
 class StartTheGamePage extends StatefulWidget {
@@ -28,10 +27,10 @@ class _StartTheGamePageState extends State<StartTheGamePage> {
   void didChangeDependencies() {
     if (_storageBox.get('TASKS') == null) {
       pushAfterStartingPage = ChooseYourCharacterPage();
-      Provider.of<DataBaseProvider>(context).createInitialDataBase();
+      Provider.of<LogicProvider>(context).createInitialDataBase();
     } else {
       pushAfterStartingPage = const HomePage();
-      Provider.of<DataBaseProvider>(context).loadDataBase();
+      Provider.of<LogicProvider>(context).loadDataBase();
     }
     super.didChangeDependencies();
   }

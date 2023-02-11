@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/src/constants/string_constants.dart';
 import 'package:login_logout_simple_ui/src/features/achievement_components/achievemnet.dart';
-
 import '../features/task_components/task.dart';
+import 'color_constants.dart';
 
 class ListConstants {
+  static final kGradientColorList = [
+    ColorConstatns.kShadow0,
+    ColorConstatns.kShadow1,
+    ColorConstatns.kShadow2,
+    ColorConstatns.kShadow3,
+    ColorConstatns.kShadow4,
+    ColorConstatns.kShadow5,
+    ColorConstatns.kShadow6,
+  ];
   static var kTaskBaseList = [
     Task(
       title: 'Code',

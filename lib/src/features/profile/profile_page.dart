@@ -9,7 +9,7 @@ import 'package:login_logout_simple_ui/src/features/profile/profile_information_
 import 'package:login_logout_simple_ui/src/features/universal_components/holder.dart';
 import 'package:provider/provider.dart';
 import '../../constants/string_constants.dart';
-import '../../data/database_provider.dart';
+import '../../logic/logic_provider.dart';
 import 'profile_page_appbar.dart';
 
 class MyProfilePage extends StatelessWidget {
@@ -17,8 +17,8 @@ class MyProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var data = Provider.of<DataBaseProvider>(context);
-    var namingData = Provider.of<DataBaseProvider>(context);
+    var data = Provider.of<LogicProvider>(context);
+    var namingData = Provider.of<LogicProvider>(context);
     return SafeArea(
       child: Column(
         children: [

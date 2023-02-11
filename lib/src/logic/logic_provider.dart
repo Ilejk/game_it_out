@@ -6,7 +6,7 @@ import 'package:login_logout_simple_ui/src/constants/list_constants.dart';
 import 'package:login_logout_simple_ui/src/features/achievement_components/achievemnet.dart';
 import 'package:login_logout_simple_ui/src/features/task_components/task.dart';
 
-class DataBaseProvider with ChangeNotifier {
+class LogicProvider with ChangeNotifier {
   final _storageBox = Hive.box('6969Box');
   List<Task> _items = ListConstants.kTaskBaseList;
   List<Achievement> _achievements = ListConstants.kAchievementList;

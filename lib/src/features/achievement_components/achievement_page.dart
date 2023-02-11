@@ -5,7 +5,7 @@ import 'package:login_logout_simple_ui/src/features/achievement_components/achie
 import 'package:login_logout_simple_ui/src/features/achievement_components/achievement_page_appbar.dart';
 import 'package:provider/provider.dart';
 import '../../constants/color_constants.dart';
-import '../../data/database_provider.dart';
+import '../../logic/logic_provider.dart';
 
 class AchievementsPage extends StatefulWidget {
   const AchievementsPage({super.key});
@@ -25,7 +25,7 @@ class _AchievementsPageState extends State<AchievementsPage> {
       child: Column(
         children: [
           const AchievementPageAppBar(),
-          Consumer<DataBaseProvider>(
+          Consumer<LogicProvider>(
             builder: (context, achievementData, _) => Expanded(
               child: LiquidPullToRefresh(
                 height: 300.0,

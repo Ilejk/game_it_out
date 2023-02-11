@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../constants/padding_constants.dart';
 import '../../constants/string_constants.dart';
 import '../../constants/textstyle_constants.dart';
-import '../../data/database_provider.dart';
+import '../../logic/logic_provider.dart';
 
 class ProfileInformationBox extends StatelessWidget {
   const ProfileInformationBox({
@@ -10,7 +10,7 @@ class ProfileInformationBox extends StatelessWidget {
     required this.data,
   }) : super(key: key);
 
-  final DataBaseProvider data;
+  final LogicProvider data;
 
   @override
   Widget build(BuildContext context) {

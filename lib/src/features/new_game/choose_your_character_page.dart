@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/src/constants/padding_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/string_constants.dart';
-import 'package:login_logout_simple_ui/src/data/database_provider.dart';
 import 'package:login_logout_simple_ui/src/features/main/home_page.dart';
 import 'package:login_logout_simple_ui/src/features/new_game/choose_ur_character_appbar.dart';
 import 'package:login_logout_simple_ui/src/features/task_components/create_new_task_button.dart';
@@ -10,6 +9,7 @@ import 'package:provider/provider.dart';
 import '../../constants/color_constants.dart';
 import '../../constants/images_constants.dart';
 import '../../constants/sizes_constants.dart';
+import '../../logic/logic_provider.dart';
 import '../universal_components/shadow_box_container.dart';
 
 class ChooseYourCharacterPage extends StatefulWidget {
@@ -44,11 +44,10 @@ class _ChooseYourCharacterPageState extends State<ChooseYourCharacterPage> {
         _pickedCharacter = ImagesConstants.kManCharacterPNG;
       }
     });
-    Provider.of<DataBaseProvider>(context, listen: false)
-        .addName(_eneteredName);
-    Provider.of<DataBaseProvider>(context, listen: false)
+    Provider.of<LogicProvider>(context, listen: false).addName(_eneteredName);
+    Provider.of<LogicProvider>(context, listen: false)
         .addSurname(_eneteredSurname);
-    Provider.of<DataBaseProvider>(context, listen: false)
+    Provider.of<LogicProvider>(context, listen: false)
         .pickedCharacter(_pickedCharacter);
   }
 

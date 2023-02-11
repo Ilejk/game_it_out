@@ -1,13 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
 import 'package:login_logout_simple_ui/src/features/achievement_components/achievement_page.dart';
 import 'package:login_logout_simple_ui/src/features/main/main_home_game_page.dart';
 import 'package:login_logout_simple_ui/src/features/profile/profile_page.dart';
 import 'package:login_logout_simple_ui/src/features/task_components/task_page.dart';
-import 'package:login_logout_simple_ui/src/data/database_provider.dart';
-import 'package:provider/provider.dart';
 import '../bottom_navigation_bar/bottom_navigation_bar.dart';
 
 class HomePage extends StatefulWidget {

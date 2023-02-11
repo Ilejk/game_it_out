@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:login_logout_simple_ui/src/features/task_components/task_type_adapter.dart';
 import 'package:login_logout_simple_ui/src/features/task_components/task.dart';
-import 'package:login_logout_simple_ui/src/data/database_provider.dart';
 import 'package:login_logout_simple_ui/src/features/new_game/start_the_game_page.dart';
 import 'package:provider/provider.dart';
-
 import 'features/achievement_components/achievement_adapter.dart';
+import 'logic/logic_provider.dart';
 
 void main() async {
   await Hive.initFlutter();
@@ -26,7 +25,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(
-          value: DataBaseProvider(),
+          value: LogicProvider(),
         )
       ],
       child: const MaterialApp(

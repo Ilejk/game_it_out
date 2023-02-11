@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../constants/color_constants.dart';
+import '../../constants/list_constants.dart';
 
 class GradientLinearDivider extends StatelessWidget {
   const GradientLinearDivider({
@@ -13,15 +13,7 @@ class GradientLinearDivider extends StatelessWidget {
       height: 1.5,
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [
-            ColorConstatns.kShadow0,
-            ColorConstatns.kShadow1,
-            ColorConstatns.kShadow2,
-            ColorConstatns.kShadow3,
-            ColorConstatns.kShadow4,
-            ColorConstatns.kShadow5,
-            ColorConstatns.kShadow6,
-          ],
+          colors: ListConstants.kGradientColorList,
         ),
       ),
     );
