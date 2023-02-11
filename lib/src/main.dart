@@ -6,10 +6,14 @@ import 'package:login_logout_simple_ui/src/data/database_provider.dart';
 import 'package:login_logout_simple_ui/src/features/new_game/start_the_game_page.dart';
 import 'package:provider/provider.dart';
 
+import 'features/achievement_components/achievement_adapter.dart';
+
 void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter<Task>(TaskAdapter());
-  await Hive.openBox('testerBox');
+  Hive.registerAdapter(AchievementAdapter());
+
+  await Hive.openBox('6969Box');
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }

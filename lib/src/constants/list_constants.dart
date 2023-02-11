@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/src/constants/string_constants.dart';
+import 'package:login_logout_simple_ui/src/data/database_provider.dart';
 import 'package:login_logout_simple_ui/src/features/achievement_components/achievemnet.dart';
 
 class ListConstants {
@@ -152,74 +153,93 @@ class ListConstants {
     97000.0,
     100000.0,
   ];
+
   static var kAchievementList = [
     Achievement(
-      title: 'Toddler',
-      isFinished: true,
-      description: 'Reach 200 exp',
-    ),
+        title: 'Toddler',
+        isFinished: false,
+        description: 'Reach 200 exp',
+        exp: 200,
+        lvl: 3),
     Achievement(
-      title: 'Tap Tap Tap',
-      isFinished: true,
-      description: 'Reach level 5',
-    ),
+        title: 'Tap Tap Tap',
+        isFinished: false,
+        description: 'Reach level 5',
+        exp: 850,
+        lvl: 5),
     Achievement(
-      title: 'Baby steps',
-      isFinished: true,
-      description: 'Reach 1000 exp',
-    ),
+        title: 'Baby steps',
+        isFinished: false,
+        description: 'Reach 1000 exp',
+        exp: 1000,
+        lvl: 6),
     Achievement(
       title: 'Creator',
       isFinished: false,
       description: 'Create 5 tasks',
+      exp: 20000,
+      lvl: 40,
       //TODO: somehow
     ),
     Achievement(
-      title: 'Bronze membership',
-      isFinished: true,
-      description: 'Reach level 10',
-    ),
+        title: 'Bronze membership',
+        isFinished: false,
+        description: 'Reach level 10',
+        exp: 2400,
+        lvl: 10),
     Achievement(
-      title: 'Moving forward',
-      isFinished: true,
-      description: 'Reach 2000 exp',
-    ),
+        title: 'Moving forward',
+        isFinished: false,
+        description: 'Reach 3000 exp',
+        exp: 3000,
+        lvl: 12),
     Achievement(
-      title: 'A lover',
-      isFinished: false,
-      description: 'Reach level 15',
-    ),
+        title: 'A lover',
+        isFinished: false,
+        description: 'Reach level 15',
+        exp: 5000,
+        lvl: 15),
     Achievement(
       title: 'Inventor',
       isFinished: false,
       description: 'Create 10 new tasks',
+      exp: 20000,
+      lvl: 40,
       //TODO: somehow
     ),
     Achievement(
       title: 'Changed my mind',
       isFinished: false,
       description: 'Delete 10 tasks',
+      exp: 20000,
+      lvl: 40,
     ),
     Achievement(
-      title: 'Silver membership',
-      isFinished: false,
-      description: 'Reach level 20',
-    ),
+        title: 'Silver membership',
+        isFinished: false,
+        description: 'Reach level 20',
+        exp: 8400,
+        lvl: 20),
     Achievement(
       title: 'A doer',
       isFinished: false,
       description: 'Complete 100 tasks',
+      exp: 20000,
+      lvl: 40,
+
       //TODO: somehow
     ),
     Achievement(
-      title: 'Fast learner',
-      isFinished: false,
-      description: 'Reach 3000 exp',
-    ),
+        title: 'Fast learner',
+        isFinished: false,
+        description: 'Reach 10000 exp',
+        exp: 10000,
+        lvl: 22),
     Achievement(
-      title: 'Gold membership',
-      isFinished: false,
-      description: 'Reach level 30',
-    ),
+        title: 'Gold membership',
+        isFinished: false,
+        description: 'Reach level 30',
+        exp: 17500,
+        lvl: 30),
   ];
 }

@@ -7,11 +7,25 @@ import 'package:login_logout_simple_ui/src/features/achievement_components/achie
 import 'package:login_logout_simple_ui/src/features/task_components/task.dart';
 
 class DataBaseProvider with ChangeNotifier {
-  final _storageBox = Hive.box('testerBox');
+  final _storageBox = Hive.box('6969Box');
   List<Task> _items = [];
   List<Achievement> _achievements = ListConstants.kAchievementList;
   List<Achievement> get achievements {
     return [..._achievements];
+  }
+
+  void _updateAchievements() {
+    _achievements = ListConstants.kAchievementList.map((achievement) {
+      return Achievement(
+        title: achievement.title,
+        isFinished: currentExpValue >= achievement.exp ||
+            currentLvlCount >= achievement.lvl,
+        description: achievement.description,
+        exp: achievement.exp,
+        lvl: achievement.lvl,
+      );
+    }).toList();
+    notifyListeners();
   }
 
   String name = '';
@@ -19,6 +33,7 @@ class DataBaseProvider with ChangeNotifier {
   String character = '';
 
   void createInitialDataBase() {
+    _achievements;
     _items = [
       Task(
         title: 'Code',
@@ -80,52 +95,22 @@ class DataBaseProvider with ChangeNotifier {
     var nameS = _storageBox.get('NAME');
     var surnameS = _storageBox.get('SURNAME');
     var characterS = _storageBox.get('CHARACTER');
+    var achievementS = _storageBox.get('ACHIEVEMENTS');
 
-    if (tasks != null) {
-      _items = (tasks as List<dynamic>)
-          .map((task) => Task.fromJson(
-              (task as Map<dynamic, dynamic>).cast<String, dynamic>()))
-          .toList();
-    } else {
-      _items = [];
-    }
-    if (currentLvlCountS != null) {
-      currentLvlCount = currentLvlCountS;
-    } else {
-      currentLvlCount = 1;
-    }
-
-    if (currentExpValueS != null) {
-      currentExpValue = currentExpValueS;
-    } else {
-      currentExpValue = 0.0;
-    }
-
-    if (currentMaxValueS != null) {
-      currentMaxExpValue = currentMaxValueS;
-    } else {
-      currentMaxExpValue = 100.0;
-    }
-    if (diffInPercentageS != null) {
-      differenctInPercentageExpValue = diffInPercentageS;
-    } else {
-      differenctInPercentageExpValue = 0.0;
-    }
-    if (nameS != null) {
-      name = nameS;
-    } else {
-      name = 'John';
-    }
-    if (surnameS != null) {
-      surname = surnameS;
-    } else {
-      surname = 'Doe';
-    }
-    if (characterS != null) {
-      character = characterS;
-    } else {
-      character = ImagesConstants.kManCharacterPNG;
-    }
+    _items = tasks == null
+        ? []
+        : (tasks as List<dynamic>)
+            .map((task) => Task.fromJson(
+                (task as Map<dynamic, dynamic>).cast<String, dynamic>()))
+            .toList();
+    currentLvlCount = currentLvlCountS ?? 1;
+    currentExpValue = currentExpValueS ?? 0.0;
+    currentMaxExpValue = currentMaxValueS ?? 100.0;
+    differenctInPercentageExpValue = diffInPercentageS ?? 0.0;
+    name = nameS ?? 'John';
+    surname = surnameS ?? 'Doe';
+    character = characterS ?? ImagesConstants.kManCharacterPNG;
+    _achievements = achievementS?.cast<Achievement>() ?? [];
   }
 
   void updateDataBase() {
@@ -137,6 +122,7 @@ class DataBaseProvider with ChangeNotifier {
     _storageBox.put('NAME', name);
     _storageBox.put('SURNAME', surname);
     _storageBox.put('CHARACTER', character);
+    _storageBox.put('ACHIEVEMENTS', _achievements);
   }
 
   List<Task> get items {
@@ -203,6 +189,7 @@ class DataBaseProvider with ChangeNotifier {
   void addTaskExp(Task task) {
     currentExpValue += task.exp;
     changeMaxExpValue();
+    _updateAchievements();
     updateDataBase();
     loadDataBase();
     notifyListeners();
