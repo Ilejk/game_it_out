@@ -18,6 +18,7 @@ class ProgressBarIndicator extends StatelessWidget {
     return Padding(
       padding: PaddingConstants.kProgressBarPadding,
       child: ShadowBoxContainer(
+        color: ColorConstatns.kBackGroundGrey,
         height: SizesConstants.kProgressBarHeight,
         width: SizesConstants.kProgressBarWidth,
         child: LinearPercentIndicator(

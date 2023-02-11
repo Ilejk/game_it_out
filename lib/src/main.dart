@@ -9,7 +9,7 @@ import 'package:provider/provider.dart';
 void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter<Task>(TaskAdapter());
-  await Hive.openBox('dBox');
+  await Hive.openBox('testerBox');
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }

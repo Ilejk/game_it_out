@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:login_logout_simple_ui/src/constants/base_values.dart';
+import 'package:login_logout_simple_ui/src/constants/images_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/list_constants.dart';
 import 'package:login_logout_simple_ui/src/features/achievement_components/achievemnet.dart';
 import 'package:login_logout_simple_ui/src/features/task_components/task.dart';
 
 class DataBaseProvider with ChangeNotifier {
-  final _storageBox = Hive.box('dBox');
+  final _storageBox = Hive.box('testerBox');
+  List<Task> _items = [];
   List<Achievement> _achievements = ListConstants.kAchievementList;
   List<Achievement> get achievements {
     return [..._achievements];
   }
 
-  List<Task> _items = [];
+  String name = '';
+  String surname = '';
+  String character = '';
 
   void createInitialDataBase() {
     _items = [
@@ -73,6 +77,9 @@ class DataBaseProvider with ChangeNotifier {
     var currentExpValueS = _storageBox.get('EXP_VALUE');
     var currentMaxValueS = _storageBox.get('MAX_VALUE');
     var diffInPercentageS = _storageBox.get('DIFF_IN_PERCENTAGE');
+    var nameS = _storageBox.get('NAME');
+    var surnameS = _storageBox.get('SURNAME');
+    var characterS = _storageBox.get('CHARACTER');
 
     if (tasks != null) {
       _items = (tasks as List<dynamic>)
@@ -104,6 +111,21 @@ class DataBaseProvider with ChangeNotifier {
     } else {
       differenctInPercentageExpValue = 0.0;
     }
+    if (nameS != null) {
+      name = nameS;
+    } else {
+      name = 'John';
+    }
+    if (surnameS != null) {
+      surname = surnameS;
+    } else {
+      surname = 'Doe';
+    }
+    if (characterS != null) {
+      character = characterS;
+    } else {
+      character = ImagesConstants.kManCharacterPNG;
+    }
   }
 
   void updateDataBase() {
@@ -112,6 +134,9 @@ class DataBaseProvider with ChangeNotifier {
     _storageBox.put('EXP_VALUE', currentExpValue);
     _storageBox.put('MAX_VALUE', currentMaxExpValue);
     _storageBox.put('DIFF_IN_PERCENTAGE', differenctInPercentageExpValue);
+    _storageBox.put('NAME', name);
+    _storageBox.put('SURNAME', surname);
+    _storageBox.put('CHARACTER', character);
   }
 
   List<Task> get items {
@@ -194,7 +219,25 @@ class DataBaseProvider with ChangeNotifier {
 
     existingTask = null;
   }
-//   void addAchievement(Achievement achievement) {
-// final newAchievement
-//   }
+
+  void addName(String eneteredName) {
+    name = eneteredName;
+    updateDataBase();
+    loadDataBase();
+    notifyListeners();
+  }
+
+  void addSurname(String eneteredSurname) {
+    surname = eneteredSurname;
+    updateDataBase();
+    loadDataBase();
+    notifyListeners();
+  }
+
+  void pickedCharacter(String pickedCharacter) {
+    character = pickedCharacter;
+    updateDataBase();
+    loadDataBase();
+    notifyListeners();
+  }
 }

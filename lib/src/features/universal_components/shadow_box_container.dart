@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../constants/color_constants.dart';
 import '../../constants/sizes_constants.dart';
 
@@ -7,12 +6,15 @@ class ShadowBoxContainer extends StatelessWidget {
   final double height;
   final double width;
   final Widget child;
+  final Color color;
 
-  const ShadowBoxContainer(
-      {super.key,
-      required this.height,
-      required this.width,
-      required this.child});
+  const ShadowBoxContainer({
+    super.key,
+    required this.height,
+    required this.width,
+    required this.child,
+    required this.color,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,7 @@ class ShadowBoxContainer extends StatelessWidget {
       height: height,
       width: width,
       decoration: BoxDecoration(
-        color: ColorConstatns.kBackGroundGrey,
+        color: color,
         border: Border.all(color: ColorConstatns.kWhite),
         borderRadius: SizesConstants.kBorderRadius12,
         boxShadow: [

@@ -18,19 +18,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final _storageBox = Hive.box('dBox');
   final PageController _pageController =
       PageController(initialPage: 0, keepPage: true);
-
-  @override
-  void didChangeDependencies() {
-    if (_storageBox.get('TASKS') == null) {
-      Provider.of<DataBaseProvider>(context).createInitialDataBase();
-    } else {
-      Provider.of<DataBaseProvider>(context).loadDataBase();
-    }
-    super.didChangeDependencies();
-  }
 
   @override
   void dispose() {

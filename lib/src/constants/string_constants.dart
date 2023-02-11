@@ -5,7 +5,7 @@ class StringConstants {
   static const kWelcomeTitle = 'Welcome';
   static const kLvLString = 'L V L';
   static const kMenu = 'M E N U';
-  static const kChooseYourCharacter = 'Choose Your Character!';
+  static const kChooseYourCharacter = 'Let\'s Begin!';
   static const kProcede = 'P R O C E D E';
   static const kPlayTitle = 'P L A Y';
   static const kDuration = 'Duration:';
@@ -40,4 +40,6 @@ class StringConstants {
   static const kCurrentLVL = 'Current level: ';
   static const kCureentEXP = 'Current exp gained: ';
   static const kCharacterName = 'Character Name';
+  static const kEnterName = 'Enter your Name';
+  static const kEnterSurname = 'Enter your Surname';
 }

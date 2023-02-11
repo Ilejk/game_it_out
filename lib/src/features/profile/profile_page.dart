@@ -18,6 +18,7 @@ class MyProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var data = Provider.of<DataBaseProvider>(context);
+    var namingData = Provider.of<DataBaseProvider>(context);
     return SafeArea(
       child: Column(
         children: [
@@ -38,14 +39,12 @@ class MyProfilePage extends StatelessWidget {
                     ),
                     SizesConstants.kSizedBox15height,
                     Text(
-                      'Adrian',
-                      //TODO: chanable
+                      namingData.name,
                       style: TextStyleConstants.kProfileInfoTextStyle,
                     ),
                     SizesConstants.kSizedBox15height,
                     Text(
-                      'Skiba',
-                      //TODO: chanable
+                      namingData.surname,
                       style: TextStyleConstants.kProfileInfoTextStyle,
                     ),
                   ],

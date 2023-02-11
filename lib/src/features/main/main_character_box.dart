@@ -16,9 +16,11 @@ class MainCharacterBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var lvlData = Provider.of<DataBaseProvider>(context);
+    var pickedCharacter = Provider.of<DataBaseProvider>(context);
     return Padding(
       padding: PaddingConstants.kCharacterImagePadding,
       child: ShadowBoxContainer(
+        color: ColorConstatns.kBackGroundGrey,
         height: SizesConstants.kCharacterBoxHeight,
         width: SizesConstants.kCharacterBoxWidth,
         child: Padding(
@@ -40,7 +42,7 @@ class MainCharacterBox extends StatelessWidget {
               ClipRRect(
                 borderRadius: SizesConstants.kBorderRadius12,
                 child: Image.asset(
-                  ImagesConstants.kManCharacterPNG,
+                  pickedCharacter.character,
                 ),
               ),
             ],

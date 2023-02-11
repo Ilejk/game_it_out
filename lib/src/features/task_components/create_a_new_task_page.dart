@@ -26,8 +26,11 @@ class CreateANewTaskPage extends StatefulWidget {
 
 class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
   // ignore: avoid_init_to_null
-
   var dropDownDifficultyValue = null;
+  // ignore: avoid_init_to_null
+  var dropDownDurationValue = null;
+  double expGainedValue = BaseValues.kBaseExpValue;
+  double percentageValue = 0.0;
 
   var _addedTask = Task(
     title: '',
@@ -59,8 +62,6 @@ class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
     }
   }
 
-  // ignore: avoid_init_to_null
-  var dropDownDurationValue = null;
   void dropDownCallBackDuration(Object? selectedDurationValue) {
     if (selectedDurationValue is String) {
       setState(() {
@@ -70,26 +71,30 @@ class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
     }
   }
 
-  double expGainedValue = BaseValues.kBaseExpValue;
-
   void getExpGained() {
-    double difficultyFactor = 1.0;
-    if (dropDownDifficultyValue == 'Easy') {
-      difficultyFactor = BaseValues.kEasyDifficultyValue;
-    } else if (dropDownDifficultyValue == 'Medium') {
-      difficultyFactor = BaseValues.kMediumDifficultyValue;
-    } else if (dropDownDifficultyValue == 'Hard') {
-      difficultyFactor = BaseValues.kHardDifficultyValue;
+    double difficultyFactor;
+    switch (dropDownDifficultyValue) {
+      case 'Easy':
+        difficultyFactor = BaseValues.kEasyDifficultyValue;
+        break;
+      case 'Medium':
+        difficultyFactor = BaseValues.kMediumDifficultyValue;
+        break;
+      case 'Hard':
+        difficultyFactor = BaseValues.kHardDifficultyValue;
+        break;
+      default:
+        difficultyFactor = 1.0;
+        break;
     }
-    setState(() {
-      expGainedValue = double.parse(dropDownDurationValue) *
-          difficultyFactor *
-          BaseValues.kBaseExpValueGiven;
-    });
+
+    expGainedValue = double.parse(dropDownDurationValue) *
+        difficultyFactor *
+        BaseValues.kBaseExpValueGiven;
+
     getPercentageValue();
   }
 
-  double percentageValue = 0.0;
   void getPercentageValue() {
     setState(() {
       percentageValue = expGainedValue / 300;
@@ -113,6 +118,7 @@ class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
             const CreateAnewTaskPageAppBar(),
             SizesConstants.kSizedBox45height,
             ShadowBoxContainer(
+              color: ColorConstatns.kBackGroundGrey,
               height: SizesConstants.kTaskNameTextFieldHeight,
               width: SizesConstants.kTaskNameTextFieldWidth,
               child: Padding(
@@ -128,6 +134,7 @@ class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
             ),
             SizesConstants.kSizedBox45height,
             ShadowBoxContainer(
+              color: ColorConstatns.kBackGroundGrey,
               height: SizesConstants.kTaskDifficultyTextFieldHeight,
               width: SizesConstants.kTaskDifficultyTextFieldWidth,
               child: Padding(
@@ -153,6 +160,7 @@ class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
             ),
             SizesConstants.kSizedBox45height,
             ShadowBoxContainer(
+              color: ColorConstatns.kBackGroundGrey,
               height: SizesConstants.kTaskDurationTextFieldHeight,
               width: SizesConstants.kTaskDurationTextFieldWidth,
               child: Padding(
