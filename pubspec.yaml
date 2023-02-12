@@ -27,6 +27,7 @@ dependencies:
   liquid_pull_to_refresh: ^3.0.1
   flutter_staggered_animations: ^1.1.1
   animations: ^2.0.7
+  lottie: ^2.2.0
 
 dev_dependencies:
   flutter_test:
@@ -45,5 +46,6 @@ flutter:
 
 
   assets:
-    - images/
+    - lib/src/assets/images/
+    - lib/src/assets/animations/
 

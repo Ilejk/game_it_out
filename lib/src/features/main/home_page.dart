@@ -47,13 +47,11 @@ class _HomePageState extends State<HomePage> {
                 controller: _pageController,
                 pageSnapping: true,
                 scrollDirection: Axis.horizontal,
-                children: [
-                  const MainHomeGamePage(),
-                  TaskPage(
-                    pageController: _pageController,
-                  ),
-                  const AchievementsPage(),
-                  const MyProfilePage(),
+                children: const [
+                  MainHomeGamePage(),
+                  TaskPage(),
+                  AchievementsPage(),
+                  MyProfilePage(),
                 ],
               ),
             ),

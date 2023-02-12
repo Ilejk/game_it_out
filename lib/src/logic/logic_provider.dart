@@ -7,7 +7,7 @@ import 'package:login_logout_simple_ui/src/features/achievement_components/achie
 import 'package:login_logout_simple_ui/src/features/task_components/task.dart';
 
 class LogicProvider with ChangeNotifier {
-  final _storageBox = Hive.box('testTestBox');
+  final _storageBox = Hive.box('AvadaBox');
 
   List<Task> _items = ListConstants.kTaskBaseList;
   List<Achievement> _achievements = ListConstants.kAchievementList;

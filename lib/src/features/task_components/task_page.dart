@@ -1,26 +1,21 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
+import 'package:login_logout_simple_ui/src/constants/animation_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import '../../logic/logic_provider.dart';
 import 'task_page_appbar.dart';
 import 'task_widget.dart';
 
 class TaskPage extends StatefulWidget {
-  const TaskPage({
-    Key? key,
-    required PageController pageController,
-  })  : _pageController = pageController,
-        super(key: key);
-
-  final PageController _pageController;
+  const TaskPage({super.key});
 
   @override
-  State<TaskPage> createState() =>
-      // ignore: no_logic_in_create_state
-      _TaskPageState(pageController: _pageController);
+  State<TaskPage> createState() => _TaskPageState();
 }
 
 class _TaskPageState extends State<TaskPage> {
@@ -28,9 +23,28 @@ class _TaskPageState extends State<TaskPage> {
     return await Future.delayed(const Duration(seconds: 2));
   }
 
-  final PageController pageController;
-
-  _TaskPageState({required this.pageController});
+  Future<dynamic> playAnimation(BuildContext ctx, String animation) async {
+    await Navigator.push(
+      context,
+      PageRouteBuilder(
+        opaque: false,
+        barrierColor: Colors.black54,
+        pageBuilder: (BuildContext context, _, __) {
+          return Lottie.asset(
+            animation,
+            repeat: false,
+            width: 700,
+            height: 700,
+            onLoaded: (composition) {
+              Future.delayed(composition.duration, () {
+                Navigator.pop(context);
+              });
+            },
+          );
+        },
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,12 +80,14 @@ class _TaskPageState extends State<TaskPage> {
                                 taskData
                                     .deleteTask(taskData.items[index].title);
                               });
+                              playAnimation(ctx, AnimationConstants.kDelete);
                             },
                             taskFinished: (ctx) {
                               setState(() {
                                 taskData.addTaskExp(taskData.items[index]);
                                 taskData.updateDataBase();
                               });
+                              playAnimation(ctx, AnimationConstants.kFinished);
                             },
                           ),
                         ),
