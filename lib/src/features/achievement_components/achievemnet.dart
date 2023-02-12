@@ -4,6 +4,9 @@ class Achievement {
   String description;
   double exp;
   int lvl;
+  int finished;
+  int deleted;
+  int created;
 
   Achievement({
     required this.title,
@@ -11,5 +14,8 @@ class Achievement {
     required this.description,
     required this.exp,
     required this.lvl,
+    required this.created,
+    required this.deleted,
+    required this.finished,
   });
 }

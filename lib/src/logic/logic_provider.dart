@@ -7,30 +7,49 @@ import 'package:login_logout_simple_ui/src/features/achievement_components/achie
 import 'package:login_logout_simple_ui/src/features/task_components/task.dart';
 
 class LogicProvider with ChangeNotifier {
-  final _storageBox = Hive.box('6969Box');
+  final _storageBox = Hive.box('testTestBox');
+
   List<Task> _items = ListConstants.kTaskBaseList;
   List<Achievement> _achievements = ListConstants.kAchievementList;
   List<Achievement> get achievements {
     return [..._achievements];
   }
 
-  void _updateAchievements() {
-    _achievements = ListConstants.kAchievementList.map((achievement) {
-      return Achievement(
-        title: achievement.title,
-        isFinished: currentExpValue >= achievement.exp ||
-            currentLvlCount >= achievement.lvl,
-        description: achievement.description,
-        exp: achievement.exp,
-        lvl: achievement.lvl,
-      );
-    }).toList();
-    notifyListeners();
+  List<Task> get items {
+    return [..._items];
   }
 
   String name = '';
   String surname = '';
   String character = '';
+  int currentLvlCount = 1;
+  double currentExpValue = BaseValues.kBaseCurrentExpValue;
+  double currentMaxExpValue = ListConstants.kMaxExpValuesList[0];
+  double differenctInPercentageExpValue =
+      BaseValues.kBaseDifferenctInPercentageExpValue;
+  int tasksCreated = 0;
+  int tasksFinished = 0;
+  int tasksDeleted = 0;
+
+  void _updateAchievements() {
+    _achievements = ListConstants.kAchievementList.map((achievement) {
+      return Achievement(
+        title: achievement.title,
+        isFinished: currentExpValue >= achievement.exp ||
+            currentLvlCount >= achievement.lvl ||
+            tasksCreated >= achievement.created ||
+            tasksFinished >= achievement.finished ||
+            tasksDeleted >= achievement.deleted,
+        description: achievement.description,
+        exp: achievement.exp,
+        lvl: achievement.lvl,
+        finished: achievement.finished,
+        deleted: achievement.deleted,
+        created: achievement.created,
+      );
+    }).toList();
+    notifyListeners();
+  }
 
   void createInitialDataBase() {
     _achievements;
@@ -47,6 +66,9 @@ class LogicProvider with ChangeNotifier {
     var surnameS = _storageBox.get('SURNAME');
     var characterS = _storageBox.get('CHARACTER');
     var achievementS = _storageBox.get('ACHIEVEMENTS');
+    var tasksFinishedS = _storageBox.get('FINISHED');
+    var tasksCreatedS = _storageBox.get('CREATED');
+    var tasksDeletedS = _storageBox.get('DELETED');
 
     _items = tasks == null
         ? []
@@ -62,6 +84,9 @@ class LogicProvider with ChangeNotifier {
     surname = surnameS ?? 'Doe';
     character = characterS ?? ImagesConstants.kManCharacterPNG;
     _achievements = achievementS?.cast<Achievement>() ?? [];
+    tasksCreated = tasksCreatedS ?? 0;
+    tasksFinished = tasksFinishedS ?? 0;
+    tasksDeleted = tasksDeletedS ?? 0;
   }
 
   void updateDataBase() {
@@ -74,10 +99,9 @@ class LogicProvider with ChangeNotifier {
     _storageBox.put('SURNAME', surname);
     _storageBox.put('CHARACTER', character);
     _storageBox.put('ACHIEVEMENTS', _achievements);
-  }
-
-  List<Task> get items {
-    return [..._items];
+    _storageBox.put('CREATED', tasksCreated);
+    _storageBox.put('FINISHED', tasksFinished);
+    _storageBox.put('DELETED', tasksDeleted);
   }
 
   void addTask(Task task) {
@@ -88,16 +112,12 @@ class LogicProvider with ChangeNotifier {
       exp: task.exp,
     );
     _items.add(newTask);
+    tasksCreated++;
+    _updateAchievements();
     updateDataBase();
     loadDataBase();
     notifyListeners();
   }
-
-  int currentLvlCount = 1;
-  double currentExpValue = BaseValues.kBaseCurrentExpValue;
-  double currentMaxExpValue = ListConstants.kMaxExpValuesList[0];
-  double differenctInPercentageExpValue =
-      BaseValues.kBaseDifferenctInPercentageExpValue;
 
   void changeMaxExpValue() {
     // ignore: prefer_typing_uninitialized_variables
@@ -139,6 +159,7 @@ class LogicProvider with ChangeNotifier {
 
   void addTaskExp(Task task) {
     currentExpValue += task.exp;
+    tasksFinished++;
     changeMaxExpValue();
     _updateAchievements();
     updateDataBase();
@@ -151,6 +172,8 @@ class LogicProvider with ChangeNotifier {
     // ignore: unused_local_variable
     Task? existingTask = _items[existingTaskIndex];
     _items.removeAt(existingTaskIndex);
+    tasksDeleted++;
+    _updateAchievements();
     updateDataBase();
     loadDataBase();
     notifyListeners();

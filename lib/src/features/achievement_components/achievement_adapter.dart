@@ -18,13 +18,16 @@ class AchievementAdapter extends TypeAdapter<Achievement> {
       description: fields[2] as String,
       exp: fields[3] as double,
       lvl: fields[4] as int,
+      finished: fields[5] as int,
+      deleted: fields[6] as int,
+      created: fields[7] as int,
     );
   }
 
   @override
   void write(BinaryWriter writer, Achievement obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(8)
       ..writeByte(0)
       ..write(obj.title)
       ..writeByte(1)
@@ -34,6 +37,12 @@ class AchievementAdapter extends TypeAdapter<Achievement> {
       ..writeByte(3)
       ..write(obj.exp)
       ..writeByte(4)
-      ..write(obj.lvl);
+      ..write(obj.lvl)
+      ..writeByte(5)
+      ..write(obj.finished)
+      ..writeByte(6)
+      ..write(obj.deleted)
+      ..writeByte(7)
+      ..write(obj.created);
   }
 }

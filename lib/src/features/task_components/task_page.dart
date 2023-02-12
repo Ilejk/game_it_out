@@ -3,7 +3,6 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
 import 'package:provider/provider.dart';
-import '../../constants/sizes_constants.dart';
 import '../../logic/logic_provider.dart';
 import 'task_page_appbar.dart';
 import 'task_widget.dart';
@@ -31,16 +30,6 @@ class _TaskPageState extends State<TaskPage> {
   final PageController pageController;
 
   _TaskPageState({required this.pageController});
-  void goBackToMainHomePage() {
-    setState(() {
-      pageController.animateToPage(0,
-          duration: SizesConstants.kAnimationDuration, curve: Curves.easeIn);
-      //TODO: FIX THE HIGHLIGH ON THE BOTTOM BAR WHEN THE PAGE CHANGES
-      //TODO: FIX THE HIGHLIGH ON THE BOTTOM BAR WHEN THE PAGE CHANGES
-      //TODO: FIX THE HIGHLIGH ON THE BOTTOM BAR WHEN THE PAGE CHANGES
-      //TODO: FIX THE HIGHLIGH ON THE BOTTOM BAR WHEN THE PAGE CHANGES
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +63,6 @@ class _TaskPageState extends State<TaskPage> {
                           taskData.addTaskExp(taskData.items[index]);
                           taskData.updateDataBase();
                         });
-                        goBackToMainHomePage();
                       },
                     );
                   },
