@@ -1,18 +1,19 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:login_logout_simple_ui/src/constants/animation_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/base_values.dart';
 import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/list_constants.dart';
 import 'package:login_logout_simple_ui/src/features/task_components/task.dart';
 import 'package:login_logout_simple_ui/src/features/task_components/create_new_task_button.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import '../../constants/padding_constants.dart';
 import '../../constants/sizes_constants.dart';
 import '../../constants/string_constants.dart';
 import '../../logic/logic_provider.dart';
 import 'create_a_new_task_page_appbar.dart';
-import '../universal_components/holder.dart';
 import 'create_a_new_task_percentage_bar.dart';
 import '../universal_components/shadow_box_container.dart';
 
@@ -53,6 +54,7 @@ class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
 
     Provider.of<LogicProvider>(context, listen: false).addTask(_addedTask);
     Navigator.of(context).pop();
+    Provider.of<LogicProvider>(context, listen: false).updateDataBase();
   }
 
   void dropDownCallBack(Object? selectedValue) {
@@ -100,6 +102,40 @@ class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
     setState(() {
       percentageValue = expGainedValue / 300;
     });
+  }
+
+  void _saveNewTask(BuildContext ctx) async {
+    if (dropDownDifficultyValue == null ||
+        dropDownDurationValue == null ||
+        widget.controller.text == '') {
+      playAnimation(ctx, AnimationConstants.kWrong);
+    } else {
+      await playAnimation(ctx, AnimationConstants.kFinished);
+      _saveTask();
+    }
+  }
+
+  Future<dynamic> playAnimation(BuildContext ctx, String animation) async {
+    await Navigator.push(
+      context,
+      PageRouteBuilder(
+        opaque: false,
+        barrierColor: Colors.black54,
+        pageBuilder: (BuildContext context, _, __) {
+          return Lottie.asset(
+            animation,
+            repeat: false,
+            width: 100,
+            height: 100,
+            onLoaded: (composition) {
+              Future.delayed(composition.duration, () {
+                Navigator.pop(context);
+              });
+            },
+          );
+        },
+      ),
+    );
   }
 
   @override
@@ -200,9 +236,7 @@ class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
               SizesConstants.kSizedBox45height,
               GestureDetector(
                 onTap: () {
-                  _saveTask();
-                  Provider.of<LogicProvider>(context, listen: false)
-                      .updateDataBase();
+                  _saveNewTask(context);
                 },
                 child: const ShadowBoxBlack(
                   title: StringConstants.kCreateButtonText,
