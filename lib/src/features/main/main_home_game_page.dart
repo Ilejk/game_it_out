@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import '../../constants/sizes_constants.dart';
 import 'main_character_box.dart';
 import 'main_home_page_appbar.dart';
@@ -11,17 +11,22 @@ class MainHomeGamePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        children: const [
-          MainGameHomePageAppBar(),
-          SizesConstants.kSizedBox20height,
-          MainCharacterBox(),
-          ProgressBarIndicator(),
-        ],
+      child: AnimationLimiter(
+        child: Column(
+            children: AnimationConfiguration.toStaggeredList(
+          duration: const Duration(milliseconds: 500),
+          childAnimationBuilder: (widget) => SlideAnimation(
+            horizontalOffset: MediaQuery.of(context).size.width / 2,
+            child: FadeInAnimation(child: widget),
+          ),
+          children: const [
+            MainGameHomePageAppBar(),
+            SizesConstants.kSizedBox20height,
+            MainCharacterBox(),
+            ProgressBarIndicator(),
+          ],
+        )),
       ),
-    ).animate().fadeIn(
-          duration: 600.ms,
-          curve: Curves.easeIn,
-        );
+    );
   }
 }

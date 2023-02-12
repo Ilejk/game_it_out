@@ -1,5 +1,6 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:login_logout_simple_ui/src/constants/base_values.dart';
 import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/list_constants.dart';
@@ -113,96 +114,105 @@ class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
       ),
       backgroundColor: ColorConstatns.kBackGroundGrey,
       body: SafeArea(
-        child: Column(
-          children: [
-            const CreateAnewTaskPageAppBar(),
-            SizesConstants.kSizedBox45height,
-            ShadowBoxContainer(
-              color: ColorConstatns.kBackGroundGrey,
-              height: SizesConstants.kTaskNameTextFieldHeight,
-              width: SizesConstants.kTaskNameTextFieldWidth,
-              child: Padding(
-                padding: PaddingConstants.kLeftPadding25,
-                child: TextField(
-                  controller: widget.controller,
-                  decoration: const InputDecoration(
-                    border: InputBorder.none,
-                    hintText: StringConstants.kTaskNameHintText,
-                  ),
-                ),
-              ),
+        child: AnimationLimiter(
+          child: Column(
+              children: AnimationConfiguration.toStaggeredList(
+            duration: const Duration(milliseconds: 300),
+            childAnimationBuilder: (widget) => SlideAnimation(
+              horizontalOffset: MediaQuery.of(context).size.width / 2,
+              child: FadeInAnimation(child: widget),
             ),
-            SizesConstants.kSizedBox45height,
-            ShadowBoxContainer(
-              color: ColorConstatns.kBackGroundGrey,
-              height: SizesConstants.kTaskDifficultyTextFieldHeight,
-              width: SizesConstants.kTaskDifficultyTextFieldWidth,
-              child: Padding(
-                padding: PaddingConstants.kLeftPadding25,
-                child: DropdownButtonHideUnderline(
-                  child: DropdownButton2(
-                    dropdownMaxHeight:
-                        SizesConstants.kTaskDifficultyDropDownMaxHeight,
-                    dropdownWidth:
-                        SizesConstants.kTaskDifficultyDropDownMaxWidth,
-                    dropdownDecoration: BoxDecoration(
-                      borderRadius: SizesConstants.kBorderRadius12,
-                      color: ColorConstatns.kBackGroundGrey,
+            children: [
+              const CreateAnewTaskPageAppBar(),
+              SizesConstants.kSizedBox45height,
+              ShadowBoxContainer(
+                color: ColorConstatns.kBackGroundGrey,
+                height: SizesConstants.kTaskNameTextFieldHeight,
+                width: SizesConstants.kTaskNameTextFieldWidth,
+                child: Padding(
+                  padding: PaddingConstants.kLeftPadding25,
+                  child: TextField(
+                    controller: widget.controller,
+                    decoration: const InputDecoration(
+                      border: InputBorder.none,
+                      hintText: StringConstants.kTaskNameHintText,
                     ),
-                    iconSize: 0.0,
-                    onChanged: dropDownCallBack,
-                    value: dropDownDifficultyValue,
-                    hint: const Text(StringConstants.kDifficultyHintText),
-                    items: ListConstants.kDifficultyList,
                   ),
                 ),
               ),
-            ),
-            SizesConstants.kSizedBox45height,
-            ShadowBoxContainer(
-              color: ColorConstatns.kBackGroundGrey,
-              height: SizesConstants.kTaskDurationTextFieldHeight,
-              width: SizesConstants.kTaskDurationTextFieldWidth,
-              child: Padding(
-                padding: PaddingConstants.kLeftPadding25,
-                child: DropdownButtonHideUnderline(
-                  child: DropdownButton2(
-                    dropdownWidth: SizesConstants.kTaskDurationDropDownMaxWidth,
-                    dropdownMaxHeight:
-                        SizesConstants.kTaskDurationDropDownMaxHeight,
-                    dropdownDecoration: BoxDecoration(
-                      borderRadius: SizesConstants.kBorderRadius12,
-                      color: ColorConstatns.kBackGroundGrey,
+              SizesConstants.kSizedBox45height,
+              ShadowBoxContainer(
+                color: ColorConstatns.kBackGroundGrey,
+                height: SizesConstants.kTaskDifficultyTextFieldHeight,
+                width: SizesConstants.kTaskDifficultyTextFieldWidth,
+                child: Padding(
+                  padding: PaddingConstants.kLeftPadding25,
+                  child: DropdownButtonHideUnderline(
+                    child: DropdownButton2(
+                      dropdownMaxHeight:
+                          SizesConstants.kTaskDifficultyDropDownMaxHeight,
+                      dropdownWidth:
+                          SizesConstants.kTaskDifficultyDropDownMaxWidth,
+                      dropdownDecoration: BoxDecoration(
+                        borderRadius: SizesConstants.kBorderRadius12,
+                        color: ColorConstatns.kBackGroundGrey,
+                      ),
+                      iconSize: 0.0,
+                      onChanged: dropDownCallBack,
+                      value: dropDownDifficultyValue,
+                      hint: const Text(StringConstants.kDifficultyHintText),
+                      items: ListConstants.kDifficultyList,
                     ),
-                    iconSize: 0.0,
-                    onChanged: dropDownCallBackDuration,
-                    value: dropDownDurationValue,
-                    hint: const Text(StringConstants.kDurationHintText),
-                    items: ListConstants.kDurationsList,
                   ),
                 ),
               ),
-            ),
-            const Holder(),
-            SizesConstants.kSizedBox45height,
-            PercentageBarExpValueIndicator(
-              percentageValue: percentageValue,
-              expGainedValue: expGainedValue,
-            ),
-            SizesConstants.kSizedBox45height,
-            const Holder(),
-            GestureDetector(
-              onTap: () {
-                _saveTask();
-                Provider.of<LogicProvider>(context, listen: false)
-                    .updateDataBase();
-              },
-              child: const ShadowBoxBlack(
-                title: StringConstants.kCreateButtonText,
+              SizesConstants.kSizedBox45height,
+              ShadowBoxContainer(
+                color: ColorConstatns.kBackGroundGrey,
+                height: SizesConstants.kTaskDurationTextFieldHeight,
+                width: SizesConstants.kTaskDurationTextFieldWidth,
+                child: Padding(
+                  padding: PaddingConstants.kLeftPadding25,
+                  child: DropdownButtonHideUnderline(
+                    child: DropdownButton2(
+                      dropdownWidth:
+                          SizesConstants.kTaskDurationDropDownMaxWidth,
+                      dropdownMaxHeight:
+                          SizesConstants.kTaskDurationDropDownMaxHeight,
+                      dropdownDecoration: BoxDecoration(
+                        borderRadius: SizesConstants.kBorderRadius12,
+                        color: ColorConstatns.kBackGroundGrey,
+                      ),
+                      iconSize: 0.0,
+                      onChanged: dropDownCallBackDuration,
+                      value: dropDownDurationValue,
+                      hint: const Text(StringConstants.kDurationHintText),
+                      items: ListConstants.kDurationsList,
+                    ),
+                  ),
+                ),
               ),
-            ),
-            SizesConstants.kSizedBox45height,
-          ],
+              const Holder(),
+              SizesConstants.kSizedBox45height,
+              PercentageBarExpValueIndicator(
+                percentageValue: percentageValue,
+                expGainedValue: expGainedValue,
+              ),
+              SizesConstants.kSizedBox45height,
+              const Holder(),
+              GestureDetector(
+                onTap: () {
+                  _saveTask();
+                  Provider.of<LogicProvider>(context, listen: false)
+                      .updateDataBase();
+                },
+                child: const ShadowBoxBlack(
+                  title: StringConstants.kCreateButtonText,
+                ),
+              ),
+              SizesConstants.kSizedBox45height,
+            ],
+          )),
         ),
       ),
     );

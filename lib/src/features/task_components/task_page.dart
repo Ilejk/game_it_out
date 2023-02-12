@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
 import 'package:provider/provider.dart';
@@ -34,36 +35,47 @@ class _TaskPageState extends State<TaskPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Column(
-        children: [
-          const TaskPageAppBar(),
-          Consumer<LogicProvider>(
-            builder: (context, taskData, _) => Expanded(
-              child: LiquidPullToRefresh(
-                height: 300.0,
-                color: ColorConstatns.kDarkGrey,
-                animSpeedFactor: 2,
-                backgroundColor: ColorConstatns.kBackGroundGrey,
-                onRefresh: _handleRefresh,
+        child: Column(
+      children: [
+        const TaskPageAppBar(),
+        Consumer<LogicProvider>(
+          builder: (context, taskData, _) => Expanded(
+            child: LiquidPullToRefresh(
+              height: 300.0,
+              color: ColorConstatns.kDarkGrey,
+              animSpeedFactor: 2,
+              backgroundColor: ColorConstatns.kBackGroundGrey,
+              onRefresh: _handleRefresh,
+              child: AnimationLimiter(
                 child: ListView.builder(
                   itemBuilder: (context, index) {
-                    return TaskWidget(
-                      taskName: taskData.items[index].title,
-                      difficulty: taskData.items[index].difficulty,
-                      taskLenght: taskData.items[index].duration,
-                      expGained: taskData.items[index].exp,
-                      deleteTask: (ctx) {
-                        setState(() {
-                          taskData.updateDataBase();
-                          taskData.deleteTask(taskData.items[index].title);
-                        });
-                      },
-                      taskFinished: (ctx) {
-                        setState(() {
-                          taskData.addTaskExp(taskData.items[index]);
-                          taskData.updateDataBase();
-                        });
-                      },
+                    return AnimationConfiguration.staggeredList(
+                      position: index,
+                      duration: const Duration(milliseconds: 500),
+                      child: SlideAnimation(
+                        horizontalOffset: MediaQuery.of(context).size.width / 2,
+                        child: FadeInAnimation(
+                          child: TaskWidget(
+                            taskName: taskData.items[index].title,
+                            difficulty: taskData.items[index].difficulty,
+                            taskLenght: taskData.items[index].duration,
+                            expGained: taskData.items[index].exp,
+                            deleteTask: (ctx) {
+                              setState(() {
+                                taskData.updateDataBase();
+                                taskData
+                                    .deleteTask(taskData.items[index].title);
+                              });
+                            },
+                            taskFinished: (ctx) {
+                              setState(() {
+                                taskData.addTaskExp(taskData.items[index]);
+                                taskData.updateDataBase();
+                              });
+                            },
+                          ),
+                        ),
+                      ),
                     );
                   },
                   itemCount: taskData.items.length,
@@ -71,11 +83,8 @@ class _TaskPageState extends State<TaskPage> {
               ),
             ),
           ),
-        ],
-      ).animate().fadeIn(
-            duration: 600.ms,
-            curve: Curves.easeIn,
-          ),
-    );
+        ),
+      ],
+    ));
   }
 }

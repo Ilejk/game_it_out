@@ -25,6 +25,7 @@ dependencies:
   hive_flutter: ^1.1.0
   google_nav_bar: ^5.0.6
   liquid_pull_to_refresh: ^3.0.1
+  flutter_staggered_animations: ^1.1.1
 
 dev_dependencies:
   flutter_test:
