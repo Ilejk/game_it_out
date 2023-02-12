@@ -12,7 +12,7 @@ void main() async {
   Hive.registerAdapter<Task>(TaskAdapter());
   Hive.registerAdapter(AchievementAdapter());
 
-  await Hive.openBox('cyceBox');
+  await Hive.openBox('AdrianSkibaBox');
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }

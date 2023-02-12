@@ -21,7 +21,7 @@ class StartTheGamePage extends StatefulWidget {
 
 class _StartTheGamePageState extends State<StartTheGamePage> {
   var pushAfterStartingPage;
-  final _storageBox = Hive.box('cyceBox');
+  final _storageBox = Hive.box('AdrianSkibaBox');
 
   @override
   void didChangeDependencies() {
