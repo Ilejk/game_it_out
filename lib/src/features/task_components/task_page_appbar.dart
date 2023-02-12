@@ -1,3 +1,4 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import '../../constants/color_constants.dart';
 import '../../constants/icons_constants.dart';
@@ -33,15 +34,21 @@ class TaskPageAppBar extends StatelessWidget {
           ),
           Padding(
             padding: PaddingConstants.kBasePadding10,
-            child: IconButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (BuildContext cotext) => CreateANewTaskPage(),
-                  ),
+            child: OpenContainer(
+              transitionDuration: const Duration(milliseconds: 600),
+              closedColor: ColorConstatns.kDarkGrey,
+              middleColor: Colors.transparent,
+              openColor: Colors.transparent,
+              transitionType: ContainerTransitionType.fade,
+              openBuilder: (context, action) {
+                return CreateANewTaskPage();
+              },
+              closedBuilder: (context, action) {
+                return IconButton(
+                  onPressed: action,
+                  icon: IconsConstants.kAddIcon,
                 );
               },
-              icon: IconsConstants.kAddIcon,
             ),
           )
         ],

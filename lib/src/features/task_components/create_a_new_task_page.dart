@@ -192,14 +192,12 @@ class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
                   ),
                 ),
               ),
-              const Holder(),
               SizesConstants.kSizedBox45height,
               PercentageBarExpValueIndicator(
                 percentageValue: percentageValue,
                 expGainedValue: expGainedValue,
               ),
               SizesConstants.kSizedBox45height,
-              const Holder(),
               GestureDetector(
                 onTap: () {
                   _saveTask();

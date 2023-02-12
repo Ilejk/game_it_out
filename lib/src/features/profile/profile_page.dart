@@ -31,7 +31,6 @@ class MyProfilePage extends StatelessWidget {
             children: [
               const ProfilePageAppBar(),
               SizesConstants.kSizedBox20height,
-              const Holder(),
               Padding(
                 padding: PaddingConstants.kBasePadding10,
                 child: Row(
@@ -60,9 +59,7 @@ class MyProfilePage extends StatelessWidget {
                   ],
                 ),
               ),
-              const Holder(),
               ProfileInformationBox(data: data),
-              const Holder(),
               SizesConstants.kSizedBox45height,
               const ProfileButtonsColumn(),
             ],
