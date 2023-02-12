@@ -41,9 +41,9 @@ class _ChooseYourCharacterPageState extends State<ChooseYourCharacterPage> {
       _eneteredName = widget.nameController.text;
       _eneteredSurname = widget.surnameController.text;
       if (selectedBox == 1) {
-        _pickedCharacter = ImagesConstants.kWomanCharacterPNG;
+        _pickedCharacter = AnimationConstants.kWoman;
       } else if (selectedBox == 0) {
-        _pickedCharacter = ImagesConstants.kManCharacterPNG;
+        _pickedCharacter = AnimationConstants.kMan;
       }
     });
     Provider.of<LogicProvider>(context, listen: false).addName(_eneteredName);
@@ -124,11 +124,8 @@ class _ChooseYourCharacterPageState extends State<ChooseYourCharacterPage> {
                     child: Padding(
                       padding: PaddingConstants.kBasePadding10,
                       child: ClipRRect(
-                        borderRadius: SizesConstants.kBorderRadius12,
-                        child: Image.asset(
-                          ImagesConstants.kManCharacterPNG,
-                        ),
-                      ),
+                          borderRadius: SizesConstants.kBorderRadius12,
+                          child: Lottie.asset(AnimationConstants.kMan)),
                     ),
                   ),
                 ),
@@ -145,9 +142,7 @@ class _ChooseYourCharacterPageState extends State<ChooseYourCharacterPage> {
                       padding: PaddingConstants.kBasePadding10,
                       child: ClipRRect(
                         borderRadius: SizesConstants.kBorderRadius12,
-                        child: Image.asset(
-                          ImagesConstants.kWomanCharacterPNG,
-                        ),
+                        child: Lottie.asset(AnimationConstants.kWoman),
                       ),
                     ),
                   ),

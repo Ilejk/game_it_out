@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/src/features/universal_components/shadow_box_container.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import '../../constants/color_constants.dart';
 import '../../constants/padding_constants.dart';
@@ -17,36 +18,31 @@ class MainCharacterBox extends StatelessWidget {
     var lvlData = Provider.of<LogicProvider>(context);
     var pickedCharacter = Provider.of<LogicProvider>(context);
     return Padding(
-      padding: PaddingConstants.kCharacterImagePadding,
-      child: ShadowBoxContainer(
-        color: ColorConstatns.kBackGroundGrey,
-        height: SizesConstants.kCharacterBoxHeight,
-        width: SizesConstants.kCharacterBoxWidth,
-        child: Padding(
-          padding: PaddingConstants.kBasePadding10,
-          child: Column(
-            children: [
-              Padding(
-                padding: PaddingConstants.kBasePadding10,
-                child: Text(
-                  '${StringConstants.kLvLString}    ${lvlData.currentLvlCount}',
-                  style: TextStyle(
-                    fontSize: SizesConstants.kLVLfontsize,
-                    fontWeight: FontWeight.bold,
-                    color: ColorConstatns.kDarkGrey,
-                  ),
-                ),
+      padding: PaddingConstants.kBasePadding10,
+      child: Column(
+        children: [
+          Padding(
+            padding: PaddingConstants.kBasePadding10,
+            child: Text(
+              '${StringConstants.kLvLString}    ${lvlData.currentLvlCount}',
+              style: TextStyle(
+                fontSize: SizesConstants.kLVLfontsize,
+                fontWeight: FontWeight.bold,
+                color: ColorConstatns.kDarkGrey,
               ),
-              const Expanded(child: SizedBox()),
-              ClipRRect(
-                borderRadius: SizesConstants.kBorderRadius12,
-                child: Image.asset(
-                  pickedCharacter.character,
-                ),
-              ),
-            ],
+            ),
           ),
-        ),
+          ClipRRect(
+            borderRadius: SizesConstants.kBorderRadius12,
+            child: SizedBox(
+              height: 500,
+              width: 450,
+              child: Lottie.asset(
+                pickedCharacter.character,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
