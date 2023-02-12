@@ -108,14 +108,14 @@ class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
     if (dropDownDifficultyValue == null ||
         dropDownDurationValue == null ||
         widget.controller.text == '') {
-      playAnimation(ctx, AnimationConstants.kWrong);
+      _playAnimation(ctx, AnimationConstants.kWrong);
     } else {
-      await playAnimation(ctx, AnimationConstants.kFinished);
+      await _playAnimation(ctx, AnimationConstants.kFinished);
       _saveTask();
     }
   }
 
-  Future<dynamic> playAnimation(BuildContext ctx, String animation) async {
+  Future<dynamic> _playAnimation(BuildContext ctx, String animation) async {
     await Navigator.push(
       context,
       PageRouteBuilder(

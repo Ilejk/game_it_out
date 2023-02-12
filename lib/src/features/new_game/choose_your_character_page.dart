@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:login_logout_simple_ui/src/constants/animation_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/padding_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/string_constants.dart';
 import 'package:login_logout_simple_ui/src/features/main/home_page.dart';
 import 'package:login_logout_simple_ui/src/features/new_game/choose_ur_character_appbar.dart';
 import 'package:login_logout_simple_ui/src/features/task_components/create_new_task_button.dart';
 import 'package:login_logout_simple_ui/src/features/universal_components/input_textfield.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import '../../constants/color_constants.dart';
 import '../../constants/images_constants.dart';
@@ -49,6 +51,47 @@ class _ChooseYourCharacterPageState extends State<ChooseYourCharacterPage> {
         .addSurname(_eneteredSurname);
     Provider.of<LogicProvider>(context, listen: false)
         .pickedCharacter(_pickedCharacter);
+  }
+
+  void _validation(BuildContext ctx) async {
+    _saveData();
+    if (_eneteredName == '' ||
+        _eneteredSurname == '' ||
+        _pickedCharacter == '') {
+      _playAnimation(ctx, AnimationConstants.kWrong);
+    } else {
+      await _playAnimation(ctx, AnimationConstants.kFinished);
+      _saveData();
+
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (BuildContext context) => const HomePage(),
+        ),
+      );
+    }
+  }
+
+  Future<dynamic> _playAnimation(BuildContext ctx, String animation) async {
+    await Navigator.push(
+      context,
+      PageRouteBuilder(
+        opaque: false,
+        barrierColor: Colors.black54,
+        pageBuilder: (BuildContext context, _, __) {
+          return Lottie.asset(
+            animation,
+            repeat: false,
+            width: 100,
+            height: 100,
+            onLoaded: (composition) {
+              Future.delayed(composition.duration, () {
+                Navigator.pop(context);
+              });
+            },
+          );
+        },
+      ),
+    );
   }
 
   @override
@@ -133,13 +176,7 @@ class _ChooseYourCharacterPageState extends State<ChooseYourCharacterPage> {
               padding: PaddingConstants.kBasePadding10,
               child: GestureDetector(
                 onTap: () {
-                  //TODO: CHECK IF CHARACTER HAS BEEN PICKED AND NAME AND SUERNAME HAVE BEEN ENETERED
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (BuildContext context) => const HomePage(),
-                    ),
-                  );
-                  _saveData();
+                  _validation(context);
                 },
                 child: const ShadowBoxBlack(
                   title: StringConstants.kProcede,
