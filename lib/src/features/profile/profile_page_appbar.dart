@@ -20,7 +20,7 @@ class ProfilePageAppBar extends StatelessWidget {
           child: Center(
             child: Text(
               textAlign: TextAlign.center,
-              StringConstants.kSettingPageTitle,
+              StringConstants.kMyProfile,
               style: TextStyleConstants.kTopBarTextStyleTitle,
             ),
           ),

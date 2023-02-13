@@ -61,6 +61,9 @@ class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
     if (selectedValue is String) {
       setState(() {
         dropDownDifficultyValue = selectedValue;
+        if (dropDownDurationValue != null) {
+          getExpGained();
+        }
       });
     }
   }
@@ -100,7 +103,7 @@ class _CreateANewTaskPageState extends State<CreateANewTaskPage> {
 
   void getPercentageValue() {
     setState(() {
-      percentageValue = expGainedValue / 300;
+      percentageValue = expGainedValue / 100;
     });
   }
 
