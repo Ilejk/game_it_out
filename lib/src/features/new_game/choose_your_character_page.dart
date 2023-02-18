@@ -58,7 +58,7 @@ class _ChooseYourCharacterPageState extends State<ChooseYourCharacterPage> {
     } else {
       await _playAnimation(ctx, AnimationConstants.kFinished);
       _saveData();
-
+      // ignore: use_build_context_synchronously
       Navigator.of(context).push(
         MaterialPageRoute(
           builder: (BuildContext context) => const HomePage(),

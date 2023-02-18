@@ -6,7 +6,6 @@ import 'package:login_logout_simple_ui/src/constants/images_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/list_constants.dart';
 import 'package:login_logout_simple_ui/src/features/achievement_components/achievemnet.dart';
 import 'package:login_logout_simple_ui/src/features/task_components/task.dart';
-
 import '../features/timer/timer.dart';
 
 class LogicProvider with ChangeNotifier {

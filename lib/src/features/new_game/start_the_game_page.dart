@@ -20,6 +20,7 @@ class StartTheGamePage extends StatefulWidget {
 }
 
 class _StartTheGamePageState extends State<StartTheGamePage> {
+  // ignore: prefer_typing_uninitialized_variables
   var pushAfterStartingPage;
   final _storageBox = Hive.box('99999Box');
 

@@ -5,6 +5,7 @@ import 'package:login_logout_simple_ui/src/constants/padding_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/sizes_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/textstyle_constants.dart';
 
+// ignore: must_be_immutable
 class AchievementWidget extends StatelessWidget {
   String achievementTitle;
   String achievementDescription;

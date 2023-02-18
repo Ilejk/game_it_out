@@ -7,6 +7,7 @@ import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import '../../logic/logic_provider.dart';
+import '../main/main_home_progress_percentage_bar.dart';
 import 'task_page_appbar.dart';
 import 'task_widget.dart';
 
@@ -39,6 +40,63 @@ class _TaskPageState extends State<TaskPage> {
                 Navigator.pop(context);
               });
             },
+          );
+        },
+      ),
+    );
+  }
+
+  Future<dynamic> taskAlreadyDoneAnimation(
+      BuildContext ctx, String animation) async {
+    await Navigator.push(
+      context,
+      PageRouteBuilder(
+        opaque: false,
+        barrierColor: Colors.black54,
+        pageBuilder: (BuildContext context, _, __) {
+          return Column(
+            children: [
+              Lottie.asset(
+                animation,
+                repeat: false,
+                width: 700,
+                height: 700,
+                onLoaded: (composition) {
+                  Future.delayed(composition.duration, () {
+                    Navigator.pop(context);
+                  });
+                },
+              ),
+              Container(
+                color: Colors.transparent,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Task has already been finished!',
+                      style: TextStyle(
+                        color: ColorConstatns.kActiveColor,
+                        fontSize: 25,
+                        decoration: TextDecoration.none,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Text(
+                      'Come back tomorrow!',
+                      style: TextStyle(
+                        color: ColorConstatns.kActiveColor,
+                        fontSize: 25,
+                        decoration: TextDecoration.none,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           );
         },
       ),
@@ -95,7 +153,7 @@ class _TaskPageState extends State<TaskPage> {
                                         playAnimation(
                                             ctx, AnimationConstants.kFinished);
                                       })
-                                    : playAnimation(
+                                    : taskAlreadyDoneAnimation(
                                         ctx, AnimationConstants.kWrong);
                               },
                             ),

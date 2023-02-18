@@ -1,7 +1,6 @@
 import 'package:hive/hive.dart';
 import 'achievemnet.dart';
 
-// Adapter class
 class AchievementAdapter extends TypeAdapter<Achievement> {
   @override
   int get typeId => 1;

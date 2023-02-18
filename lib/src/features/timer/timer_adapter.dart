@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:hive/hive.dart';
 import 'package:login_logout_simple_ui/src/features/timer/timer.dart';
 
