@@ -45,4 +45,6 @@ class StringConstants {
   static const kName = 'Name: ';
   static const kSurname = 'Surname: ';
   static const kGameItOut = 'G A M E it O U T';
+  static const kHasBenFinished = 'Task has already been finished!';
+  static const kComeBackTomorrow = 'Come back tomorrow!';
 }

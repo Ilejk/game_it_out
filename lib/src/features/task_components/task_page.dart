@@ -4,6 +4,9 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:login_logout_simple_ui/src/constants/animation_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
+import 'package:login_logout_simple_ui/src/constants/sizes_constants.dart';
+import 'package:login_logout_simple_ui/src/constants/string_constants.dart';
+import 'package:login_logout_simple_ui/src/constants/textstyle_constants.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import '../../logic/logic_provider.dart';
@@ -73,25 +76,15 @@ class _TaskPageState extends State<TaskPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Task has already been finished!',
-                      style: TextStyle(
-                        color: ColorConstatns.kActiveColor,
-                        fontSize: 25,
-                        decoration: TextDecoration.none,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      StringConstants.kHasBenFinished,
+                      textAlign: TextAlign.center,
+                      style: TextStyleConstants.kHasAlreadyBeenDoneTextSTyle,
                     ),
-                    const SizedBox(
-                      height: 15,
-                    ),
+                    SizesConstants.kSizedBox15height,
                     Text(
-                      'Come back tomorrow!',
-                      style: TextStyle(
-                        color: ColorConstatns.kActiveColor,
-                        fontSize: 25,
-                        decoration: TextDecoration.none,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      StringConstants.kComeBackTomorrow,
+                      textAlign: TextAlign.center,
+                      style: TextStyleConstants.kHasAlreadyBeenDoneTextSTyle,
                     ),
                   ],
                 ),

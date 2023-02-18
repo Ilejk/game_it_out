@@ -97,4 +97,10 @@ class TextStyleConstants {
     letterSpacing: 2,
     color: ColorConstatns.kActiveColor,
   );
+  static final kHasAlreadyBeenDoneTextSTyle = TextStyle(
+    color: ColorConstatns.kActiveColor,
+    fontSize: 25,
+    decoration: TextDecoration.none,
+    fontWeight: FontWeight.bold,
+  );
 }
