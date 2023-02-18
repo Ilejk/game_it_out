@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:login_logout_simple_ui/src/constants/base_values.dart';
@@ -8,8 +7,10 @@ import 'package:login_logout_simple_ui/src/constants/list_constants.dart';
 import 'package:login_logout_simple_ui/src/features/achievement_components/achievemnet.dart';
 import 'package:login_logout_simple_ui/src/features/task_components/task.dart';
 
+import '../features/timer/timer.dart';
+
 class LogicProvider with ChangeNotifier {
-  final _storageBox = Hive.box('chujachujaBox');
+  final _storageBox = Hive.box('99999Box');
 
   List<Task> _items = ListConstants.kTaskBaseList;
   List<Achievement> _achievements = ListConstants.kAchievementList;
@@ -21,7 +22,7 @@ class LogicProvider with ChangeNotifier {
     return [..._items];
   }
 
-  Map<String, Timer> runningTimers = {};
+  Map<String, TimerWrapper> runningTimers = {};
 
   String name = '';
   String surname = '';
@@ -73,6 +74,7 @@ class LogicProvider with ChangeNotifier {
     var tasksFinishedS = _storageBox.get('FINISHED');
     var tasksCreatedS = _storageBox.get('CREATED');
     var tasksDeletedS = _storageBox.get('DELETED');
+    var runningTimersAsMap = _storageBox.get('TIMERS');
 
     _items = tasks == null
         ? []
@@ -91,6 +93,10 @@ class LogicProvider with ChangeNotifier {
     tasksCreated = tasksCreatedS ?? 0;
     tasksFinished = tasksFinishedS ?? 0;
     tasksDeleted = tasksDeletedS ?? 0;
+    if (runningTimersAsMap != null) {
+      runningTimers = (runningTimersAsMap as Map<dynamic, dynamic>)
+          .map((key, value) => MapEntry(key, TimerWrapper.fromJson(value)));
+    }
   }
 
   void updateDataBase() {
@@ -106,6 +112,8 @@ class LogicProvider with ChangeNotifier {
     _storageBox.put('CREATED', tasksCreated);
     _storageBox.put('FINISHED', tasksFinished);
     _storageBox.put('DELETED', tasksDeleted);
+    _storageBox.put('TIMERS',
+        runningTimers.map((key, value) => MapEntry(key, value.toJson())));
   }
 
   void addTask(Task task) {
@@ -173,16 +181,12 @@ class LogicProvider with ChangeNotifier {
 
   void deleteTask(String title) {
     final existingTaskIndex = _items.indexWhere((task) => task.title == title);
-    // ignore: unused_local_variable
-    Task? existingTask = _items[existingTaskIndex];
     _items.removeAt(existingTaskIndex);
     tasksDeleted++;
     _updateAchievements();
     updateDataBase();
     loadDataBase();
     notifyListeners();
-
-    existingTask = null;
   }
 
   void startTimer(Task task) {
@@ -190,33 +194,34 @@ class LogicProvider with ChangeNotifier {
     final int durationInSeconds = (durationInHours * 3600).toInt();
     int countdownDuration = durationInSeconds;
 
-    Timer countdownTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      countdownDuration--;
+    Timer countdownTimer = Timer.periodic(
+      const Duration(seconds: 1),
+      (timer) {
+        countdownDuration--;
 
-      if (countdownDuration <= 0) {
-        timer.cancel();
-        runningTimers.remove(task.title);
-      }
-    });
+        if (countdownDuration <= 0) {
+          timer.cancel();
+          runningTimers.remove(task.title);
+        }
+      },
+    );
 
-    runningTimers[task.title] = countdownTimer;
+    TimerWrapper timerWrapper = TimerWrapper(
+      countdownDuration: countdownDuration,
+      isActive: true,
+      timer: countdownTimer,
+    );
+
+    runningTimers[task.title] = timerWrapper;
+    updateDataBase();
+    loadDataBase();
+    notifyListeners();
   }
 
-  void addName(String eneteredName) {
+  void addName(
+      String eneteredName, String eneteredSurname, String pickedCharacter) {
     name = eneteredName;
-    updateDataBase();
-    loadDataBase();
-    notifyListeners();
-  }
-
-  void addSurname(String eneteredSurname) {
     surname = eneteredSurname;
-    updateDataBase();
-    loadDataBase();
-    notifyListeners();
-  }
-
-  void pickedCharacter(String pickedCharacter) {
     character = pickedCharacter;
     updateDataBase();
     loadDataBase();

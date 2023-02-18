@@ -9,7 +9,6 @@ import 'package:login_logout_simple_ui/src/features/universal_components/input_t
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import '../../constants/color_constants.dart';
-import '../../constants/images_constants.dart';
 import '../../constants/sizes_constants.dart';
 import '../../logic/logic_provider.dart';
 import '../universal_components/shadow_box_container.dart';
@@ -46,11 +45,8 @@ class _ChooseYourCharacterPageState extends State<ChooseYourCharacterPage> {
         _pickedCharacter = AnimationConstants.kMan;
       }
     });
-    Provider.of<LogicProvider>(context, listen: false).addName(_eneteredName);
     Provider.of<LogicProvider>(context, listen: false)
-        .addSurname(_eneteredSurname);
-    Provider.of<LogicProvider>(context, listen: false)
-        .pickedCharacter(_pickedCharacter);
+        .addName(_eneteredName, _eneteredSurname, _pickedCharacter);
   }
 
   void _validation(BuildContext ctx) async {

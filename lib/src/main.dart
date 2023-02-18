@@ -5,14 +5,16 @@ import 'package:login_logout_simple_ui/src/features/task_components/task.dart';
 import 'package:login_logout_simple_ui/src/features/new_game/start_the_game_page.dart';
 import 'package:provider/provider.dart';
 import 'features/achievement_components/achievement_adapter.dart';
+import 'features/timer/timer_adapter.dart';
 import 'logic/logic_provider.dart';
 
 void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter<Task>(TaskAdapter());
   Hive.registerAdapter(AchievementAdapter());
+  Hive.registerAdapter(TimerWrapperAdapter());
 
-  await Hive.openBox('chujachujaBox');
+  await Hive.openBox('99999Box');
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
