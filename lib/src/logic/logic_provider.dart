@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:login_logout_simple_ui/src/constants/base_values.dart';
@@ -18,6 +20,8 @@ class LogicProvider with ChangeNotifier {
   List<Task> get items {
     return [..._items];
   }
+
+  Map<String, Timer> runningTimers = {};
 
   String name = '';
   String surname = '';
@@ -179,6 +183,23 @@ class LogicProvider with ChangeNotifier {
     notifyListeners();
 
     existingTask = null;
+  }
+
+  void startTimer(Task task) {
+    final double durationInHours = task.duration;
+    final int durationInSeconds = (durationInHours * 3600).toInt();
+    int countdownDuration = durationInSeconds;
+
+    Timer countdownTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      countdownDuration--;
+
+      if (countdownDuration <= 0) {
+        timer.cancel();
+        runningTimers.remove(task.title);
+      }
+    });
+
+    runningTimers[task.title] = countdownTimer;
   }
 
   void addName(String eneteredName) {

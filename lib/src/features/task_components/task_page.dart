@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
@@ -8,7 +7,6 @@ import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import '../../logic/logic_provider.dart';
-import '../main/main_home_progress_percentage_bar.dart';
 import 'task_page_appbar.dart';
 import 'task_widget.dart';
 
@@ -50,58 +48,69 @@ class _TaskPageState extends State<TaskPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Column(
-      children: [
-        const TaskPageAppBar(),
-        Consumer<LogicProvider>(
-          builder: (context, taskData, _) => Expanded(
-            child: LiquidPullToRefresh(
-              height: 300.0,
-              color: ColorConstatns.kDarkGrey,
-              animSpeedFactor: 2,
-              backgroundColor: ColorConstatns.kBackGroundGrey,
-              onRefresh: _handleRefresh,
-              child: AnimationLimiter(
-                child: ListView.builder(
-                  itemBuilder: (context, index) {
-                    return AnimationConfiguration.staggeredList(
-                      position: index,
-                      duration: const Duration(milliseconds: 500),
-                      child: SlideAnimation(
-                        horizontalOffset: MediaQuery.of(context).size.width / 2,
-                        child: FadeInAnimation(
-                          child: TaskWidget(
-                            taskName: taskData.items[index].title,
-                            difficulty: taskData.items[index].difficulty,
-                            taskLenght: taskData.items[index].duration,
-                            expGained: taskData.items[index].exp,
-                            deleteTask: (ctx) {
-                              setState(() {
-                                taskData.updateDataBase();
-                                taskData
-                                    .deleteTask(taskData.items[index].title);
-                              });
-                              playAnimation(ctx, AnimationConstants.kDelete);
-                            },
-                            taskFinished: (ctx) {
-                              setState(() {
-                                taskData.addTaskExp(taskData.items[index]);
-                                taskData.updateDataBase();
-                              });
-                              playAnimation(ctx, AnimationConstants.kFinished);
-                            },
+      child: Column(
+        children: [
+          const TaskPageAppBar(),
+          Consumer<LogicProvider>(
+            builder: (context, taskData, _) => Expanded(
+              child: LiquidPullToRefresh(
+                height: 300.0,
+                color: ColorConstatns.kDarkGrey,
+                animSpeedFactor: 2,
+                backgroundColor: ColorConstatns.kBackGroundGrey,
+                onRefresh: _handleRefresh,
+                child: AnimationLimiter(
+                  child: ListView.builder(
+                    itemBuilder: (context, index) {
+                      return AnimationConfiguration.staggeredList(
+                        position: index,
+                        duration: const Duration(milliseconds: 500),
+                        child: SlideAnimation(
+                          horizontalOffset:
+                              MediaQuery.of(context).size.width / 2,
+                          child: FadeInAnimation(
+                            child: TaskWidget(
+                              taskName: taskData.items[index].title,
+                              difficulty: taskData.items[index].difficulty,
+                              taskLenght: taskData.items[index].duration,
+                              expGained: taskData.items[index].exp,
+                              deleteTask: (ctx) {
+                                setState(() {
+                                  taskData.updateDataBase();
+                                  taskData
+                                      .deleteTask(taskData.items[index].title);
+                                });
+                                playAnimation(ctx, AnimationConstants.kDelete);
+                              },
+                              taskFinished: (ctx) {
+                                !taskData.runningTimers.containsKey(
+                                        taskData.items[index].title)
+                                    ? setState(() {
+                                        taskData.startTimer(
+                                          taskData.items[index],
+                                        );
+                                        taskData
+                                            .addTaskExp(taskData.items[index]);
+                                        taskData.updateDataBase();
+                                        playAnimation(
+                                            ctx, AnimationConstants.kFinished);
+                                      })
+                                    : playAnimation(
+                                        ctx, AnimationConstants.kWrong);
+                              },
+                            ),
                           ),
                         ),
-                      ),
-                    );
-                  },
-                  itemCount: taskData.items.length,
+                      );
+                    },
+                    itemCount: taskData.items.length,
+                  ),
                 ),
               ),
             ),
           ),
-        ),
-      ],
-    ));
+        ],
+      ),
+    );
   }
 }
