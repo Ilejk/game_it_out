@@ -24,4 +24,5 @@ class ColorConstatns {
   static Color kShadow5 = Colors.deepOrangeAccent.shade400;
   static Color kShadow6 = Colors.deepOrangeAccent.shade700;
   static Color kBGPurple = Colors.purple.shade100;
+  static Color kActiveColor = Colors.orangeAccent.shade700;
 }

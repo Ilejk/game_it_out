@@ -8,6 +8,7 @@ import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import '../../logic/logic_provider.dart';
+import '../main/main_home_progress_percentage_bar.dart';
 import 'task_page_appbar.dart';
 import 'task_widget.dart';
 

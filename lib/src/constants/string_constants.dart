@@ -11,7 +11,7 @@ class StringConstants {
   static const kDuration = 'Duration:';
   static const kHours = 'hour/s';
   static const kMinutes = 'minutes';
-  static const kExp = 'EXP';
+  static const kExp = 'exp';
   static const kNewTaskTitle = 'A D D';
   static const kDifficultyHintText = 'Choose Difficulty';
   static const kDurationHintText = 'Choose Duration';
@@ -31,7 +31,7 @@ class StringConstants {
       '1. Remeber the goal of the game is to help you progress in your life \n2. The only person that will ever see that you are cheating is you \n3. The lvl that you reach is a metaphor to your life progression and this is the only way it should be viewed and understood \n4. The lvl you reach is a reward for you not for everybody else :)';
   static const kHomeBottomBar = 'Home';
   static const kTaskBottomBar = 'Tasks';
-  static const kAchievementBottomBar = 'Done';
+  static const kAchievementBottomBar = 'Achievements';
   static const kProfileBottomBar = 'Profile';
   static const kNameChange = 'N A M E    C H A N G E';
   static const kDarkTheme = 'D A R K    T H E M E';
@@ -44,4 +44,5 @@ class StringConstants {
   static const kEnterSurname = 'Enter your Surname';
   static const kName = 'Name: ';
   static const kSurname = 'Surname: ';
+  static const kGameItOut = 'G A M E it O U T';
 }

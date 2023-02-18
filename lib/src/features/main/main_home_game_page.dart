@@ -13,19 +13,20 @@ class MainHomeGamePage extends StatelessWidget {
     return Center(
       child: AnimationLimiter(
         child: Column(
-            children: AnimationConfiguration.toStaggeredList(
-          duration: const Duration(milliseconds: 500),
-          childAnimationBuilder: (widget) => SlideAnimation(
-            horizontalOffset: MediaQuery.of(context).size.width / 2,
-            child: FadeInAnimation(child: widget),
+          children: AnimationConfiguration.toStaggeredList(
+            duration: const Duration(milliseconds: 500),
+            childAnimationBuilder: (widget) => SlideAnimation(
+              horizontalOffset: MediaQuery.of(context).size.width / 2,
+              child: FadeInAnimation(child: widget),
+            ),
+            children: const [
+              MainGameHomePageAppBar(),
+              SizesConstants.kSizedBox20height,
+              MainCharacterBox(),
+              ProgressBarIndicator(),
+            ],
           ),
-          children: const [
-            MainGameHomePageAppBar(),
-            SizesConstants.kSizedBox20height,
-            MainCharacterBox(),
-            ProgressBarIndicator(),
-          ],
-        )),
+        ),
       ),
     );
   }

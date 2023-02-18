@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/icons_constants.dart';
+import 'package:login_logout_simple_ui/src/constants/list_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/sizes_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/string_constants.dart';
 
@@ -30,7 +31,7 @@ class AppBottomNavigationBar extends StatelessWidget {
                 iconSize: 23,
                 gap: 8,
                 color: ColorConstatns.kMediumGrey,
-                activeColor: ColorConstatns.kWhite,
+                activeColor: ColorConstatns.kActiveColor,
                 tabs: [
                   GButton(
                       icon: IconsConstants.kMainHomeGamePageIcon,

@@ -75,4 +75,26 @@ class TextStyleConstants {
     color: ColorConstatns.kDarkGrey,
     fontWeight: FontWeight.bold,
   );
+  static const kCharacterBoxBoldTextStyle = TextStyle(
+    fontSize: 18,
+    letterSpacing: 1.5,
+    color: ColorConstatns.kWhite,
+    fontWeight: FontWeight.bold,
+  );
+  static const kCharacterBoxThinTextStyle = TextStyle(
+    fontSize: 17,
+    letterSpacing: 1.5,
+    color: ColorConstatns.kWhite,
+  );
+  static final kExpTextStyle = TextStyle(
+    fontSize: 13,
+    letterSpacing: 2,
+    color: ColorConstatns.kDarkGrey,
+  );
+  static final kActiveTextStyle = TextStyle(
+    fontSize: 17,
+    fontWeight: FontWeight.bold,
+    letterSpacing: 2,
+    color: ColorConstatns.kActiveColor,
+  );
 }

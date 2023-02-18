@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import '../../constants/color_constants.dart';
 import '../../constants/list_constants.dart';
 import '../../constants/sizes_constants.dart';
 import '../../constants/string_constants.dart';
@@ -36,7 +37,7 @@ class PercentageBarExpValueIndicator extends StatelessWidget {
           SizesConstants.kSizedBox10height,
           Text(
             expGainedValue.toStringAsFixed(2),
-            style: TextStyleConstants.kTaskSubTitleTextStyle,
+            style: TextStyleConstants.kActiveTextStyle,
           ),
         ],
       ),

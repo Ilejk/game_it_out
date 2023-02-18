@@ -23,13 +23,27 @@ class MainCharacterBox extends StatelessWidget {
         children: [
           Padding(
             padding: PaddingConstants.kBasePadding10,
-            child: Text(
-              '${StringConstants.kLvLString}    ${lvlData.currentLvlCount}',
-              style: TextStyle(
-                fontSize: SizesConstants.kLVLfontsize,
-                fontWeight: FontWeight.bold,
-                color: ColorConstatns.kDarkGrey,
-              ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  StringConstants.kLvLString,
+                  style: TextStyle(
+                    fontSize: SizesConstants.kLVLfontsize,
+                    fontWeight: FontWeight.bold,
+                    color: ColorConstatns.kDarkGrey,
+                  ),
+                ),
+                SizesConstants.kSizedBox20width,
+                Text(
+                  '${lvlData.currentLvlCount}',
+                  style: TextStyle(
+                    fontSize: SizesConstants.kLVLNumberfontsize,
+                    fontWeight: FontWeight.bold,
+                    color: ColorConstatns.kActiveColor,
+                  ),
+                )
+              ],
             ),
           ),
           ClipRRect(

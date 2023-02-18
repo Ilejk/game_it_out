@@ -36,6 +36,7 @@ class SizesConstants {
   static const kProgressBarRadius = Radius.circular(12);
   static const kProgressBarLineHeight = 12.5;
   static const kLVLfontsize = 25.0;
+  static const kLVLNumberfontsize = 35.0;
   static const kCharacterBoxHeight = 440.0;
   static const kCharacterBoxWidth = double.infinity;
   static const kChooseYourCharacterBoxHeight = 200.0;

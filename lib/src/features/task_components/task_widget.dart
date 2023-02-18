@@ -91,9 +91,22 @@ class TaskWidget extends StatelessWidget {
                 padding: PaddingConstants.kBaseTaskTilePadding,
                 child: Column(
                   children: [
-                    Text(
-                      '$expGained  ${StringConstants.kExp}',
-                      style: TextStyleConstants.kTaskSubTitleTextStyle,
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          '$expGained',
+                          style: TextStyleConstants.kActiveTextStyle,
+                        ),
+                        const SizedBox(
+                          width: 3,
+                        ),
+                        Text(
+                          StringConstants.kExp,
+                          style: TextStyleConstants.kExpTextStyle,
+                        )
+                      ],
                     ),
                   ],
                 ),
