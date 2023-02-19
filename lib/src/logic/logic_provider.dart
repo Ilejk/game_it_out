@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:login_logout_simple_ui/src/constants/animation_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/base_values.dart';
 import 'package:login_logout_simple_ui/src/constants/images_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/list_constants.dart';
@@ -87,7 +88,7 @@ class LogicProvider with ChangeNotifier {
     differenctInPercentageExpValue = diffInPercentageS ?? 0.0;
     name = nameS ?? 'John';
     surname = surnameS ?? 'Doe';
-    character = characterS ?? ImagesConstants.kManCharacterPNG;
+    character = characterS ?? AnimationConstants.kMan;
     _achievements = achievementS?.cast<Achievement>() ?? [];
     tasksCreated = tasksCreatedS ?? 0;
     tasksFinished = tasksFinishedS ?? 0;

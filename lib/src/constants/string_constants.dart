@@ -1,26 +1,19 @@
 class StringConstants {
-  static const kSignedInAS = 'Logged in as: ';
   static const kTaskPageTitle = 'T A S K S';
   static const kSettingPageTitle = 'S E T T I N G S';
-  static const kWelcomeTitle = 'Welcome';
   static const kLvLString = 'L V L';
-  static const kMenu = 'M E N U';
   static const kChooseYourCharacter = 'Let\'s Begin!';
   static const kProcede = 'P R O C E D E';
   static const kPlayTitle = 'P L A Y';
   static const kDuration = 'Duration:';
   static const kHours = 'hour/s';
-  static const kMinutes = 'minutes';
   static const kExp = 'exp';
   static const kNewTaskTitle = 'A D D';
   static const kDifficultyHintText = 'Choose Difficulty';
   static const kDurationHintText = 'Choose Duration';
   static const kTaskNameHintText = 'Enter a Task';
-  static const kCalculateButtonText = 'C A L C U L A T E';
   static const kCreateButtonText = 'C R E A T E';
   static const kHelpPageTitle = 'H E L P';
-  static const kLogOut = 'L O G   O U T';
-  static const kChangeTheme = 'C H A N G E   T H E M E';
   static const kMyProfile = 'P R O F I L E';
   static const kAchievement = 'A C H I E V E M E N T S';
   static const kRules =
@@ -33,9 +26,6 @@ class StringConstants {
   static const kTaskBottomBar = 'Tasks';
   static const kAchievementBottomBar = 'Achievements';
   static const kProfileBottomBar = 'Profile';
-  static const kNameChange = 'N A M E    C H A N G E';
-  static const kDarkTheme = 'D A R K    T H E M E';
-  static const kReset = 'R E S E T';
   static const kLevelCompletion = 'Level completion percentage: ';
   static const kCurrentLVL = 'Current level: ';
   static const kCureentEXP = 'Current exp gained: ';
