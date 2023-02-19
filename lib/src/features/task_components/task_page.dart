@@ -10,7 +10,6 @@ import 'package:login_logout_simple_ui/src/constants/textstyle_constants.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import '../../logic/logic_provider.dart';
-import '../main/main_home_progress_percentage_bar.dart';
 import 'task_page_appbar.dart';
 import 'task_widget.dart';
 
@@ -23,6 +22,8 @@ class TaskPage extends StatefulWidget {
 
 class _TaskPageState extends State<TaskPage> {
   Future<void> _handleRefresh() async {
+    Provider.of<LogicProvider>(context, listen: false).updateDataBase();
+    Provider.of<LogicProvider>(context, listen: false).loadDataBase();
     return await Future.delayed(const Duration(seconds: 2));
   }
 
@@ -94,6 +95,7 @@ class _TaskPageState extends State<TaskPage> {
         },
       ),
     );
+    Provider.of<LogicProvider>(context, listen: false).updateDataBase();
   }
 
   @override

@@ -198,9 +198,11 @@ class LogicProvider with ChangeNotifier {
       const Duration(seconds: 1),
       (timer) {
         countdownDuration--;
+        print('active');
 
         if (countdownDuration <= 0) {
           timer.cancel();
+          print('done');
           runningTimers.remove(task.title);
         }
       },
