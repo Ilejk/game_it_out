@@ -5,7 +5,7 @@ import '../../constants/padding_constants.dart';
 import '../../constants/sizes_constants.dart';
 import '../../constants/string_constants.dart';
 import '../help/help_page.dart';
-import '../task_components/create_new_task_button.dart';
+import '../task_components/create_new_task_components/create_new_task_button.dart';
 
 class GoToHelpPageButton extends StatelessWidget {
   const GoToHelpPageButton({

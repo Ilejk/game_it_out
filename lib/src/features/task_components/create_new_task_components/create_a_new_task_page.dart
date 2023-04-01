@@ -6,16 +6,16 @@ import 'package:login_logout_simple_ui/src/constants/base_values.dart';
 import 'package:login_logout_simple_ui/src/constants/color_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/list_constants.dart';
 import 'package:login_logout_simple_ui/src/features/task_components/task.dart';
-import 'package:login_logout_simple_ui/src/features/task_components/create_new_task_button.dart';
+import 'package:login_logout_simple_ui/src/features/task_components/create_new_task_components/create_new_task_button.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
-import '../../constants/padding_constants.dart';
-import '../../constants/sizes_constants.dart';
-import '../../constants/string_constants.dart';
-import '../../logic/logic_provider.dart';
+import '../../../constants/padding_constants.dart';
+import '../../../constants/sizes_constants.dart';
+import '../../../constants/string_constants.dart';
+import '../../../logic/logic_provider.dart';
 import 'create_a_new_task_page_appbar.dart';
 import 'create_a_new_task_percentage_bar.dart';
-import '../universal_components/shadow_box_container.dart';
+import '../../universal_components/shadow_box_container.dart';
 
 class CreateANewTaskPage extends StatefulWidget {
   final controller = TextEditingController();

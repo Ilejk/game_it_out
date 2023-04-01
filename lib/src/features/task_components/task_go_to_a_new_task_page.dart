@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../constants/color_constants.dart';
 import '../../constants/icons_constants.dart';
 import '../../constants/padding_constants.dart';
-import 'create_a_new_task_page.dart';
+import 'create_new_task_components/create_a_new_task_page.dart';
 
 class GoToCreateANewTaskPage extends StatelessWidget {
   const GoToCreateANewTaskPage({

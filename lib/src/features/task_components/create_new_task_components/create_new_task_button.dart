@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_logout_simple_ui/src/constants/sizes_constants.dart';
-import '../../constants/color_constants.dart';
+import '../../../constants/color_constants.dart';
 
 class ShadowBoxBlack extends StatelessWidget {
   final String title;

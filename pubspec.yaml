@@ -28,6 +28,7 @@ dependencies:
   flutter_staggered_animations: ^1.1.1
   animations: ^2.0.7
   lottie: ^2.2.0
+  android_alarm_manager_plus: ^2.1.1
 
 dev_dependencies:
   flutter_test:

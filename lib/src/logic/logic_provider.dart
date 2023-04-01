@@ -1,9 +1,10 @@
 import 'dart:async';
+
+import 'package:android_alarm_manager_plus/android_alarm_manager_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:login_logout_simple_ui/src/constants/animation_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/base_values.dart';
-import 'package:login_logout_simple_ui/src/constants/images_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/list_constants.dart';
 import 'package:login_logout_simple_ui/src/features/achievement_components/achievemnet.dart';
 import 'package:login_logout_simple_ui/src/features/task_components/task.dart';
@@ -189,19 +190,31 @@ class LogicProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  int hash1(int value) {
+    return value.hashCode;
+  }
+
   void startTimer(Task task) {
     final double durationInHours = task.duration;
     final int durationInSeconds = (durationInHours * 3600).toInt();
     int countdownDuration = durationInSeconds;
 
-    Timer countdownTimer = Timer.periodic(
+    DateTime startingTime = DateTime.now();
+
+    Timer? countdownTimer;
+
+    countdownTimer = Timer.periodic(
       const Duration(seconds: 1),
       (timer) {
-        countdownDuration--;
-        print('active');
-
-        if (countdownDuration <= 0) {
-          timer.cancel();
+        DateTime currentTime = DateTime.now();
+        final int elapsedSeconds = currentTime.second -
+            startingTime.second +
+            60 * (currentTime.minute - startingTime.minute) +
+            60 * 60 * (currentTime.hour - startingTime.hour);
+        // countdownDuration = (durationInSeconds - elapsedSeconds);
+        print(elapsedSeconds);
+        if (countdownDuration <= elapsedSeconds) {
+          countdownTimer?.cancel();
           print('done');
           runningTimers.remove(task.title);
         }

@@ -7,7 +7,7 @@ import 'package:login_logout_simple_ui/src/constants/sizes_constants.dart';
 import 'package:login_logout_simple_ui/src/constants/string_constants.dart';
 import 'package:login_logout_simple_ui/src/features/main/home_page.dart';
 import 'package:login_logout_simple_ui/src/features/new_game/choose_your_character_page.dart';
-import 'package:login_logout_simple_ui/src/features/task_components/create_new_task_button.dart';
+import 'package:login_logout_simple_ui/src/features/task_components/create_new_task_components/create_new_task_button.dart';
 import 'package:provider/provider.dart';
 import '../../logic/logic_provider.dart';
 import '../universal_components/linear_gradient_divider.dart';
